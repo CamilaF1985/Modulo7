@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+h1 {
+	margin-top: 2rem;
+	margin-left: 5rem;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+.navbar-brand img {
+	max-height: 200px;
+	margin-left: 380px;
+}
+
+.navbar.bg-black {
+	background-color: #000000;
+}
+
+.navbar-nav {
+	margin-left: 380px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbar-nav .nav-link {
+	font-size: 20px;
+}
+
+.gallery a img {
+	max-width: 190px;
+	height: auto;
+}
+
+.gallery a {
+	display: inline-block;
+	margin-bottom: 5rem;
+}
+
+div.galería.japones a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.japones a {
+	margin-left: 1rem;
+	margin-top: 5px;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+div.galería.california a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.california a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+div.galería.palta a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.palta a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+div.galería.salmon a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.salmon a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+div.galería.nikkei a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.nikkei a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+div.galería.peruana a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.peruana a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+div.galería.platospe a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.platospe a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+div.galería.postres a img {
+	max-width: 190px;
+	height: auto;
+}
+
+div.galería.postres a {
+	margin-left: 1rem;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+/* Estilos para el formulario */
+form {
+	margin-top: 30px;
+	color: white;
+}
+
+/* Estilos para los campos de entrada y áreas de texto */
+.campo {
+	display: flex;
+	flex-direction: column;
+	/* Apilar verticalmente los elementos */
+	margin-bottom: 15px;
+	/* Agregar un margen inferior entre cada campo */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+/* Agregamos el selector para los campos de tipo contraseña */
+textarea {
+	color: black;
+	width: 100%;
+}
+
+/* Estilos para los mensajes de validación */
+.validation-message {
+	color: red;
+	display: none;
+	margin-top: 5px;
+	transition: margin-top 0.2s ease-in-out;
+}
+
+/* Estilos específicos para el campo de usuario */
+#usuarioValidationMessage {
+	margin-top: -5px;
+	/* Ajustamos el margen para que el mensaje aparezca encima del campo */
+}
+
+/* Estilos específicos para el campo de contraseña */
+#passwordValidationMessage {
+	margin-top: -5px;
+	/* Ajustamos el margen para que el mensaje aparezca encima del campo */
+}
+
+/* Estilo para el contenedor principal */
+.container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin-bottom: 1rem;
+	/* Ajusta el margen inferior según tus preferencias */
+}
+
+/* Estilos para centrar los contenidos de la página de error */
+.error-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 20px;
+	text-align: center;
+}
+
+.error-container h1 {
+	font-size: 36px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.error-container p {
+	font-size: 18px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.error-container img {
+	max-width: 100%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.error-container a {
+	font-size: 16px;
+	text-align: center;
+}
+
+
+/* Estilo para el footer */
+footer {
+	padding-top: 0.5rem;
+	/* Ajusta el padding superior según tus preferencias */
+	padding-bottom: 0.5rem;
+	/* Ajusta el padding inferior según tus preferencias */
+}
+
+/* Estilo para reducir la altura del contenedor principal del footer */
+footer .container {
+	min-height: auto;
+	/* Establece la altura del contenedor a "auto" para que se ajuste automáticamente */
+	height: 65px;
+	/* Ajusta la altura del footer según tus preferencias */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 575.98px) {
+
+	/* Mover el contenido del navbar hacia la izquierda */
+	.navbar-nav {
+		margin-left: 0;
+	}
+
+	/* Alinear el dropdown hacia la izquierda */
+	.navbar-nav .dropdown-menu {
+		right: auto;
+		left: 0;
+	}
+
+	/* Ajustar el logo en pantallas pequeñas */
+	.navbar-brand img {
+		max-height: 100px;
+		margin-left: 10px;
+	}
+}
