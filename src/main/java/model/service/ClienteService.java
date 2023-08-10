@@ -1,27 +1,59 @@
 package model.service;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.entity.Cliente;
-import model.repository.IClienteRepository; 
+import model.repository.IClienteRepository;
+
 
 @Service
 public class ClienteService {
 
-    private final IClienteRepository clienteRepository;
-
-    @Autowired
-    public ClienteService(IClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
+	@Autowired
+    private IClienteRepository clRepo;
+  
+  public ClienteService(IClienteRepository clRepo) {
+       this.clRepo = clRepo;
     }
-
-    public void registrarCliente(Cliente cliente) {
-        clienteRepository.save(cliente);
+  
+  public void registrarCliente(Cliente cliente) {
+      clRepo.save(cliente);
+  }
+  
+  public Cliente getClienteById(int id) {
+        return clRepo.getOne(id);
+       
     }
-
-    public Cliente obtenerClientePorId(Integer id) {
-        return clienteRepository.findById(id).orElse(null);
+  
+    public List<Cliente> getClientes() {
+    
+    	
+    	return clRepo.findAllClientes();
+        
+    }
+    public void update(Cliente c) {
+		clRepo.save(c);
+	}
+    @Transactional
+    public Cliente getClienteWithProperties(int id) {
+        Cliente cliente = clRepo.findById(id).orElse(null);
+        
+        if (cliente != null) {
+            // Cargar propiedades relacionadas adicionales aquí
+            cliente.getApellidos(); // Ejemplo: Cargar la colección de roles
+            
+            // Puedes hacer más operaciones para cargar otras propiedades
+            
+            return cliente;
+        }
+        
+        return null;
     }
 }
+
 

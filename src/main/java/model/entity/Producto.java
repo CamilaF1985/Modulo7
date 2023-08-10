@@ -1,27 +1,26 @@
 package model.entity;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "productos")
+@DiscriminatorValue("producto")
 public class Producto {
 	
-	
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "nombre", length = 50)
+	
+	@Column(nullable = true)
     private String nombre;
-
-    @Column(name = "categoria", length = 50)
     private String categoria;
-
-    @Column(name = "precio")
     private Integer precio;
     
     public Producto() {

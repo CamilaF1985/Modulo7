@@ -1,44 +1,55 @@
 package model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import model.entity.Cliente;
+
 import model.entity.Pedido;
-import model.entity.Producto;
 import model.repository.IPedidoRepository;
 
 @Service
 public class PedidoService {
-
-    private final IPedidoRepository pedidoRepository;
-    private final ClienteService clienteService;
-    private final ProductoService productoService;
-
-    @Autowired
-    public PedidoService(IPedidoRepository pedidoRepository, ClienteService clienteService, ProductoService productoService) {
-        this.pedidoRepository = pedidoRepository;
-        this.clienteService = clienteService;
-        this.productoService = productoService;
+	@Autowired
+    private IPedidoRepository pedRepo;
+	
+	public PedidoService() {
+        super();
+    }
+	
+	public List<Pedido> obtenerTodosLosPedidos() {
+        return pedRepo.findAll();
     }
 
-    public Pedido crearPedido(Integer clienteId, Integer productoId, Integer cantidad, String indicaciones) {
-        Cliente cliente = clienteService.obtenerClientePorId(clienteId);
-        Producto producto = productoService.obtenerProductoPorId(productoId);
+	public void crearPedido(int clienteId, int productoId, int cantidad, String indicaciones, int precioTotal) {
+        Pedido pedido = new Pedido();
+        pedido.setClienteId(clienteId);
+        pedido.setProductoId(productoId);
+        pedido.setCantidad(cantidad);
+        pedido.setIndicaciones(indicaciones);
+        pedido.setPrecioTotal(precioTotal);
         
-        if (cliente != null && producto != null) {
-            int precioTotal = producto.getPrecio() * cantidad;
+        pedRepo.save(pedido);
+    }
 
-            Pedido pedido = new Pedido();
-            pedido.setCliente(cliente);
-            pedido.setProducto(producto);
-            pedido.setCantidad(cantidad);
-            pedido.setIndicaciones(indicaciones);
-            pedido.setPrecioTotal(precioTotal);
+	public Pedido obtenerPedidoPorId(int pedidoId) {
+		return pedRepo.getOne(pedidoId);
+	}
 
-            return pedidoRepository.save(pedido);
+	public void guardarPedido(Pedido pedido) {
+		pedRepo.save(pedido);
+	}
+	
+	//Borrar
+	public void actualizarPedido(Pedido pedido) {
+        // Verificar si el pedido existe en la base de datos
+        if (pedRepo.existsById(pedido.getIdPedido())) {
+            // Actualizar el pedido en la base de datos
+        	pedRepo.save(pedido);
+        } else {
+            // El pedido no existe, realizar alguna acción o lanzar una excepción
+            throw new RuntimeException("El pedido con ID " + pedido.getIdPedido() + " no existe.");
         }
-        
-        return null; // Cliente o producto no encontrados
     }
 }
 
