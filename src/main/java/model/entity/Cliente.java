@@ -4,32 +4,23 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "clientes")
+@DiscriminatorValue("cliente")
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Usar GenerationType.IDENTITY para autoincremental
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombres", nullable = false)
+	@Column(nullable = true)
     private String nombres;
-
-    @Column(name = "apellidos", nullable = false)
     private String apellidos;
-
-    @Column(name = "telefono", nullable = false)
     private long telefono;
-
-    @Column(name = "comuna", nullable = false)
     private String comuna;
-
-    @Column(name = "calle", nullable = false)
     private String calle;
-
-    @Column(name = "numeracion", nullable = false)
     private Integer numeracion;
-
-    @Column(name = "indicaciones", nullable = false)
     private String indicaciones;
+    
 
 	// Constructor nulo
 	public Cliente() {
@@ -49,6 +40,13 @@ public class Cliente {
 
 	// Getters y Setters para cada atributo
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getNombres() {
 		return nombres;
 	}

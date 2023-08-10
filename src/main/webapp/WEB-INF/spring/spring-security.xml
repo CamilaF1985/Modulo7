@@ -14,7 +14,7 @@
 			access="hasAnyAuthority('ROLE_cliente')" />
 		<intercept-url pattern="/carta"
 			access="hasAnyAuthority('ROLE_cliente')" />
-		<intercept-url pattern="/crearpedido"
+		<intercept-url pattern="/crearPedido"
 			access="hasAnyAuthority('ROLE_cliente')" />
 
 		<intercept-url pattern="/logout" access="permitAll" /> <!-- Permitir acceso a todos -->

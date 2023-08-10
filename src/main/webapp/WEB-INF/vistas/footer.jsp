@@ -34,7 +34,8 @@
 					href="https://www.instagram.com/sushipe.cl/?igshid=MzNlNGNkZWQ4Mg%3D%3D"
 					role="button"><i class="fab fa-instagram"></i></a>
 				<!-- Github -->
-				<a class="btn btn-outline-light btn-floating m-1" href="#!"
+				<a class="btn btn-outline-light btn-floating m-1" 
+				    href="https://github.com/CamilaF1985/Modulo7"
 					role="button"><i class="fab fa-github"></i></a>
 			</section>
 			<!-- Section: Social media -->

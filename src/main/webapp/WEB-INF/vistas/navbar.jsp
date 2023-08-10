@@ -41,7 +41,7 @@
 					<a class="nav-link" href="contacto" style="color: white;">Contacto</a>
 					<a class="nav-link" href="carta" style="color: white;">Carta</a>
 					<a class="nav-link" href="registroCliente" style="color: white;">Ingresa tus datos</a>
-					<a class="nav-link" href="crearpedido" style="color: white;">Haz tu pedido</a>  
+					<a class="nav-link" href="crearPedido" style="color: white;">Haz tu pedido</a>  
 					<form action="${pageContext.request.contextPath}/logout"
 						method="post">
 						<button type="submit" class="btn btn-link" style="color: white;">Logout</button>
