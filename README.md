@@ -32,8 +32,7 @@ funcionalidades de gestión de pedidos y seguridad, con el objetivo de crear una
 ## Instalación y Uso
 
 1. Clona o descarga este repositorio en tu máquina local.
-2. Asegúrate de tener configurada una base de datos MySQL y ajusta la configuración de conexión en el archivo `application.properties`. El Script para crear
-3.  la base de datos se encuentra en este repositorio.
+2. Asegúrate de tener configurada una base de datos MySQL y ajusta la configuración de conexión en el archivo `application.properties`. El Script para crear la base de datos se encuentra en este repositorio.
 4. Importa el proyecto en tu entorno de desarrollo (Eclipse JEE).
 5. Ejecuta la aplicación y accede a través de tu navegador web.
 
