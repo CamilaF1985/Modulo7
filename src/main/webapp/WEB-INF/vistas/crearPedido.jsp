@@ -8,79 +8,59 @@
 <title>Crear Pedido</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/sushipe/res/css/styles.css">
+<!-- Agrega esta línea -->
 </head>
+
 <body>
-	<div class="container">
-		<h1>Crear Pedido</h1>
-		<form action="crearPedido" method="post">
-			<div class="mb-3">
-				<label for="clienteId">Cliente:</label> <select class="form-select"
-					name="clienteId" id="clienteId">
+	<%@ include file='navbar.jsp'%>
+	<div class="contacto" style="display: flex; justify-content: center;">
+
+		<form action="crearPedido" method="post" class="mb-5 mt-5">
+			<h1 class="tituloContacto">Crear Pedido</h1>
+
+			<div class="form-group">
+				<label for="clienteId">Seleccionar Cliente:</label> <br> <select
+					name="clienteId">
 					<c:forEach var="cliente" items="${clientes}">
 						<option value="${cliente.id}">${cliente.nombres}
 							${cliente.apellidos}</option>
 					</c:forEach>
 				</select>
 			</div>
-			<div class="mb-3">
-				<label for="productoId">Producto:</label> <select
-					class="form-select" name="productoId" id="productoId">
+
+			<div class="form-group">
+				<label>Cantidad:</label> <select name="productoId"
+					onchange="actualizarPrecioTotal(this)">
 					<c:forEach var="producto" items="${productos}">
-						<option value="${producto.id}">${producto.nombre}-${producto.categoria}
-							${producto.precio}</option>
+						<option value="${producto.id}" data-precio="${producto.precio}">
+							${producto.nombre}</option>
 					</c:forEach>
-				</select>
+				</select> <input type="number" class="form-control cantidad-input"
+					name="cantidad" min="0" value="0">
 			</div>
 
-			<div class="mb-3">
-				<label for="cantidad">Cantidad:</label> <input type="number"
-					class="form-control" name="cantidad" id="cantidad" min="1">
-			</div>
-			<div class="mb-3">
-				<label for="indicaciones">Indicaciones:</label>
-				<textarea class="form-control" name="indicaciones" id="indicaciones"></textarea>
+
+			<div class="form-group">
+				<label for="indicaciones">Indicaciones:</label> <br>
+				<textarea class="form-control" name="indicaciones"></textarea>
 			</div>
 
-			<div class="mb-3">
+			<div class="form-group">
 				<label for="precioTotal">Precio Total:</label> <span
 					id="precioTotal">0.00</span>
 			</div>
 
-			<button type="submit" class="btn btn-primary">Crear Pedido</button>
+			<div style="display: flex; justify-content: center;" class="mb-5">
+				<input type="submit" value="Enviar Pedido" class="boton-enviar">
+			</div>
 		</form>
 	</div>
 
-	<!-- Agrega el siguiente script en tu formulario -->
-	<script>
-		// Función para calcular el precio total en tiempo real
-		function calcularPrecioTotal() {
-			const productoSelect = document.getElementById('productoId');
-			const cantidadInput = document.getElementById('cantidad');
-			const precioElement = document.getElementById('precioTotal');
-
-			const selectedOption = productoSelect.options[productoSelect.selectedIndex];
-			const precioProducto = parseFloat(selectedOption
-					.getAttribute('data-precio'));
-			const cantidad = parseInt(cantidadInput.value);
-
-			if (!isNaN(precioProducto) && !isNaN(cantidad)) {
-				const precioTotal = precioProducto * cantidad;
-				precioElement.textContent = precioTotal.toFixed(2);
-			} else {
-				precioElement.textContent = '0.00';
-			}
-		}
-
-		// Asociar la función al cambio de selección y al cambio de cantidad
-		document.getElementById('productoId').addEventListener('change',
-				calcularPrecioTotal);
-		document.getElementById('cantidad').addEventListener('input',
-				calcularPrecioTotal);
-
-		// Calcular el precio total inicial
-		calcularPrecioTotal();
-	</script>
+	<script src="/sushipe/res/js/calculoPrecioTotal.js"></script>
+	<%@ include file='footer.jsp'%>
+	<!-- Incluir el footer -->
 
 </body>
 </html>
-

@@ -39,9 +39,24 @@
 					%>
 					<a class="nav-link" href="inicio" style="color: white;">Inicio</a>
 					<a class="nav-link" href="contacto" style="color: white;">Contacto</a>
-					<a class="nav-link" href="carta" style="color: white;">Carta</a>
-					<a class="nav-link" href="registroCliente" style="color: white;">Ingresa tus datos</a>
-					<a class="nav-link" href="crearPedido" style="color: white;">Haz tu pedido</a>  
+					<a class="nav-link" href="carta" style="color: white;">Carta</a> <a
+						class="nav-link" href="registroCliente" style="color: white;">Ingresa
+						tus datos</a> <a class="nav-link" href="crearPedido"
+						style="color: white;">Haz tu pedido</a>
+					<form action="${pageContext.request.contextPath}/logout"
+						method="post">
+						<button type="submit" class="btn btn-link" style="color: white;">Logout</button>
+					</form>
+					<%
+					}
+					%>
+					<%-- Verificar si el usuario tiene el rol "admministrador" --%>
+					<%
+					if (request.isUserInRole("ROLE_administrador")) {
+					%>
+					<a class="nav-link" href="inicio" style="color: white;">Inicio</a>
+					<a class="nav-link" href="verPedidos" style="color: white;">Ver
+						Pedidos</a>
 					<form action="${pageContext.request.contextPath}/logout"
 						method="post">
 						<button type="submit" class="btn btn-link" style="color: white;">Logout</button>

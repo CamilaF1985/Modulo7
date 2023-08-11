@@ -65,7 +65,7 @@
             <div class="form-group">
                 <div class="campo">
                     <label for="numeracion">Numeración:</label>
-                    <input type="text" id="numeracion" name="numeracion">
+                    <input type="number" id="numeracion" name="numeracion">
                     <span id="numeracionValidationMessage" class="validation-message"></span>
                 </div>
             </div>

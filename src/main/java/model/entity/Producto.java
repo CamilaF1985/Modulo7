@@ -1,7 +1,6 @@
 package model.entity;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,38 +9,32 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
-@DiscriminatorValue("producto")
 public class Producto {
-	
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
-	
-	@Column(nullable = true)
+
     private String nombre;
     private String categoria;
     private Integer precio;
-    
+
+
+    // Constructor, getters y setters
+
     public Producto() {
         // Constructor nulo requerido por JPA
     }
 
-    public Producto(String nombre, String categoria, Integer precio) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.precio = precio;
-    }
-
     // Getters y setters
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
     public String getNombre() {
         return nombre;
@@ -66,5 +59,7 @@ public class Producto {
     public void setPrecio(Integer precio) {
         this.precio = precio;
     }
+
 }
+
 
