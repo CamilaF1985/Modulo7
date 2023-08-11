@@ -18,15 +18,16 @@ public class ProductoService {
   public ProductoService(IProductoRepository prRepo) {
        this.prRepo = prRepo;
     }
-  public Producto getProductoById(int id) {
-        return prRepo.getOne(id);
-       
-    }
   
     public List<Producto> getProductos() {
     	
     	return prRepo.findAllProductos();
         
+    }
+    
+    public Producto getproductoById(int id) {
+        return prRepo.getOne(id);
+       
     }
     public void update(Producto p) {
 		prRepo.save(p);

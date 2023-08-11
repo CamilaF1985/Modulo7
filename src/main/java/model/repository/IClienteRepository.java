@@ -9,7 +9,7 @@ import model.entity.Cliente;
 
 
 
-public interface IClienteRepository extends JpaRepository<Cliente, Integer> {
+public interface IClienteRepository extends JpaRepository<Cliente, Long> {
 
     @Query("SELECT c FROM Cliente c")
     List<Cliente> findAllClientes();

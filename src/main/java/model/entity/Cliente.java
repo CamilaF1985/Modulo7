@@ -4,21 +4,26 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "clientes")
-@DiscriminatorValue("cliente")
 public class Cliente {
 
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-	@Column(nullable = true)
+    @Column(name = "nombres")
     private String nombres;
+    @Column(name = "apellidos")
     private String apellidos;
+    @Column(name = "telefono")
     private long telefono;
+    @Column(name = "comuna")
     private String comuna;
+    @Column(name = "calle")
     private String calle;
+    @Column(name = "numeracion")
     private Integer numeracion;
+    @Column(name = "indicaciones")
     private String indicaciones;
     
 
@@ -40,12 +45,13 @@ public class Cliente {
 
 	// Getters y Setters para cada atributo
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 	
 	public String getNombres() {
 		return nombres;

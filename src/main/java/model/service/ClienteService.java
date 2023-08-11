@@ -25,7 +25,7 @@ public class ClienteService {
       clRepo.save(cliente);
   }
   
-  public Cliente getClienteById(int id) {
+  public Cliente getClienteById(Long id) {
         return clRepo.getOne(id);
        
     }
@@ -40,7 +40,7 @@ public class ClienteService {
 		clRepo.save(c);
 	}
     @Transactional
-    public Cliente getClienteWithProperties(int id) {
+    public Cliente getClienteWithProperties(Long id) {
         Cliente cliente = clRepo.findById(id).orElse(null);
         
         if (cliente != null) {

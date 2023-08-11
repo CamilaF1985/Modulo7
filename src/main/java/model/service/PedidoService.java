@@ -5,51 +5,67 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.entity.Cliente;
 import model.entity.Pedido;
+import model.entity.Producto;
+import model.repository.IClienteRepository;
 import model.repository.IPedidoRepository;
+import model.repository.IProductoRepository;
 
 @Service
 public class PedidoService {
-	@Autowired
-    private IPedidoRepository pedRepo;
-	
-	public PedidoService() {
-        super();
-    }
-	
-	public List<Pedido> obtenerTodosLosPedidos() {
-        return pedRepo.findAll();
+
+    private final IPedidoRepository pedidoRepository;
+    private final IProductoRepository productoRepository;
+	private final IClienteRepository clienteRepository;
+
+    @Autowired
+    public PedidoService(IPedidoRepository pedidoRepository, IProductoRepository productoRepository, IClienteRepository clienteRepository) {
+        this.pedidoRepository = pedidoRepository;
+        this.productoRepository = productoRepository;
+        this.clienteRepository = clienteRepository; // 
     }
 
-	public void crearPedido(int clienteId, int productoId, int cantidad, String indicaciones, int precioTotal) {
+    public void crearPedido(Long clienteId, Integer productoId, Integer cantidad, String indicaciones) {
+        Producto producto = productoRepository.findById(productoId)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+
+        Cliente cliente = clienteRepository.findById(clienteId)
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
+
         Pedido pedido = new Pedido();
-        pedido.setClienteId(clienteId);
-        pedido.setProductoId(productoId);
-        pedido.setCantidad(cantidad);
+        pedido.setClienteId(Long.valueOf(clienteId));
+        pedido.setClienteNombres(cliente.getNombres());
+        pedido.setClienteApellidos(cliente.getApellidos());
+        pedido.setClienteTelefono(cliente.getTelefono());
+        pedido.setClienteComuna(cliente.getComuna());
+        pedido.setClienteCalle(cliente.getCalle());
+        pedido.setClienteNumeracion(cliente.getNumeracion());
+        pedido.setClienteIndicaciones(cliente.getIndicaciones());
+
         pedido.setIndicaciones(indicaciones);
+        pedido.setProductoId(Long.valueOf(productoId));
+        pedido.setProductoNombre(producto.getNombre());
+        pedido.setCantidad(cantidad);
+
+        int precioTotal = producto.getPrecio() * cantidad;
         pedido.setPrecioTotal(precioTotal);
-        
-        pedRepo.save(pedido);
+
+        pedidoRepository.save(pedido); // Guardar el Pedido
     }
 
-	public Pedido obtenerPedidoPorId(int pedidoId) {
-		return pedRepo.getOne(pedidoId);
-	}
-
-	public void guardarPedido(Pedido pedido) {
-		pedRepo.save(pedido);
-	}
-	
-	//Borrar
-	public void actualizarPedido(Pedido pedido) {
-        // Verificar si el pedido existe en la base de datos
-        if (pedRepo.existsById(pedido.getIdPedido())) {
-            // Actualizar el pedido en la base de datos
-        	pedRepo.save(pedido);
-        } else {
-            // El pedido no existe, realizar alguna acción o lanzar una excepción
-            throw new RuntimeException("El pedido con ID " + pedido.getIdPedido() + " no existe.");
-        }
+    
+    public List<Pedido> obtenerTodosLosPedidos() {
+        return pedidoRepository.findAll();
     }
+    
+
+    // Otras operaciones y métodos relacionados con pedidos
+
+    // ...
 }
+
+
+
+
 
