@@ -25,6 +25,9 @@ public class Usuario {
 
     @Column(name = "tipo")
     private String tipo; // Puede ser "Cliente" o "Administrador"
+    
+    @OneToOne(mappedBy = "usuario")
+    private Cliente cliente;
 
     // Constructor, getters y setters
 

@@ -23,19 +23,20 @@ public class Administrador {
     @Column(name = "fecha_ingreso")
     private String fechaIngreso;
 
-    @Column(name = "id_usuario")
-    private Long idUsuario;
+    @OneToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     // Constructor nulo
     public Administrador() {
     }
 
-    public Administrador(long rut, String nombres, String apellidos, String fechaIngreso, Long idUsuario) {
+    public Administrador(long rut, String nombres, String apellidos, String fechaIngreso, Usuario usuario) {
         this.rut = rut;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.fechaIngreso = fechaIngreso;
-        this.idUsuario = idUsuario;
+        this.usuario = usuario;
     }
 
     // Getters
@@ -59,9 +60,9 @@ public class Administrador {
     public String getFechaIngreso() {
         return fechaIngreso;
     }
-
-    public Long getIdUsuario() {
-        return idUsuario;
+    
+    public Usuario getUsuario() {
+        return usuario;
     }
 
     // Setters
@@ -85,9 +86,10 @@ public class Administrador {
     public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
 }
 
