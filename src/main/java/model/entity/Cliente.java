@@ -26,25 +26,25 @@ public class Cliente {
     @Column(name = "indicaciones")
     private String indicaciones;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id") // Nombre de la columna en la tabla clientes que referencia al usuario
-    private Usuario usuario;
+    @Column(name = "id_usuario") // Nombre de la columna en la tabla clientes que referencia al usuario
+    private Long idUsuario; // Nuevo campo para el ID del usuario
     
 	// Constructor nulo
 	public Cliente() {
 	}
 
-	// Constructor con parámetros
 	public Cliente(String nombres, String apellidos, long telefono, String comuna, String calle, Integer numeracion,
-			String indicaciones) {
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.telefono = telefono;
-		this.comuna = comuna;
-		this.calle = calle;
-		this.numeracion = numeracion;
-		this.indicaciones = indicaciones;
+	        String indicaciones, Long idUsuario) {
+	    this.nombres = nombres;
+	    this.apellidos = apellidos;
+	    this.telefono = telefono;
+	    this.comuna = comuna;
+	    this.calle = calle;
+	    this.numeracion = numeracion;
+	    this.indicaciones = indicaciones;
+	    this.idUsuario = idUsuario; 
 	}
+
 
 	// Getters y Setters para cada atributo
 
@@ -141,8 +141,12 @@ public class Cliente {
 	public void setIndicaciones(String indicaciones) {
 		this.indicaciones = indicaciones;
 	}
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
 	}

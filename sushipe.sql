@@ -43,18 +43,6 @@ CREATE TABLE productos (
     precio INT
 );
 
--- Crear tabla pedidos
-CREATE TABLE pedidos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    cliente_id INT,
-    producto_id INT,
-    cantidad INT,
-    indicaciones VARCHAR(70),
-    precio_total INT,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id)
-);
-
 -- Insertar valores en la tabla productos
 INSERT INTO productos (nombre, categoria, precio)
 VALUES
@@ -90,14 +78,99 @@ VALUES
     ;
 ALTER TABLE login
 ADD COLUMN rol VARCHAR(20);
-INSERT INTO login (username, password, rol)
-VALUES ('cliente', '$2a$12$bj5aSF.N1YCVAMgIwQmNweS3xEIHdQKWtDTZRA1mUXu/rW.TB/Peq', 'ROLE_cliente'),
-       ('administrador', '$2a$12$WsE6eEoY1ximj4dsX/6HseH94C5BcKhJzgvyRG6JnXxJjPWl5rDc2', 'ROLE_administrador');
-       
+      
 ALTER TABLE login CHANGE COLUMN username user VARCHAR(50);
 
 ALTER TABLE login
 ADD COLUMN email VARCHAR(100) AFTER password;
+
+CREATE TABLE pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    producto_id INT,
+    indicaciones VARCHAR(70),
+    precio_total INT,
+    cantidad INT,
+    cliente_nombres VARCHAR(50),
+    cliente_apellidos VARCHAR(50),
+    cliente_telefono INT,
+    cliente_comuna VARCHAR(45),
+    cliente_calle VARCHAR(50),
+    cliente_numeracion INT,
+    cliente_indicaciones VARCHAR(70),
+    producto_nombre VARCHAR(50),
+    -- Otros campos de productos si son necesarios
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+
+-- Script para eliminar todos los registros de la tabla pedidos
+DELETE FROM pedidos;
+
+-- Script para eliminar todos los registros de la tabla clientes
+DELETE FROM clientes;
+
+INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones)
+VALUES 
+('Paulina Andrea', 'Fuentes Soto', 569736361, 'Vitacura', 'Av. Vitacura', 1234, ''),
+('Luis Alberto', 'Gonzalez Fuenzalida', 569745897, 'Santiago Centro', 'Puente', 567, 'Casa esquina'),
+('Carlos Patricio', 'Hernandez Flores', 569456871, 'Puente Alto', 'Los Patos', 259, ''),
+('Mauricio ', 'Aguirre Gomez', 569345768, 'La Reina', 'Tobalaba', 645, '');
+
+RENAME TABLE login TO usuarios;
+
+CREATE TABLE administradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    rut INT NOT NULL,
+    nombres VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    fecha_ingreso VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE usuarios
+ADD COLUMN tipo ENUM('Cliente', 'Administrador') NOT NULL;
+
+ALTER TABLE clientes
+ADD COLUMN id_usuario INT;
+
+ALTER TABLE administradores
+ADD COLUMN id_usuario INT;
+
+
+-- Script para agregar la FK en la tabla Clientes
+ALTER TABLE clientes
+ADD CONSTRAINT fk_cliente_usuario FOREIGN KEY (id_usuario)
+REFERENCES usuarios(id);
+
+-- Script para agregar la FK en la tabla Administradores
+ALTER TABLE administradores
+ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
+REFERENCES usuarios(id);
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

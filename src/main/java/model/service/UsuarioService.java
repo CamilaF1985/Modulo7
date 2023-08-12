@@ -42,17 +42,13 @@ public class UsuarioService {
 		usRepo.save(u);
 	}
     @Transactional
-    public Usuario getUsuarioWithProperties(Long id) {
-        Usuario usuario = usRepo.findById(id).orElse(null);
-        
+    public Long getUsuarioIdFromDatabase(Long usuarioId) {
+        Usuario usuario = usRepo.getOne(usuarioId);
         if (usuario != null) {
-            // Cargar propiedades relacionadas adicionales aquí
-            
-            // Puedes hacer más operaciones para cargar otras propiedades
-            
-            return usuario;
+            return usuario.getId();
+        } else {
+            throw new RuntimeException("Usuario no encontrado");
         }
-        
-        return null;
+    
     }
 }
