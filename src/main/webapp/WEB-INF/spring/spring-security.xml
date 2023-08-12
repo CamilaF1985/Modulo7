@@ -10,8 +10,6 @@
 
 	<!-- Configuración de seguridad -->
 	<http auto-config="true">
-		<intercept-url pattern="/registroCliente"
-			access="hasAnyAuthority('ROLE_cliente')" />
 		<intercept-url pattern="/carta"
 			access="hasAnyAuthority('ROLE_cliente')" />
 		<intercept-url pattern="/crearPedido"
@@ -33,8 +31,8 @@
 		<authentication-provider>
 			<password-encoder hash="bcrypt" />
 			<jdbc-user-service data-source-ref="ds"
-				users-by-username-query="select user as username, password, 1 as enable from login where user = ?"
-				authorities-by-username-query="select user as username, rol as authority from login where user = ?" />
+				users-by-username-query="select user as username, password, 1 as enable from usuarios where user = ?"
+				authorities-by-username-query="select user as username, rol as authority from usuarios where user = ?" />
 
 		</authentication-provider>
 	</authentication-manager>

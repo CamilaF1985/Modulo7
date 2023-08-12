@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
 
-    <title>Registro de Cliente</title>
+    <title>Registro de Usuario</title>
 </head>
 
 <body>
@@ -19,68 +19,55 @@
 
     <div class="contacto" style="display: flex; justify-content: center;">
 
-        <form action="/sushipe/registroCliente" method="post" class="mb-5 mt-5">
+        <form action="/sushipe/registroUsuario" method="post" class="mb-5 mt-5">
             <h1 class="tituloContacto">Ingresa tus datos</h1>
 
             <div class="form-group">
                 <div class="campo">
-                    <label for="nombres">Nombres:</label>
-                    <input type="text" id="nombres" name="nombres">
-                    <span id="nombresValidationMessage" class="validation-message"></span>
+                    <label for="user">Usuario:</label>
+                    <input type="text" id="user" name="user" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="campo">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos">
-                    <span id="apellidosValidationMessage" class="validation-message"></span>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="campo">
-                    <label for="telefono">Teléfono:</label>
-                    <input type="number" id="telefono" name="telefono">
-                    <span id="telefonoValidationMessage" class="validation-message"></span>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="campo">
-                    <label for="comuna">Comuna:</label>
-                    <input type="text" id="comuna" name="comuna">
-                    <span id="comunaValidationMessage" class="validation-message"></span>
+                    <label for="rol">Rol:</label>
+                    <select id="rol" name="rol" required>
+                        <option value="ROLE_cliente">Cliente</option>
+                        <option value="ROLE_administrador">Administrador</option>
+                    </select>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="campo">
-                    <label for="calle">Calle:</label>
-                    <input type="text" id="calle" name="calle">
-                    <span id="calleValidationMessage" class="validation-message"></span>
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="Cliente">Cliente</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="campo">
-                    <label for="numeracion">Numeración:</label>
-                    <input type="number" id="numeracion" name="numeracion">
-                    <span id="numeracionValidationMessage" class="validation-message"></span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="campo">
-                    <label for="indicaciones">Indicaciones:</label>
-                    <textarea id="indicaciones" name="indicaciones"></textarea>
-                </div>
-            </div>
+            <!-- Agrega aquí los campos adicionales para cada tipo (Cliente o Administrador) -->
 
             <div style="display: flex; justify-content: center;" class="mb-5">
                 <input type="submit" value="Registrar" class="boton-enviar">
             </div>
-            
 
         </form>
 

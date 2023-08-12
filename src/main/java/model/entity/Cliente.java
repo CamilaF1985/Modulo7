@@ -26,7 +26,10 @@ public class Cliente {
     @Column(name = "indicaciones")
     private String indicaciones;
     
-
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id") // Nombre de la columna en la tabla clientes que referencia al usuario
+    private Usuario usuario;
+    
 	// Constructor nulo
 	public Cliente() {
 	}
@@ -138,6 +141,9 @@ public class Cliente {
 	public void setIndicaciones(String indicaciones) {
 		this.indicaciones = indicaciones;
 	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
 	}
 

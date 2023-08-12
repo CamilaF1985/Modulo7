@@ -30,6 +30,8 @@
 					<a class="nav-link" href="contacto" style="color: white;">Contacto</a>
 					<a class="nav-link" href="login" style="color: white;">Login</a> <a
 						class="nav-link" href="inicio" style="color: white;">Inicio</a>
+						<a
+						class="nav-link" href="registroUsuario" style="color: white;">Registro</a>
 					<%
 					}
 					%>
@@ -39,9 +41,8 @@
 					%>
 					<a class="nav-link" href="inicio" style="color: white;">Inicio</a>
 					<a class="nav-link" href="contacto" style="color: white;">Contacto</a>
-					<a class="nav-link" href="carta" style="color: white;">Carta</a> <a
-						class="nav-link" href="registroCliente" style="color: white;">Ingresa
-						tus datos</a> <a class="nav-link" href="crearPedido"
+					<a class="nav-link" href="carta" style="color: white;">Carta</a> 
+					<a class="nav-link" href="crearPedido"
 						style="color: white;">Haz tu pedido</a>
 					<form action="${pageContext.request.contextPath}/logout"
 						method="post">
