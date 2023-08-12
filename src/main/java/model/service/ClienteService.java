@@ -10,20 +10,19 @@ import org.springframework.stereotype.Service;
 import model.entity.Cliente;
 import model.repository.IClienteRepository;
 
-
 @Service
 public class ClienteService {
 
-	@Autowired
-    private IClienteRepository clRepo;
-  
-  public ClienteService(IClienteRepository clRepo) {
-       this.clRepo = clRepo;
+    private final IClienteRepository clRepo;
+
+    @Autowired
+    public ClienteService(IClienteRepository clRepo, UsuarioService usuarioService) {
+        this.clRepo = clRepo;
     }
-  
-  public void registrarCliente(Cliente cliente) {
-      clRepo.save(cliente);
-  }
+
+    public void registrarCliente(Cliente cliente) {
+        clRepo.save(cliente);
+    }
   
   public Cliente getClienteById(Long id) {
         return clRepo.getOne(id);

@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.entity.Cliente;
+import model.service.UsuarioService;
 import model.service.ClienteService;
 
 @Controller
 public class ClienteController {
 
-    private final ClienteService clienteService;
+    private final ClienteService clienteService; 
+
 
     @Autowired
-    public ClienteController(ClienteService clienteService) {
+    public ClienteController(ClienteService clienteService, UsuarioService usuarioService) {
         this.clienteService = clienteService;
     }
 
@@ -33,9 +35,10 @@ public class ClienteController {
             @RequestParam("comuna") String comuna,
             @RequestParam("calle") String calle,
             @RequestParam("numeracion") Integer numeracion,
-            @RequestParam("indicaciones") String indicaciones) {
-        
+            @RequestParam("indicaciones") String indicaciones)
+ {
         try {
+            // Crear una nueva instancia de Cliente y setear sus atributos
             Cliente cliente = new Cliente();
             cliente.setNombres(nombres);
             cliente.setApellidos(apellidos);
@@ -45,6 +48,7 @@ public class ClienteController {
             cliente.setNumeracion(numeracion);
             cliente.setIndicaciones(indicaciones);
 
+            // Registrar el cliente en la base de datos asociado al usuario
             clienteService.registrarCliente(cliente);
 
             // Redirigir a una página de éxito o a otra página según el caso
