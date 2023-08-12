@@ -107,35 +107,6 @@ numeracionInput.addEventListener('input', function() {
 });
 
 
-// Validar Campo username
-var usernameInput = document.getElementById('username');
-var usernameValidationMessage = document.getElementById('usernameValidationMessage');
-
-usernameInput.addEventListener('input', function() {
-    var usernameValue = usernameInput.value.trim();
-
-    // Se valida que el campo no quede vacío
-    if (usernameValue === '') {
-        mostrarMensajeValidacion(usernameInput, 'El nombre de usuario no puede quedar vacío. Campo Obligatorio.');
-    } else {
-        ocultarMensajeValidacion(usernameInput);
-    }
-});
-
-// Validar Campo password
-var passwordInput = document.getElementById('password');
-var passwordValidationMessage = document.getElementById('passwordValidationMessage');
-
-passwordInput.addEventListener('input', function() {
-    var passwordValue = passwordInput.value.trim();
-
-    // Se valida que el campo no quede vacío
-    if (passwordValue === '') {
-        mostrarMensajeValidacion(passwordInput, 'La contraseña no puede quedar vacía. Campo Obligatorio.');
-    } else {
-        ocultarMensajeValidacion(passwordInput);
-    }
-});
 
 
 

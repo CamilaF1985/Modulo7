@@ -46,7 +46,7 @@ public class UsuarioController {
             usuario.setTipo(tipo);
 
             Usuario usuarioRegistrado = usuarioService.registrarUsuario(usuario);
-
+            
             // Redirigir al controlador de Cliente y pasar el ID del usuario registrado como parámetro
             return new ModelAndView("redirect:/registroCliente?usuarioId=" + usuarioRegistrado.getId());
         } catch (Exception e) {
@@ -56,4 +56,5 @@ public class UsuarioController {
         }
     }
 }
+
 

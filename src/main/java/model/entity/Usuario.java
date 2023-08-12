@@ -1,7 +1,5 @@
 package model.entity;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
@@ -27,9 +25,6 @@ public class Usuario {
 
     @Column(name = "tipo")
     private String tipo; // Puede ser "Cliente" o "Administrador"
-    
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Cliente> clientes;
 
     // Constructor, getters y setters
 
