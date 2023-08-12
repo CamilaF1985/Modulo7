@@ -107,8 +107,8 @@ CREATE TABLE pedidos (
 -- Script para eliminar todos los registros de la tabla pedidos
 DELETE FROM pedidos;
 
--- Script para eliminar todos los registros de la tabla clientes
-DELETE FROM clientes;
+-- Script para eliminar todos los registros de la tabla usuarios
+DELETE FROM usuarios;
 
 INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones)
 VALUES 
@@ -146,6 +146,9 @@ REFERENCES usuarios(id);
 ALTER TABLE administradores
 ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
 REFERENCES usuarios(id);
+
+ALTER TABLE usuarios AUTO_INCREMENT = 1;
+
 
 
 

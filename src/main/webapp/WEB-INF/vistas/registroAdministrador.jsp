@@ -16,7 +16,7 @@
 
 <meta charset="UTF-8">
 
-<title>Registro de Cliente</title>
+<title>Registro de Administrador</title>
 </head>
 
 <body>
@@ -24,9 +24,17 @@
 
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form action="/sushipe/registroCliente" method="post"
+		<form action="/sushipe/registroAdministrador" method="post"
 			class="mb-5 mt-5">
 			<h1 class="tituloContacto">Ingresa tus datos</h1>
+
+			<div class="form-group">
+				<div class="campo">
+					<label for="rut">Rut:</label> <input type="number"
+						id="rut" name="rut"> <span
+						id="rutValidationMessage" class="validation-message"></span>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="campo">
@@ -44,42 +52,13 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<div class="campo">
-					<label for="telefono">Teléfono:</label> <input type="number"
-						id="telefono" name="telefono"> <span
-						id="telefonoValidationMessage" class="validation-message"></span>
-				</div>
-			</div>
+
 
 			<div class="form-group">
 				<div class="campo">
-					<label for="comuna">Comuna:</label> <input type="text" id="comuna"
-						name="comuna"> <span id="comunaValidationMessage"
+					<label for="fechaIngreso">Fecha de Ingreso:</label> <input type="text" id="fechaIngreso"
+						name="fechaIngreso"> <span id="fechaIngresoValidationMessage"
 						class="validation-message"></span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="campo">
-					<label for="calle">Calle:</label> <input type="text" id="calle"
-						name="calle"> <span id="calleValidationMessage"
-						class="validation-message"></span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="campo">
-					<label for="numeracion">Numeración:</label> <input type="number"
-						id="numeracion" name="numeracion"> <span
-						id="numeracionValidationMessage" class="validation-message"></span>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="campo">
-					<label for="indicaciones">Indicaciones:</label>
-					<textarea id="indicaciones" name="indicaciones"></textarea>
 				</div>
 			</div>
 
@@ -98,7 +77,7 @@
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="/sushipe/res/js/validacionesRegistroCliente.js"></script>
+	<script src="/sushipe/res/js/validacionesRegistroAdministrador.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

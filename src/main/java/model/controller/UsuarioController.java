@@ -47,8 +47,16 @@ public class UsuarioController {
 
             Usuario usuarioRegistrado = usuarioService.registrarUsuario(usuario);
             
-            // Redirigir al controlador de Cliente y pasar el ID del usuario registrado como parámetro
-            return new ModelAndView("redirect:/registroCliente?usuarioId=" + usuarioRegistrado.getId());
+            if ("Cliente".equals(tipo)) {
+                // Redirigir al controlador de Cliente y pasar el ID del usuario registrado como parámetro
+                return new ModelAndView("redirect:/registroCliente?usuarioId=" + usuarioRegistrado.getId());
+            } else if ("Administrador".equals(tipo)) {
+                // Redirigir al controlador de Administrador y pasar el ID del usuario registrado como parámetro
+                return new ModelAndView("redirect:/registroAdministrador?usuarioId=" + usuarioRegistrado.getId());
+            } else {
+                // Tipo no reconocido, redirigir a una página de error o mostrar un mensaje de error en la vista.
+                return new ModelAndView("redirect:/");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             // Manejar el error adecuadamente, redirigir a una página de error o mostrar un mensaje de error en la vista.
