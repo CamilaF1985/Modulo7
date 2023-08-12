@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.entity.Administrador;
+import model.entity.Usuario;
 import model.service.AdministradorService;
 import model.service.UsuarioService;
 
@@ -15,10 +16,12 @@ import model.service.UsuarioService;
 public class AdministradorController {
 
     private final AdministradorService administradorService;
+    private final UsuarioService usuarioService;
 
     @Autowired
     public AdministradorController(AdministradorService administradorService, UsuarioService usuarioService) {
         this.administradorService = administradorService;
+        this.usuarioService = usuarioService;
     }
     
     @GetMapping("/registroAdministrador")
@@ -34,20 +37,29 @@ public class AdministradorController {
             @RequestParam("nombres") String nombres,
             @RequestParam("apellidos") String apellidos,
             @RequestParam("fechaIngreso") String fechaIngreso,
-            @RequestParam("usuarioId") Long usuarioId) { // Obtén el usuarioId desde la URL
+            @RequestParam("usuarioId") Long usuarioId) {
         try {
-            // Crear una nueva instancia de Administrador y setear sus atributos con el ID del usuario
-            Administrador administrador = new Administrador(rut, nombres, apellidos, fechaIngreso, usuarioId);
+            // Obtener el usuario correspondiente al usuarioId
+            Usuario usuario = usuarioService.getUsuarioById(usuarioId);
+            
+            if (usuario == null) {
+                // Manejar el caso cuando no se encuentra el usuario
+                return new ModelAndView("redirect:/"); // O redireccionar a una página de error
+            }
+
+            // Crear una nueva instancia de Administrador y asociarla con el Usuario
+            Administrador administrador = new Administrador(rut, nombres, apellidos, fechaIngreso, usuario);
 
             // Registrar el administrador en la base de datos
             administradorService.registrarAdministrador(administrador);
 
             // Redirigir a una página de éxito o a otra página según el caso
-            return new ModelAndView("redirect:/");
+            return new ModelAndView("redirect:/"); // O redireccionar a una página de éxito
         } catch (Exception e) {
             e.printStackTrace();
             // Manejar el error adecuadamente
-            return new ModelAndView("redirect:/");
+            return new ModelAndView("redirect:/"); // O redireccionar a una página de error
         }
     }
 }
+

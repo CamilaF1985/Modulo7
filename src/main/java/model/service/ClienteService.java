@@ -39,19 +39,8 @@ public class ClienteService {
 		clRepo.save(c);
 	}
     @Transactional
-    public Cliente getClienteWithProperties(Long id) {
-        Cliente cliente = clRepo.findById(id).orElse(null);
-        
-        if (cliente != null) {
-            // Cargar propiedades relacionadas adicionales aquí
-            cliente.getApellidos(); // Ejemplo: Cargar la colección de roles
-            
-            // Puedes hacer más operaciones para cargar otras propiedades
-            
-            return cliente;
-        }
-        
-        return null;
+    public Cliente getClienteByUserName(String user) {
+        return clRepo.findClienteByUsuarioUser(user);
     }
 }
 

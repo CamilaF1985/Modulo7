@@ -20,15 +20,8 @@
 		<form action="crearPedido" method="post" class="mb-5 mt-5">
 			<h1 class="tituloContacto">Crear Pedido</h1>
 
-			<div class="form-group">
-				<label for="clienteId">Seleccionar Cliente:</label> <br> <select
-					name="clienteId">
-					<c:forEach var="cliente" items="${clientes}">
-						<option value="${cliente.id}">${cliente.nombres}
-							${cliente.apellidos}</option>
-					</c:forEach>
-				</select>
-			</div>
+			<!-- Agrega un campo oculto para enviar el clienteId -->
+			<input type="hidden" name="clienteId" value="${cliente.id}">
 
 			<div class="form-group">
 				<label>Cantidad:</label> <select name="productoId"

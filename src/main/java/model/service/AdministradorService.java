@@ -39,18 +39,7 @@ public class AdministradorService {
 		adRepo.save(a);
 	}
     @Transactional
-    public Administrador getAdministradorWithProperties(Long id) {
-    	Administrador administrador = adRepo.findById(id).orElse(null);
-        
-        if (administrador != null) {
-            // Cargar propiedades relacionadas adicionales aquí
-        	administrador.getApellidos(); // Ejemplo: Cargar la colección de roles
-            
-            // Puedes hacer más operaciones para cargar otras propiedades
-            
-            return administrador;
-        }
-        
-        return null;
+    public Administrador getAdministradorByUserName(String userName) {
+        return adRepo.findAdministradorByUsuarioUser(userName);
     }
 }
