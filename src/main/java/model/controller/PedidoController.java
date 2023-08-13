@@ -1,6 +1,7 @@
 package model.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,13 @@ public class PedidoController {
         List<Pedido> pedidos = pedidoService.obtenerTodosLosPedidos();
         model.addAttribute("pedidos", pedidos);
         return "verPedidos";
+    }
+    
+    @PostMapping("/actualizarEstadoPedido")
+    public String actualizarEstadoPedido(@RequestParam Long Id, @RequestParam String nuevoEstado) {
+        pedidoService.actualizarPedido(Id, nuevoEstado);
+        
+        return "redirect:/verPedidos";
     }
 
     @GetMapping("/crearPedido")

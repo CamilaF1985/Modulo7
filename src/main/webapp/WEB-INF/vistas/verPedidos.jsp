@@ -4,7 +4,8 @@
 <html>
 <head>
 <title>Ver Pedidos - Administrador</title>
-<link rel="stylesheet" href="ruta_a_tu_estilo.css">
+<link rel="stylesheet" type="text/css"
+	href="/sushipe/res/css/styles.css">
 </head>
 <body>
 	<%@ include file='navbar.jsp'%>
@@ -15,23 +16,41 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>ID del Pedido</th>
+					<th>ID</th>
 					<th>Cliente</th>
+					<th>Dirección</th>
 					<th>Productos Solicitados</th>
 					<th>Cantidad</th>
 					<th>Precio Total</th>
 					<th>Indicaciones</th>
+					<th>Estado</th>
+					<th>Actualizar Estado</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="pedido" items="${pedidos}">
 					<tr>
-						<td>${pedido.productoId}</td>
-						<td>${pedido.clienteNombres}${pedido.clienteApellidos}</td>
-						<td>${pedido.productoNombre}</td>
-						<td>${pedido.cantidad}</td>
-						<td>${pedido.precioTotal}</td>
-						<td>${pedido.indicaciones}</td>
+						<td><br>${pedido.id}</td>
+						<td><br>${pedido.clienteNombres}<br>${pedido.clienteApellidos}</td>
+						<td><br>${pedido.clienteCalle}<br>${pedido.clienteNumeracion}
+							<br>${pedido.clienteIndicaciones}</td>
+						<td><br>${pedido.productoNombre}</td>
+						<td><br>${pedido.cantidad}</td>
+						<td><br>${pedido.precioTotal}</td>
+						<td><br>${pedido.indicaciones}</td>
+						<td><br>${pedido.estado}</td>
+
+						<td class="formulario-celda">
+							<form action="/sushipe/actualizarEstadoPedido" method="post"
+								class="formulario-inline">
+								<input type="hidden" name="Id" value="${pedido.id}"> <select
+									name="nuevoEstado">
+									<option value="En Preparación">En Preparación</option>
+									<option value="En Reparto">En Reparto</option>
+									<option value="Despachado">Despachado</option>
+								</select>
+								<button type="submit">Actualizar Estado</button>
+							</form>
 					</tr>
 				</c:forEach>
 

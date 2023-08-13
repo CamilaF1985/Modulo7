@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import model.entity.Pedido;
 
-public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
+public interface IPedidoRepository extends JpaRepository<Pedido, Long> {
 	
     List<Pedido> findAll(); // Utiliza el método definido por defecto en JpaRepository
 }

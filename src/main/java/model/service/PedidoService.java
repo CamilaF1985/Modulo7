@@ -2,6 +2,9 @@ package model.service;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +56,10 @@ public class PedidoService {
 
         pedidoRepository.save(pedido); // Guardar el Pedido
     }
+    
+	public Pedido obtenerPedidoPorId(Long Id) {
+		return pedidoRepository.getOne(Id);
+	}
 
     
     public List<Pedido> obtenerTodosLosPedidos() {
@@ -60,9 +67,16 @@ public class PedidoService {
     }
     
 
-    // Otras operaciones y métodos relacionados con pedidos
-
-    // ...
+    @Transactional
+    public void actualizarPedido(Long Id, String nuevoEstado) {
+		Pedido pedido  = pedidoRepository.findById(Id).orElse(null);
+        
+        if (pedido != null) {
+            pedido.setEstado(nuevoEstado);
+        } else {
+            throw new EntityNotFoundException("Pedido no encontrado con el ID proporcionado");
+        }
+    }
 }
 
 

@@ -11,6 +11,11 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+.table th,
+.table td {
+  color: white;
+}
+
 .navbar-brand img {
 	max-height: 200px;
 	margin-left: 380px;
@@ -217,6 +222,9 @@ textarea {
 	text-align: center;
 }
 
+.formulario-celda {
+    vertical-align: middle;
+}
 
 /* Estilo para el footer */
 footer {
