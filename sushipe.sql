@@ -104,6 +104,10 @@ CREATE TABLE pedidos (
     FOREIGN KEY (producto_id) REFERENCES productos(id)
 );
 
+ALTER TABLE pedidos
+ADD estado VARCHAR(20);
+
+
 -- Script para eliminar todos los registros de la tabla pedidos
 DELETE FROM pedidos;
 

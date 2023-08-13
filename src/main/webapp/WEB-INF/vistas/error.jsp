@@ -21,6 +21,8 @@
         </div>
     </div>
     
+    	<%@ include file='footer.jsp'%>
+    
     	<script src="/sushipe/res/js/error.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 
 	<div class="exito-container">
 		<h1>Éxito!</h1>
-		<p>Registro exitoso</p>
+		<p>Su pedido ha sido ingresado con éxito</p>
 		<!-- Agregar imagen vinculada desde la carpeta "img" en el proyecto -->
 		<div style="text-align: center;">
 			<img src="/sushipe/res/img/gato de la suerte.jpg"
