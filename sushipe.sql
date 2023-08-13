@@ -147,7 +147,7 @@ ALTER TABLE administradores
 ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
 REFERENCES usuarios(id);
 
-ALTER TABLE usuarios AUTO_INCREMENT = 1;
+ALTER TABLE pedidos AUTO_INCREMENT = 1;
 
 
 
