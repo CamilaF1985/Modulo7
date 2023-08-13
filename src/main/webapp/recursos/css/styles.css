@@ -11,6 +11,16 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+.logo-container {
+  text-align: center;
+  margin-top: 1rem; /* Ajusta el valor según tus preferencias */
+}
+
+.logo-container img {
+  max-width: 200px;
+}
+
+
 .table th,
 .table td {
   color: white;
@@ -137,7 +147,7 @@ div.galería.postres a {
 
 /* Estilos para el formulario */
 form {
-	margin-top: 30px;
+	margin-top: 20px;
 	color: white;
 }
 
@@ -212,7 +222,7 @@ textarea {
 }
 
 .error-container img {
-	max-width: 100%;
+	max-width: 50%;
 	margin-bottom: 20px;
 	text-align: center;
 }
