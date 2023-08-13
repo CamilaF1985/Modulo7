@@ -23,47 +23,41 @@
 	}
 	%>
 
-	<div class="text-center">
-		<div class="logo-container mb-4">
-			<img src="/sushipe/res/img/logo-sushipe.png" alt="logo de la empresa"
-				style="max-width: 200px;">
-		</div>
+	<div class="logo-container mb-4">
+		<img src="/sushipe/res/img/logo-sushipe.png" alt="logo de la empresa"
+			style="max-width: 200px;">
+	</div>
 
-		<div class=contacto style="display: flex; justify-content: center;">
-			<section class="form-login">
-				<h1 class="tituloContacto">Ingresa</h1>
-				<form name="loginForm" class="form"
-					action="${pageContext.request.contextPath}/login" method="post"
-					class="mb-5 mt-5">
-					<div class="form-group">
-						<div class="campo">
-							<label for="username" class="mb-2">Usuario:</label> <input
-								class="form-control" type="text" name="username"
-								placeholder="Introduce nombre">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="campo">
-							<label for="password" class="mb-2">Clave de acceso:</label> <input
-								class="form-control" type="password" name="password"
-								placeholder="Introduce contraseña">
-						</div>
-					</div>
-					<div style="display: flex; justify-content: center;" class="mb-5">
-						<input type="submit" value="Enviar" class="boton-enviar">
-					</div>
-				</form>
-			</section>
-		</div>
-		</div>
+	<div class="contacto" style="display: flex; justify-content: center;">
+		<section class="form-login">
+			<h1 class="tituloContacto">Ingresa</h1>
+			<form name="loginForm" class="form"
+				action="${pageContext.request.contextPath}/login" method="post">
+				<div class="campo">
+					<label for="username" class="mb-2">Usuario:</label> <input
+						class="form-control" type="text" name="username"
+						placeholder="Introduce nombre">
+				</div>
+				<div class="campo">
+					<label for="password" class="mb-2">Clave de acceso:</label> <input
+						class="form-control" type="password" name="password"
+						placeholder="Introduce contraseña">
+				</div>
+				<div style="display: flex; justify-content: center;" class="mb-5">
+					<input type="submit" value="Enviar" class="boton-enviar">
+				</div>
+			</form>
+		</section>
+	</div>
 
 
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<script src="/sushipe/res/js/validaciones.js"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-			crossorigin="anonymous"></script>
+	<%@ include file='footer.jsp'%>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="/sushipe/res/js/validaciones.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
 </body>
 </html>
 

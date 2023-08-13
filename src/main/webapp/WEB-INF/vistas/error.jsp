@@ -16,10 +16,13 @@
                 <div>
                     <img src="/sushipe/res/img/gato negro.jpg" alt="gato negro">
                 </div>
-                <p><a href="/sushipe/login">Volver al inicio de sesión</a></p>
+                <p>Serás redirigido automáticamente al inicio de sesión en 5 segundos.</p>
             </div>
         </div>
     </div>
+    
+    	<script src="/sushipe/res/js/error.js"></script>
 </body>
 </html>
+
 
