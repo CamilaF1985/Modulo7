@@ -269,6 +269,11 @@ textarea {
 .formulario-celda {
     vertical-align: middle;
 }
+.contador:before {
+    content: "\a"; /* Agregar un salto de línea */
+    white-space: pre;
+}
+
 
 /* Estilo para el footer */
 footer {

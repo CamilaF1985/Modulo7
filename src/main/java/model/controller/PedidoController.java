@@ -40,6 +40,10 @@ public class PedidoController {
     public String actualizarEstadoPedido(@RequestParam Long Id, @RequestParam String nuevoEstado) {
         pedidoService.actualizarPedido(Id, nuevoEstado);
         
+        if ("Despachado".equals(nuevoEstado)) {
+            pedidoService.actualizarFechaDespacho(Id); // Agregar esta llamada
+        }
+        
         return "redirect:/verPedidos";
     }
 
@@ -61,7 +65,8 @@ public class PedidoController {
 
     @PostMapping("/crearPedido")
     public String crearPedido(@RequestParam int productoId,
-            @RequestParam Integer cantidad, @RequestParam String indicaciones) {
+            @RequestParam Integer cantidad, @RequestParam String indicaciones,
+            @RequestParam String fechaIngreso, @RequestParam String fechaDespacho) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName(); // Obtener el nombre de usuario
@@ -80,6 +85,21 @@ public class PedidoController {
 
         return "redirect:/exito"; // Redirigir a la vista de exito
     }
+    
+    @GetMapping("/pedidosDespachados")
+    public String verPedidosDespachados(Model model) {
+        List<Pedido> pedidosDespachados = pedidoService.obtenerPedidosDespachados();
+        model.addAttribute("pedidos", pedidosDespachados);
+        return "verPedidos";
+    }
+
+    @GetMapping("/pedidosNoDespachados")
+    public String verPedidosNoDespachados(Model model) {
+        List<Pedido> pedidosNoDespachados = pedidoService.obtenerPedidosNoDespachados();
+        model.addAttribute("pedidos", pedidosNoDespachados);
+        return "verPedidos";
+    }
+
 }
 
 

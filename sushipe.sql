@@ -8,6 +8,24 @@ USE sushipe;
 CREATE USER 'sushipe'@'localhost' IDENTIFIED BY '12345';
 GRANT ALL PRIVILEGES ON sushipe.* TO 'sushipe'@'localhost';
 
+-- Crear tabla contacto
+CREATE TABLE contacto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(70),
+    email VARCHAR(255),
+    comentario VARCHAR(100)
+);
+
+-- Crear tabla usuarios
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY,
+    user VARCHAR(50),
+    password VARCHAR(100),
+    rol VARCHAR(20),
+    email VARCHAR(100),
+    tipo ENUM('Cliente', 'Administrador') NOT NULL
+);
+
 -- Crear tabla clientes
 CREATE TABLE clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,23 +35,28 @@ CREATE TABLE clientes (
     comuna VARCHAR(45),
     calle VARCHAR(50),
     numeracion INT,
-    indicaciones VARCHAR(70)
+    indicaciones VARCHAR(70),
+    id_usuario INT
 );
 
--- Crear tabla login
-CREATE TABLE login (
-    id INT PRIMARY KEY,
-    username VARCHAR(50),
-    password VARCHAR(100)
-);
+-- Script para agregar la FK en la tabla Clientes
+ALTER TABLE clientes
+ADD CONSTRAINT fk_cliente_usuario FOREIGN KEY (id_usuario)
+REFERENCES usuarios(id);
 
--- Crear tabla contacto
-CREATE TABLE contacto (
+CREATE TABLE administradores (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(70),
-    email VARCHAR(255),
-    comentario VARCHAR(100)
+    rut INT NOT NULL,
+    nombres VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    fecha_ingreso VARCHAR(50) NOT NULL,
+    id_usuario INT
 );
+
+-- Script para agregar la FK en la tabla Administradores
+ALTER TABLE administradores
+ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
+REFERENCES usuarios(id);
 
 -- Crear tabla productos
 CREATE TABLE productos (
@@ -76,14 +99,8 @@ VALUES
     ('Arroz Chaufa', 'Platos Pe', 6200),
     ('Lomo Saltado', 'Platos Pe', 6200)
     ;
-ALTER TABLE login
-ADD COLUMN rol VARCHAR(20);
-      
-ALTER TABLE login CHANGE COLUMN username user VARCHAR(50);
 
-ALTER TABLE login
-ADD COLUMN email VARCHAR(100) AFTER password;
-
+-- Crear tabla pedidos
 CREATE TABLE pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT,
@@ -99,59 +116,20 @@ CREATE TABLE pedidos (
     cliente_numeracion INT,
     cliente_indicaciones VARCHAR(70),
     producto_nombre VARCHAR(50),
-    -- Otros campos de productos si son necesarios
     FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id)
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    estado VARCHAR(20),
+    fecha_ingreso TIMESTAMP,
+    fecha_despacho TIMESTAMP
 );
 
-ALTER TABLE pedidos
-ADD estado VARCHAR(20);
-
-
--- Script para eliminar todos los registros de la tabla pedidos
+-- Script para eliminar todos los registros de una tabla
 DELETE FROM pedidos;
 
--- Script para eliminar todos los registros de la tabla usuarios
-DELETE FROM usuarios;
-
-INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones)
-VALUES 
-('Paulina Andrea', 'Fuentes Soto', 569736361, 'Vitacura', 'Av. Vitacura', 1234, ''),
-('Luis Alberto', 'Gonzalez Fuenzalida', 569745897, 'Santiago Centro', 'Puente', 567, 'Casa esquina'),
-('Carlos Patricio', 'Hernandez Flores', 569456871, 'Puente Alto', 'Los Patos', 259, ''),
-('Mauricio ', 'Aguirre Gomez', 569345768, 'La Reina', 'Tobalaba', 645, '');
-
-RENAME TABLE login TO usuarios;
-
-CREATE TABLE administradores (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    rut INT NOT NULL,
-    nombres VARCHAR(50) NOT NULL,
-    apellidos VARCHAR(50) NOT NULL,
-    fecha_ingreso VARCHAR(50) NOT NULL
-);
-
-ALTER TABLE usuarios
-ADD COLUMN tipo ENUM('Cliente', 'Administrador') NOT NULL;
-
-ALTER TABLE clientes
-ADD COLUMN id_usuario INT;
-
-ALTER TABLE administradores
-ADD COLUMN id_usuario INT;
-
-
--- Script para agregar la FK en la tabla Clientes
-ALTER TABLE clientes
-ADD CONSTRAINT fk_cliente_usuario FOREIGN KEY (id_usuario)
-REFERENCES usuarios(id);
-
--- Script para agregar la FK en la tabla Administradores
-ALTER TABLE administradores
-ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
-REFERENCES usuarios(id);
-
+-- Script para resetear auto_increment en una tabla
 ALTER TABLE pedidos AUTO_INCREMENT = 1;
+
+
 
 
 
