@@ -1,5 +1,6 @@
 package model.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
@@ -37,6 +38,11 @@ public class PedidoService {
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
 
         Pedido pedido = new Pedido();
+        
+        // Setear los campos de tiempo
+        pedido.setFechaIngreso(LocalDateTime.now()); // Fecha y hora actual
+        pedido.setFechaDespacho(null); // 
+        
         pedido.setClienteId(Long.valueOf(clienteId));
         pedido.setClienteNombres(cliente.getNombres());
         pedido.setClienteApellidos(cliente.getApellidos());
@@ -76,6 +82,30 @@ public class PedidoService {
         } else {
             throw new EntityNotFoundException("Pedido no encontrado con el ID proporcionado");
         }
+    }
+    
+    @Transactional
+    public void actualizarFechaDespacho(Long Id) {
+        Pedido pedido = pedidoRepository.findById(Id).orElse(null);
+        
+        if (pedido != null) {
+            pedido.setFechaDespacho(LocalDateTime.now()); // Establecer la fecha y hora actual como fecha de despacho
+        } else {
+            throw new EntityNotFoundException("Pedido no encontrado con el ID proporcionado");
+        }
+    }
+
+    
+    public List<Pedido> obtenerPedidosEntreFechas(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        return pedidoRepository.findByFechaIngresoBetween(startDateTime, endDateTime);
+    }
+
+    public List<Pedido> obtenerPedidosDespachados() {
+        return pedidoRepository.findByFechaDespachoNotNull();
+    }
+
+    public List<Pedido> obtenerPedidosNoDespachados() {
+        return pedidoRepository.findByFechaDespachoIsNull();
     }
 }
 

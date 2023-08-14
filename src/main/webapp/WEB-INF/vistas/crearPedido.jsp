@@ -23,6 +23,11 @@
 			<!-- Agrega un campo oculto para enviar el clienteId -->
 			<input type="hidden" name="clienteId" value="${cliente.id}">
 
+			<input type="hidden" name="fechaIngreso"
+				value="<%=java.time.LocalDateTime.now()%>"> <input
+				type="hidden" name="fechaDespacho" value="">
+
+
 			<div class="form-group">
 				<label>Cantidad:</label> <select name="productoId"
 					onchange="actualizarPrecioTotal(this)">

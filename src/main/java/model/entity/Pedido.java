@@ -1,5 +1,7 @@
 package model.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,6 +59,12 @@ public class Pedido {
     
     @Column(name = "estado")
     private String estado;
+    
+    @Column(name = "fecha_ingreso")
+    private LocalDateTime fechaIngreso;
+
+    @Column(name = "fecha_despacho")
+    private LocalDateTime fechaDespacho;
 
 
     public Long getId() {
@@ -178,6 +186,25 @@ public class Pedido {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+
+    public LocalDateTime getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(LocalDateTime fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public LocalDateTime getFechaDespacho() {
+        return fechaDespacho;
+    }
+
+    public void setFechaDespacho(LocalDateTime fechaDespacho) {
+        this.fechaDespacho = fechaDespacho;
+    }
+    
+    
 }
 
 
