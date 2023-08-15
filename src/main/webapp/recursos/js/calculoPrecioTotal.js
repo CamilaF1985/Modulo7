@@ -1,20 +1,31 @@
+function actualizarPrecioTotal(selectElement) {
+    const cantidadesInput = document.querySelector('.cantidades-input');
+    const precioElement = document.getElementById('precioTotal');
 
-    function actualizarPrecioTotal(selectElement) {
-        const cantidadInput = document.querySelector('.cantidad-input');
-        const precioElement = document.getElementById('precioTotal');
+    const cantidadInputs = cantidadesInput.value.split(',');
+    const precios = [];
 
-        const cantidad = parseInt(cantidadInput.value);
-        const precio = parseFloat(selectElement.options[selectElement.selectedIndex].getAttribute('data-precio'));
+    for (let i = 0; i < selectElement.selectedOptions.length; i++) {
+        const precio = parseFloat(selectElement.selectedOptions[i].getAttribute('data-precio'));
+        precios.push(precio);
+    }
 
-        if (!isNaN(cantidad) && !isNaN(precio)) {
-            const precioTotal = cantidad * precio;
-            precioElement.textContent = precioTotal.toFixed(2);
+    let precioTotal = 0;
+
+    for (let i = 0; i < cantidadInputs.length; i++) {
+        const cantidad = parseInt(cantidadInputs[i]);
+        if (!isNaN(cantidad) && !isNaN(precios[i])) {
+            precioTotal += cantidad * precios[i];
         }
     }
 
-    const cantidadInput = document.querySelector('.cantidad-input');
-    cantidadInput.addEventListener('input', () => {
-        const selectElement = document.querySelector('select[name="productoId"]');
-        actualizarPrecioTotal(selectElement);
-    });
-    actualizarPrecioTotal(document.querySelector('select[name="productoId"]'));
+    precioElement.textContent = precioTotal.toFixed(2);
+}
+
+const cantidadesInput = document.querySelector('.cantidades-input');
+cantidadesInput.addEventListener('input', () => {
+    const selectElement = document.querySelector('select[name="productoIds"]');
+    actualizarPrecioTotal(selectElement);
+});
+actualizarPrecioTotal(document.querySelector('select[name="productoIds"]'));
+

@@ -29,15 +29,17 @@
 
 
 			<div class="form-group">
-				<label>Cantidad:</label> <select name="productoId"
-					onchange="actualizarPrecioTotal(this)">
+				<label>Productos:</label> <select name="productoIds"
+					multiple="multiple" onchange="actualizarPrecioTotal(this)">
 					<c:forEach var="producto" items="${productos}">
 						<option value="${producto.id}" data-precio="${producto.precio}">
 							${producto.nombre}</option>
 					</c:forEach>
-				</select> <input type="number" class="form-control cantidad-input"
-					name="cantidad" min="0" value="0">
+				</select> <br> <label>Cantidades:</label> <input type="text"
+					class="form-control cantidades-input" name="cantidades"
+					placeholder="Ingrese las cantidades separadas por comas">
 			</div>
+
 
 
 			<div class="form-group">

@@ -1,15 +1,9 @@
 package model.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "pedidos")
@@ -25,9 +19,6 @@ public class Pedido {
 
     @Column(name = "precio_total")
     private Integer precioTotal;
-
-    @Column(name = "cantidad") // Nuevo campo para almacenar la cantidad del producto
-    private Integer cantidad;
     
     @Column(name = "estado")
     private String estado;
@@ -39,12 +30,11 @@ public class Pedido {
     private LocalDateTime fechaDespacho;
     
     @OneToOne
-    @JoinColumn(name = "producto_id")
-    private Producto producto;
-    
-    @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    
+    @OneToMany(mappedBy = "pedido")
+    private List<PedidosProductos> pedidosProductos;
 
 
     public Long getId() {
@@ -63,13 +53,6 @@ public class Pedido {
         this.indicaciones = indicaciones;
     }
     
-    public Integer getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
     
     public Integer getPrecioTotal() {
         return precioTotal;
@@ -104,17 +87,6 @@ public class Pedido {
         this.fechaDespacho = fechaDespacho;
     }
     
-
-    // Getter para Producto
-    public Producto getProducto() {
-        return producto;
-    }
-
-    // Setter para Producto
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     // Getter para Cliente
     public Cliente getCliente() {
         return cliente;
@@ -123,6 +95,14 @@ public class Pedido {
     // Setter para Cliente
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+    
+    public List<PedidosProductos> getPedidosProductos() {
+        return pedidosProductos;
+    }
+
+    public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
+        this.pedidosProductos = pedidosProductos;
     }
     
 }
