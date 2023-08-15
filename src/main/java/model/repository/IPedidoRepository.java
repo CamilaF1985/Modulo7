@@ -15,6 +15,8 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Long> {
     List<Pedido> findByFechaDespachoNotNull();
     
     List<Pedido> findByFechaDespachoIsNull();
+    
+    
 }
 
 

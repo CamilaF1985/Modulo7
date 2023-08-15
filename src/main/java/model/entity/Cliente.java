@@ -1,5 +1,7 @@
 package model.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -29,6 +31,9 @@ public class Cliente {
     @OneToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
     
 	// Constructor nulo
 	public Cliente() {

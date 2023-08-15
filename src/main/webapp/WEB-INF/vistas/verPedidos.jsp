@@ -35,10 +35,10 @@
 				<c:forEach var="pedido" items="${pedidos}">
 					<tr>
 						<td><br>${pedido.id}</td>
-						<td><br>${pedido.clienteNombres}<br>${pedido.clienteApellidos}</td>
-						<td><br>${pedido.clienteCalle}<br>${pedido.clienteNumeracion}
-							<br>${pedido.clienteIndicaciones}</td>
-						<td><br>${pedido.productoNombre}</td>
+						<td><br>${pedido.cliente.nombres}<br>${pedido.cliente.apellidos}</td>
+						<td><br>${pedido.cliente.calle}<br>${pedido.cliente.numeracion}
+							<br>${pedido.cliente.indicaciones}</td>
+						<td><br>${pedido.producto.nombre}</td>
 						<td><br>${pedido.cantidad}</td>
 						<td><br>${pedido.precioTotal}</td>
 						<td class="contador" id="contador-${pedido.id}"
