@@ -28,10 +28,11 @@ public class PedidoController {
 
     @Autowired
     private ClienteService clienteService; // Inyectar el servicio de cliente
+    
 
     @GetMapping("/verPedidos")
     public String verPedidos(Model model) {
-        List<Pedido> pedidos = pedidoService.obtenerTodosLosPedidos();
+        List<Pedido> pedidos = pedidoService.obtenerPedidosConProductos();
         model.addAttribute("pedidos", pedidos);
         return "verPedidos";
     }
@@ -64,9 +65,8 @@ public class PedidoController {
     }
 
     @PostMapping("/crearPedido")
-    public String crearPedido(@RequestParam int productoId,@RequestParam Long clienteId,
-            @RequestParam Integer cantidad, @RequestParam String indicaciones,
-            @RequestParam String fechaIngreso, @RequestParam String fechaDespacho) {
+    public String crearPedido(@RequestParam Long clienteId, @RequestParam List<Integer> productoIds,
+                              @RequestParam List<Integer> cantidades, @RequestParam String indicaciones) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName(); // Obtener el nombre de usuario
@@ -76,15 +76,11 @@ public class PedidoController {
             throw new RuntimeException("Cliente no encontrado");
         }
 
-        Producto producto = productoService.getproductoById(productoId);
-        if (producto == null) {
-            throw new RuntimeException("Producto no encontrado");
-        }
+        pedidoService.crearPedido(clienteId, productoIds, cantidades, indicaciones);
 
-        pedidoService.crearPedido(cliente.getId(), productoId, cantidad, indicaciones);
-
-        return "redirect:/exito"; // Redirigir a la vista de exito
+        return "redirect:/exito"; // Redirigir a la vista de éxito
     }
+
     
     @GetMapping("/pedidosDespachados")
     public String verPedidosDespachados(Model model) {

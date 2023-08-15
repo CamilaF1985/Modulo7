@@ -100,25 +100,23 @@ VALUES
     ('Lomo Saltado', 'Platos Pe', 6200)
     ;
     
-    CREATE TABLE pedidos (
+-- Crear tabla de pedidos
+CREATE TABLE pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT,
-    producto_id INT,
     indicaciones VARCHAR(70),
     precio_total INT,
-    cantidad INT,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id),
     estado VARCHAR(20),
     fecha_ingreso TIMESTAMP,
-    fecha_despacho TIMESTAMP
+    fecha_despacho TIMESTAMP,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
 -- Script para eliminar todos los registros de una tabla
 DELETE FROM pedidos;
 
 -- Script para resetear auto_increment en una tabla
-ALTER TABLE pedidos AUTO_INCREMENT = 1;
+ALTER TABLE pedidos_productos AUTO_INCREMENT = 1;
 
 -- Query para seleccionar datos de clientes y productos asociados a un pedido
 SELECT p.id AS pedido_id, 
@@ -141,6 +139,57 @@ SELECT p.id AS pedido_id,
 FROM pedidos p
 JOIN clientes c ON p.cliente_id = c.id
 JOIN productos pr ON p.producto_id = pr.id;
+
+-- Crear tabla intermedia para productos en pedidos
+CREATE TABLE pedidos_productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT,
+    producto_id INT,
+    cantidad INT,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+-- Desactivar restricciones de llaves foráneas
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Insertar productos en la tabla pedidos_productos
+INSERT INTO pedidos_productos (pedido_id, producto_id, cantidad) VALUES
+(1, 2, 1), -- Pedido 1, Producto 2, Cantidad 1
+(1, 3, 2); -- Pedido 1, Producto 3, Cantidad 2
+
+-- Calcular el precio total para el pedido
+SET @total = (
+    SELECT SUM(p.precio * pp.cantidad)
+    FROM productos p
+    JOIN pedidos_productos pp ON p.id = pp.producto_id
+    WHERE pp.pedido_id = 1
+);
+
+-- Insertar el registro del pedido en la tabla pedidos
+INSERT INTO pedidos (cliente_id, indicaciones, precio_total, estado, fecha_ingreso, fecha_despacho)
+VALUES (1, 'Indicaciones del pedido', @total, 'Pendiente', NOW(), NULL);
+
+SELECT
+    ped.id AS id_pedido,
+    c.nombres AS nombres_cliente,
+    c.apellidos AS apellidos_cliente,
+    c.calle AS calle_cliente,
+    c.numeracion AS numeracion_cliente,
+    c.indicaciones AS indicaciones_cliente,
+    pr.nombre AS nombre_producto,
+    pp.cantidad AS cantidad_producto,
+    ped.fecha_ingreso AS fecha_ingreso_pedido,
+    ped.fecha_despacho AS fecha_despacho_pedido,
+    ped.estado AS estado_pedido
+FROM pedidos ped
+JOIN clientes c ON ped.cliente_id = c.id
+JOIN pedidos_productos pp ON ped.id = pp.pedido_id
+JOIN productos pr ON pp.producto_id = pr.id
+WHERE ped.id = 1; -- Reemplaza 1 con el ID del pedido que deseas recuperar
+
+
+
+
 
 
 

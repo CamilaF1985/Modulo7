@@ -1,14 +1,7 @@
 package model.entity;
 
+import javax.persistence.*;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
@@ -24,8 +17,7 @@ public class Producto {
     private Integer precio;
     
     @OneToMany(mappedBy = "producto")
-    private List<Pedido> pedidos;
-
+    private List<PedidosProductos> pedidosProductos;
 
     // Constructor, getters y setters
 
@@ -33,14 +25,13 @@ public class Producto {
         // Constructor nulo requerido por JPA
     }
 
-    // Getters y setters
+    public Integer getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -66,6 +57,14 @@ public class Producto {
         this.precio = precio;
     }
 
+    public List<PedidosProductos> getPedidosProductos() {
+        return pedidosProductos;
+    }
+
+    public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
+        this.pedidosProductos = pedidosProductos;
+    }
 }
+
 
 
