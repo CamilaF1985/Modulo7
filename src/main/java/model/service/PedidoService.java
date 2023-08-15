@@ -32,33 +32,22 @@ public class PedidoService {
 
     public void crearPedido(Long clienteId, Integer productoId, Integer cantidad, String indicaciones) {
         Producto producto = productoRepository.findById(productoId)
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));	
         Cliente cliente = clienteRepository.findById(clienteId)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-
         Pedido pedido = new Pedido();
         
         // Setear los campos de tiempo
         pedido.setFechaIngreso(LocalDateTime.now()); // Fecha y hora actual
         pedido.setFechaDespacho(null); // 
-        
-        pedido.setClienteId(Long.valueOf(clienteId));
-        pedido.setClienteNombres(cliente.getNombres());
-        pedido.setClienteApellidos(cliente.getApellidos());
-        pedido.setClienteTelefono(cliente.getTelefono());
-        pedido.setClienteComuna(cliente.getComuna());
-        pedido.setClienteCalle(cliente.getCalle());
-        pedido.setClienteNumeracion(cliente.getNumeracion());
-        pedido.setClienteIndicaciones(cliente.getIndicaciones());
-
         pedido.setIndicaciones(indicaciones);
-        pedido.setProductoId(Long.valueOf(productoId));
-        pedido.setProductoNombre(producto.getNombre());
         pedido.setCantidad(cantidad);
 
         int precioTotal = producto.getPrecio() * cantidad;
         pedido.setPrecioTotal(precioTotal);
+
+        pedido.setCliente(cliente); // Asignar el cliente al pedido
+        pedido.setProducto(producto); // Asignar el producto al pedido
 
         pedidoRepository.save(pedido); // Guardar el Pedido
     }

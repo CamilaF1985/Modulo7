@@ -64,7 +64,7 @@ public class PedidoController {
     }
 
     @PostMapping("/crearPedido")
-    public String crearPedido(@RequestParam int productoId,
+    public String crearPedido(@RequestParam int productoId,@RequestParam Long clienteId,
             @RequestParam Integer cantidad, @RequestParam String indicaciones,
             @RequestParam String fechaIngreso, @RequestParam String fechaDespacho) {
 

@@ -99,23 +99,14 @@ VALUES
     ('Arroz Chaufa', 'Platos Pe', 6200),
     ('Lomo Saltado', 'Platos Pe', 6200)
     ;
-
--- Crear tabla pedidos
-CREATE TABLE pedidos (
+    
+    CREATE TABLE pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cliente_id INT,
     producto_id INT,
     indicaciones VARCHAR(70),
     precio_total INT,
     cantidad INT,
-    cliente_nombres VARCHAR(50),
-    cliente_apellidos VARCHAR(50),
-    cliente_telefono INT,
-    cliente_comuna VARCHAR(45),
-    cliente_calle VARCHAR(50),
-    cliente_numeracion INT,
-    cliente_indicaciones VARCHAR(70),
-    producto_nombre VARCHAR(50),
     FOREIGN KEY (cliente_id) REFERENCES clientes(id),
     FOREIGN KEY (producto_id) REFERENCES productos(id),
     estado VARCHAR(20),
@@ -128,6 +119,29 @@ DELETE FROM pedidos;
 
 -- Script para resetear auto_increment en una tabla
 ALTER TABLE pedidos AUTO_INCREMENT = 1;
+
+-- Query para seleccionar datos de clientes y productos asociados a un pedido
+SELECT p.id AS pedido_id, 
+       c.id AS cliente_id, 
+       c.nombres AS cliente_nombres,
+       c.apellidos AS cliente_apellidos,
+       c.telefono AS cliente_telefono,
+       c.comuna AS cliente_comuna,
+       c.calle AS cliente_calle,
+       c.numeracion AS cliente_numeracion,
+       c.indicaciones AS cliente_indicaciones,
+       pr.id AS producto_id,
+       pr.nombre AS producto_nombre,
+       p.indicaciones AS indicaciones,
+       p.precio_total AS precio_total,
+       p.cantidad AS cantidad,
+       p.estado AS estado,
+       p.fecha_ingreso AS fecha_ingreso,
+       p.fecha_despacho AS fecha_despacho
+FROM pedidos p
+JOIN clientes c ON p.cliente_id = c.id
+JOIN productos pr ON p.producto_id = pr.id;
+
 
 
 
