@@ -116,7 +116,7 @@ CREATE TABLE pedidos (
 DELETE FROM pedidos;
 
 -- Script para resetear auto_increment en una tabla
-ALTER TABLE pedidos_productos AUTO_INCREMENT = 1;
+ALTER TABLE pedidos AUTO_INCREMENT = 1;
 
 -- Query para seleccionar datos de clientes y productos asociados a un pedido
 SELECT p.id AS pedido_id, 
@@ -186,6 +186,27 @@ JOIN clientes c ON ped.cliente_id = c.id
 JOIN pedidos_productos pp ON ped.id = pp.pedido_id
 JOIN productos pr ON pp.producto_id = pr.id
 WHERE ped.id = 1; -- Reemplaza 1 con el ID del pedido que deseas recuperar
+
+-- Modificar la columna "estado" en la tabla "pedidos"
+ALTER TABLE pedidos
+MODIFY estado VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Cambiar la codificación de caracteres y collation para la base de datos
+ALTER DATABASE sushipe
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+SELECT @@character_set_database, @@collation_database;
+
+-- Insertar valores en la tabla contacto
+INSERT INTO contacto (nombre, email, comentario) VALUES
+('María Pérez', 'maria@example.com', '¡Hola! Me encanta su sitio web.'),
+('Andrés López', 'andres@example.com', 'Gracias por su atención.'),
+('José Rodríguez', 'jose@example.com', 'Estoy interesado en su producto.'),
+('Elena Gómez', 'elena@example.com', '¿Pueden responder a mis preguntas?');
+
+
+
+
 
 
 

@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<!-- Agrega esta línea -->
 <title>Ver Pedidos - Administrador</title>
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
@@ -41,7 +43,8 @@
 						<td>
 							<ul>
 								<c:forEach var="pp" items="${pedido.pedidosProductos}">
-									<br><li>${pp.producto.nombre}(Cantidad: ${pp.cantidad})</li>
+									<br>
+									<li>${pp.producto.nombre}(Cantidad:${pp.cantidad})</li>
 								</c:forEach>
 							</ul>
 						</td>
@@ -52,21 +55,27 @@
 						<td><br>${pedido.fechaIngreso.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}</td>
 						<td><br>${pedido.fechaDespacho.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))}</td>
 						<td><br>${pedido.estado}</td>
-						<td class="formulario-celda"><br> <c:choose>
+						<td class="formulario-celda"><c:choose>
 								<c:when test="${pedido.estado ne 'Despachado'}">
 									<form action="/sushipe/actualizarEstadoPedido" method="post"
-										class="formulario-inline">
-										<input type="hidden" name="Id" value="${pedido.id}"> <select
-											name="nuevoEstado">
-											<option value="En Preparación">En Preparación</option>
-											<option value="En Reparto">En Reparto</option>
-											<option value="Despachado">Despachado</option>
-										</select>
+										class="formulario-inline" accept-charset="UTF-8">
+										<input type="hidden" name="Id" value="${pedido.id}"> <label>
+											<input type="checkbox" class="estado-checkbox"
+											name="nuevoEstado" value="En Preparación"
+											data-pedido-id="${pedido.id}"> En Preparación
+										</label> <label> <input type="checkbox"
+											class="estado-checkbox" name="nuevoEstado" value="En Reparto"
+											data-pedido-id="${pedido.id}"> En Reparto
+										</label> <label> <input type="checkbox"
+											class="estado-checkbox" name="nuevoEstado" value="Despachado"
+											data-pedido-id="${pedido.id}"> Despachado
+										</label>
 										<button type="submit">Actualizar Estado</button>
 									</form>
 								</c:when>
 								<c:otherwise>Despachado</c:otherwise>
 							</c:choose></td>
+
 					</tr>
 				</c:forEach>
 			</tbody>
