@@ -17,7 +17,7 @@
     <!-- Definición de DataSource -->
     <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/sushipe"></property>
+<property name="url" value="jdbc:mysql://localhost:3306/sushipe?useUnicode=true&amp;characterEncoding=UTF-8"></property>
         <property name="username" value="sushipe"></property>
         <property name="password" value="12345"></property>
     </bean>

@@ -1,13 +1,15 @@
-function actualizarPrecioTotal(selectElement) {
+function actualizarPrecioTotal(checkboxes) {
     const cantidadesInput = document.querySelector('.cantidades-input');
     const precioElement = document.getElementById('precioTotal');
 
     const cantidadInputs = cantidadesInput.value.split(',');
     const precios = [];
 
-    for (let i = 0; i < selectElement.selectedOptions.length; i++) {
-        const precio = parseFloat(selectElement.selectedOptions[i].getAttribute('data-precio'));
-        precios.push(precio);
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            const precio = parseFloat(checkboxes[i].getAttribute('data-precio'));
+            precios.push(precio);
+        }
     }
 
     let precioTotal = 0;
@@ -24,8 +26,18 @@ function actualizarPrecioTotal(selectElement) {
 
 const cantidadesInput = document.querySelector('.cantidades-input');
 cantidadesInput.addEventListener('input', () => {
-    const selectElement = document.querySelector('select[name="productoIds"]');
-    actualizarPrecioTotal(selectElement);
+    const checkboxes = document.querySelectorAll('input[name="productoIds"]');
+    actualizarPrecioTotal(checkboxes);
 });
-actualizarPrecioTotal(document.querySelector('select[name="productoIds"]'));
+
+const checkboxes = document.querySelectorAll('input[name="productoIds"]');
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        const checkboxes = document.querySelectorAll('input[name="productoIds"]:checked');
+        actualizarPrecioTotal(checkboxes);
+    });
+});
+
+actualizarPrecioTotal(document.querySelectorAll('input[name="productoIds"]:checked'));
+
 

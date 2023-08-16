@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener("change", function() {
+            checkboxes.forEach(function(otherCheckbox) {
+                if (otherCheckbox !== checkbox) {
+                    otherCheckbox.disabled = checkbox.checked;
+                }
+            });
+        });
+    });
+
     function updateTimers() {
         var now = new Date();
 
@@ -50,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Actualizar los contadores cada segundo (ajusta el intervalo según sea necesario)
     setInterval(updateTimers, 1000);
 });
+
 
 
 

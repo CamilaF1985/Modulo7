@@ -42,7 +42,7 @@ public class PedidoController {
         pedidoService.actualizarPedido(Id, nuevoEstado);
         
         if ("Despachado".equals(nuevoEstado)) {
-            pedidoService.actualizarFechaDespacho(Id); // Agregar esta llamada
+            pedidoService.actualizarFechaDespacho(Id);
         }
         
         return "redirect:/verPedidos";
