@@ -26,26 +26,63 @@ body {
   color: white;
 }
 
-.navbar-brand img {
-	max-height: 200px;
-	margin-left: 380px;
-}
-
+/* Estilos para el navbar */
 .navbar.bg-black {
 	background-color: #000000;
-}
-
-.navbar-nav {
-	margin-left: 380px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .navbar-nav .nav-link {
 	font-size: 20px;
 }
+.navbar-brand img {
+    max-width: 200px;
+    width: 100%;
+}
 
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+	/* Estilos para el footer */
+/* Estilos para el pie de página */
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+/* Estilos para el encabezado */
+h5 {
+    letter-spacing: 2px;
+}
+
+/* Estilos para la imagen */
+.img-location-container {
+    max-height: 200px;
+}
+
+/* Estilos para los enlaces de redes sociales */
+.social-link {
+    color: #fff;
+}
+
+/* Estilos para la tabla de horarios */
+.table-responsive {
+    color: #ccc;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+/* Estilos para el texto de derechos de autor */
+.text-center {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos para la galería de la página de inicio */
 .gallery a img {
 	max-width: 190px;
 	height: auto;
@@ -53,97 +90,41 @@ body {
 
 .gallery a {
 	display: inline-block;
-	margin-bottom: 5rem;
+	margin-bottom: 9rem;
+	margin-left: 2rem;
 }
 
-div.galería.japones a img {
-	max-width: 190px;
-	height: auto;
+/* Estilos para las galerías de la página del menú */
+
+.titulo-carta {
+  text-align: center;
 }
 
-div.galería.japones a {
-	margin-left: 1rem;
-	margin-top: 5px;
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-div.galería.california a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.california a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-div.galería.palta a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.palta a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
-div.galería.salmon a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.salmon a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
-div.galería.nikkei a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.nikkei a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
-div.galería.peruana a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.peruana a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
+/* Agregar espacio entre las imágenes de las galerías */
+div.galería.japones a img,
+div.galería.california a img,
+div.galería.palta a img,
+div.galería.salmon a img,
+div.galería.nikkei a img,
+div.galería.peruana a img,
 div.galería.platospe a img {
-	max-width: 190px;
-	height: auto;
+  max-width: 190px;
+  height: auto;
+  margin-right: 5px; /* Ajusta el valor según el espacio deseado */
 }
 
+/* Añadir espacio en la parte inferior de los enlaces de las galerías */
+div.galería.japones a,
+div.galería.california a,
+div.galería.palta a,
+div.galería.salmon a,
+div.galería.nikkei a,
+div.galería.peruana a,
 div.galería.platospe a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-div.galería.postres a img {
-	max-width: 190px;
-	height: auto;
-}
-
-div.galería.postres a {
-	margin-left: 1rem;
-	display: inline-block;
-	margin-bottom: 10px;
-}
 
 /* Estilos para el formulario */
 form {
@@ -274,40 +255,85 @@ textarea {
     white-space: pre;
 }
 
+/* Estilos para tablas */
 
-/* Estilo para el footer */
-footer {
-	padding-top: 0.5rem;
-	/* Ajusta el padding superior según tus preferencias */
-	padding-bottom: 0.5rem;
-	/* Ajusta el padding inferior según tus preferencias */
+/* Estilos para la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
 }
 
-/* Estilo para reducir la altura del contenedor principal del footer */
-footer .container {
-	min-height: auto;
-	/* Establece la altura del contenedor a "auto" para que se ajuste automáticamente */
-	height: 65px;
-	/* Ajusta la altura del footer según tus preferencias */
+.table th, .table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
 }
 
-/* Estilos para pantallas pequeñas */
+/* Estilos para los encabezados */
+.table th {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+/* Estilos para las celdas de estado */
+.estado-checkbox {
+  margin-right: 5px;
+}
+
+/* Estilos para la clase contador */
+.contador {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Estilos para la lista de productos */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilos para los elementos de la lista de productos */
+ul li {
+  margin-bottom: 5px;
+}
+
+/* Media query para pantallas xs (teléfonos móviles) */
 @media (max-width: 575.98px) {
+    .navbar-brand-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-	/* Mover el contenido del navbar hacia la izquierda */
-	.navbar-nav {
-		margin-left: 0;
-	}
+    .navbar-toggler {
+        order: 2;
+    }
 
-	/* Alinear el dropdown hacia la izquierda */
-	.navbar-nav .dropdown-menu {
-		right: auto;
-		left: 0;
-	}
+    .navbar-brand {
+        max-width: 50%;
+    }
 
-	/* Ajustar el logo en pantallas pequeñas */
-	.navbar-brand img {
-		max-height: 100px;
-		margin-left: 10px;
-	}
+    /* Estilos para el contenido del navbar cuando se despliega el menú */
+    .navbar-collapse {
+        position: absolute;
+        top: 100%; /* Posición debajo del botón */
+        left: 0;
+        right: 0;
+        background-color: transparent; /* Fondo negro */
+        padding: 10px;
+        text-align: right; /* Alineación centrada */
+        display: none; /* Oculto por defecto */
+    }
+
+    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+        display: block; /* Mostrar cuando el menú está abierto */
+    }
 }
+
+
+
+
+
+
+
