@@ -50,8 +50,6 @@
 		</section>
 	</div>
 
-
-	<%@ include file='footer.jsp'%>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="/sushipe/res/js/validaciones.js"></script>
 	<script

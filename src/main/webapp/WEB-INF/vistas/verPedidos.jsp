@@ -19,7 +19,8 @@
 
 	<div class="container">
 		<h1>Lista de Pedidos</h1>
-		<table class="table">
+		<div class="table-responsive">
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -81,11 +82,9 @@
 			</tbody>
 		</table>
 	</div>
+	</div>
 	<div id="pedidos-data" data-pedidos="${pedidosJson}"
 		style="display: none;"></div>
-
-	<%@ include file='footer.jsp'%>
-	<!-- Incluir el pie de página -->
 
 	<script src="/sushipe/res/js/verPedidos.js"></script>
 

@@ -26,6 +26,7 @@
 </head>
 <body>
 
+<div class="gallery-container">
 	<div class="gallery">
 		<a href="/sushipe/res/img/acevichado-roll.jpg" data-fancybox="gallery"
 			data-caption="Acevichado roll"> <img
@@ -47,12 +48,13 @@
 			alt="Furai sake roll">
 		</a>
 
-		<!-- Agrega más imágenes aquí -->
 	</div>
 
 
 
 	<%@ include file='footer.jsp'%>
+	
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script

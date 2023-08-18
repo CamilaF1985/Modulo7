@@ -17,10 +17,13 @@
 
 <body>
 
-	<h1>Picoteo Japonés</h1>
+<h2 class="titulo-carta">Picoteo Japonés</h2>
+
 
 	<!-- Galería japonesa -->
-	<div class="galería japones">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-10"> 
+	<div class="galería japones mx-auto">
 		<a href="/sushipe/res/img/gyosas.jpg" data-fancybox
 			data-caption="Gyosas - De cerdo, verduras o camarón. 6 unidades - $4.200">
 			<img src="/sushipe/res/img/gyosas.jpg" alt="Gyosas">
@@ -41,11 +44,15 @@
 			src="/sushipe/res/img/temaki.jpg" alt="Temaki">
 		</a>
 	</div>
+	</div>
+	</div>
 
-	<h1>Picoteo Pe</h1>
+<h2 class="titulo-carta">Picoteo Pe</h2>
 
 	<!-- Galería peruana -->
-	<div class="galería peruana">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-8"> 
+	<div class="galería peruana mx-auto">
 		<a href="/sushipe/res/img/ceviche-tradicional.jpg" data-fancybox
 			data-caption="Ceviche Tradicional - Ceviche tradicional peruano con camarón, pulpo y salmón - $7.200">
 			<img src="/sushipe/res/img/ceviche-tradicional.jpg"
@@ -62,11 +69,15 @@
 			<img src="/sushipe/res/img/empanadas-pe.jpg" alt="Empanadas Pe">
 		</a>
 	</div>
+	</div>
+	</div>
 
-	<h1>California Rolls</h1>
+<h2 class="titulo-carta">California Rolls</h2>
 
 	<!-- Galería california -->
-	<div class="galería california">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-10"> 
+	<div class="galería california mx-auto">
 		<a href="/sushipe/res/img/california.ebi.jpg" data-fancybox
 			data-caption="California Ebi - Camarón y palta - $6.800"> <img
 			src="/sushipe/res/img/california.ebi.jpg" alt="California Ebi">
@@ -85,11 +96,15 @@
 			alt="California Ebi Cheese">
 		</a>
 	</div>
+	</div>
+	</div>
 
-	<h1>Envueltos en palta</h1>
+<h2 class="titulo-carta">Envueltos en palta</h2>
 
 	<!-- Galería palta -->
-	<div class="galería palta">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-6"> 
+	<div class="galería palta mx-auto">
 		<a href="/sushipe/res/img/avocado-roll.jpg" data-fancybox
 			data-caption="Avocado Roll - Salmón y queso crema - $7.200"> <img
 			src="/sushipe/res/img/avocado-roll.jpg" alt="Avocado Roll">
@@ -101,11 +116,15 @@
 			<img src="/sushipe/res/img/ebi-furai.jpg" alt="Ebi Furai">
 		</a>
 	</div>
+	</div>
+	</div>
 
-	<h1>Envueltos en Salmón</h1>
+<h2 class="titulo-carta">Envueltos en Salmón</h2>
 
 	<!-- Galería palta -->
-	<div class="galería salmon">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-8"> 
+	<div class="galería salmon mx-auto">
 		<a href="/sushipe/res/img/Cai roll.JPG" data-fancybox
 			data-caption="Cai Roll - Cebollín, palta, camarón furai - $7.200">
 			<img src="/sushipe/res/img/Cai roll.JPG" alt="Cai Roll">
@@ -120,12 +139,16 @@
 			data-caption="Sayonara Roll- Pulpo, palta, queso crema - $7.200">
 			<img src="/sushipe/res/img/sayonara-roll.jpg" alt="Sayonara Roll">
 		</a>
+		</div>
+		</div>
 	</div>
 
-	<h1>Nikkei</h1>
+<h2 class="titulo-carta">Nikkei</h2>
 
 	<!-- Galería nikkei -->
-	<div class="galería nikkei">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-8"> 
+	<div class="galería nikkei mx-auto">
 		<a href="/sushipe/res/img/acevichado-roll.jpg" data-fancybox
 			data-caption="Acevichado Roll - Palta, camarón furai, topping de ceviche - $7.200">
 			<img src="/sushipe/res/img/acevichado-roll.jpg" alt="Acevichado Roll">
@@ -141,11 +164,15 @@
 			<img src="/sushipe/res/img/pe-nikkei.jpg" alt="Pe Nikkei">
 		</a>
 	</div>
+	</div>
+	</div>
 
-	<h1>Platos Pe</h1>
+<h2 class="titulo-carta">Platos Pe</h2>
 
 	<!-- Galería Platos Pe -->
-	<div class="galería platospe">
+	<div class="row justify-content-center mb-3">
+    <div class="col-md-6"> 
+	<div class="galería platospe mx-auto">
 		<a href="/sushipe/res/img/aji-de-gallina.jpg" data-fancybox
 			data-caption="Ají de Gallina - Pechuga de pollo cocida con salsa huancaína, acompañado de papas, huevo, arroz y aceituna - $6.200">
 			<img src="/sushipe/res/img/aji-de-gallina.jpg" alt="Ají de Gallina">
@@ -156,6 +183,8 @@
 			data-caption="Lomo saltado - Lomo de res saltado al wok con cebolla morada, cebollín y pimentón. Acompañado de papas fritas y arroz - $6.200">
 			<img src="/sushipe/res/img/lomo-saltado.jpg" alt="Lomo Saltado">
 		</a>
+	</div>
+	</div>
 	</div>
 
 	<%@ include file='footer.jsp'%>
