@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
+
 import model.service.PedidoService;
 import model.service.ProductoService;
 import model.service.ClienteService; // Agregar la importación del servicio de cliente
@@ -65,20 +67,23 @@ public class PedidoController {
     }
 
     @PostMapping("/crearPedido")
-    public String crearPedido(@RequestParam Long clienteId, @RequestParam List<Integer> productoIds,
-                              @RequestParam List<Integer> cantidades, @RequestParam String indicaciones) {
+    public String crearPedido(@RequestParam Long clienteId,
+                              @RequestParam List<Integer> productoIds,
+                              @RequestParam Map<String, String> cantidadesMap,
+                              @RequestParam Map<Integer, Long> detallesProductoIdsMap,
+                              @RequestParam String indicaciones) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName(); // Obtener el nombre de usuario
+        String username = auth.getName();
 
         Cliente cliente = clienteService.getClienteByUserName(username);
         if (cliente == null) {
             throw new RuntimeException("Cliente no encontrado");
         }
 
-        pedidoService.crearPedido(clienteId, productoIds, cantidades, indicaciones);
+        pedidoService.crearPedido(clienteId, productoIds, cantidadesMap, indicaciones);
 
-        return "redirect:/exito"; // Redirigir a la vista de éxito
+        return "redirect:/exito";
     }
 
     

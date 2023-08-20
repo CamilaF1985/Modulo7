@@ -2,6 +2,7 @@ package model.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -35,31 +36,35 @@ public class PedidoService {
         this.pedidosProductosRepository = pedidosProductosRepository;
     }
 
-    public void crearPedido(Long clienteId, List<Integer> productoIds, List<Integer> cantidades, String indicaciones) {
+    public void crearPedido(Long clienteId, List<Integer> productoIds, Map<String, String> cantidadesMap, String indicaciones) {
         Cliente cliente = clienteRepository.findById(clienteId)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
-        
+
         Pedido pedido = new Pedido();
         pedido.setFechaIngreso(LocalDateTime.now());
         pedido.setFechaDespacho(null);
         pedido.setIndicaciones(indicaciones);
         pedido.setCliente(cliente);
         pedidoRepository.save(pedido);
-        
-        for (int i = 0; i < productoIds.size(); i++) {
-            Producto producto = productoRepository.findById(productoIds.get(i))
+
+        for (Integer productoId : productoIds) {
+            Producto producto = productoRepository.findById(productoId)
                     .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-            
-            int cantidad = cantidades.get(i);
+
+            String cantidadStr = cantidadesMap.getOrDefault("cantidades[" + productoId + "]", "0");
+            int cantidad = Integer.parseInt(cantidadStr);
+
             PedidosProductos pedidosProductos = new PedidosProductos(pedido, producto, cantidad);
             pedidosProductosRepository.save(pedidosProductos);
         }
-        
+
         // Calcula y actualiza el precio total del pedido
         int precioTotal = pedidosProductosRepository.sumPrecioTotalByPedido(pedido);
         pedido.setPrecioTotal(precioTotal);
         pedidoRepository.save(pedido);
     }
+
+
     
 	public Pedido obtenerPedidoPorId(Long Id) {
 		return pedidoRepository.getOne(Id);

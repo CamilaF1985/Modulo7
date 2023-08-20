@@ -1,43 +1,45 @@
-function actualizarPrecioTotal(checkboxes) {
-    const cantidadesInput = document.querySelector('.cantidades-input');
+function actualizarPrecioTotal() {
     const precioElement = document.getElementById('precioTotal');
-
-    const cantidadInputs = cantidadesInput.value.split(',');
-    const precios = [];
-
-    for (let i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            const precio = parseFloat(checkboxes[i].getAttribute('data-precio'));
-            precios.push(precio);
-        }
-    }
+    const checkboxes = document.querySelectorAll('input[name="productoIds"]:checked');
 
     let precioTotal = 0;
+    const cantidades = [];
 
-    for (let i = 0; i < cantidadInputs.length; i++) {
-        const cantidad = parseInt(cantidadInputs[i]);
-        if (!isNaN(cantidad) && !isNaN(precios[i])) {
-            precioTotal += cantidad * precios[i];
-        }
-    }
+    checkboxes.forEach(checkbox => {
+        const precio = parseFloat(checkbox.getAttribute('data-precio'));
+        const cantidadInput = document.querySelector(`input[name="cantidades[${checkbox.value}]"]`);
+        const cantidad = parseInt(cantidadInput.value) || 0;
+
+        console.log(`Producto: ${checkbox.value}, Cantidad: ${cantidad}, Precio: ${precio}`); // Imprimir los valores
+
+        precioTotal += cantidad * precio;
+        cantidades.push(cantidad); // Agregar la cantidad a la lista de cantidades
+    });
 
     precioElement.textContent = precioTotal.toFixed(2);
-}
 
-const cantidadesInput = document.querySelector('.cantidades-input');
-cantidadesInput.addEventListener('input', () => {
-    const checkboxes = document.querySelectorAll('input[name="productoIds"]');
-    actualizarPrecioTotal(checkboxes);
-});
+    // Asigna el valor de las cantidades al input oculto antes de enviar el formulario
+    const cantidadesInput = document.querySelector('.cantidades-input');
+    cantidadesInput.value = cantidades.join(','); // Une las cantidades con comas
+}
 
 const checkboxes = document.querySelectorAll('input[name="productoIds"]');
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-        const checkboxes = document.querySelectorAll('input[name="productoIds"]:checked');
-        actualizarPrecioTotal(checkboxes);
+        actualizarPrecioTotal();
     });
 });
 
-actualizarPrecioTotal(document.querySelectorAll('input[name="productoIds"]:checked'));
+const cantidadInputs = document.querySelectorAll('.cantidad-input');
+cantidadInputs.forEach(input => {
+    input.addEventListener('input', () => {
+        actualizarPrecioTotal();
+    });
+});
+
+actualizarPrecioTotal(); // Llamar a la función inicialmente
+
+
+
 
 
