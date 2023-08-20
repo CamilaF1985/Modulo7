@@ -94,38 +94,6 @@ h5 {
 	margin-left: 2rem;
 }
 
-/* Estilos para las galerías de la página del menú */
-
-.titulo-carta {
-  text-align: center;
-}
-
-/* Agregar espacio entre las imágenes de las galerías */
-div.galería.japones a img,
-div.galería.california a img,
-div.galería.palta a img,
-div.galería.salmon a img,
-div.galería.nikkei a img,
-div.galería.peruana a img,
-div.galería.platospe a img {
-  max-width: 190px;
-  height: auto;
-  margin-right: 5px; /* Ajusta el valor según el espacio deseado */
-}
-
-/* Añadir espacio en la parte inferior de los enlaces de las galerías */
-div.galería.japones a,
-div.galería.california a,
-div.galería.palta a,
-div.galería.salmon a,
-div.galería.nikkei a,
-div.galería.peruana a,
-div.galería.platospe a {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-
 /* Estilos para el formulario */
 form {
 	margin-top: 20px;
@@ -255,6 +223,54 @@ textarea {
     white-space: pre;
 }
 
+/* Estilos para la carta */
+
+body.carta {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+    
+.portfolio-menu {
+  text-align: center;
+}
+/* Letras de color blanco para los Encabezados del menú */
+h4 {
+  color: white; 
+}
+
+/* Letras de color blanco para los elementos del menú */
+.portfolio-menu ul li {
+  color: white;
+}
+
+/* Reglas para las trsnsiciones */
+.portfolio-menu ul li {
+  display: inline-block;
+  margin: 0;
+  list-style: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* Reglas para tamaño y flex de los elementos del menú */
+.portfolio-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.portfolio-item .item {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
 /* Estilos para tablas */
 
 /* Estilos para la tabla */
@@ -298,6 +314,13 @@ ul li {
   margin-bottom: 5px;
 }
 
+/* Media query para la carta */
+
+@media (max-width: 767px) {
+  .portfolio-item .item {
+    max-width: 50%; /* Ajustar el ancho de los elementos en pantallas móviles */
+  }
+
 /* Media query para pantallas xs (teléfonos móviles) */
 @media (max-width: 575.98px) {
     .navbar-brand-container {
@@ -331,7 +354,7 @@ ul li {
     }
 }
 
-
+}
 
 
 
