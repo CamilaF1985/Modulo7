@@ -37,7 +37,8 @@ cantidadInputs.forEach(input => {
     });
 });
 
-actualizarPrecioTotal(); // Llamar a la función inicialmente
+
+
 
 
 

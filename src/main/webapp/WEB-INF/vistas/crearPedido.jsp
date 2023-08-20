@@ -17,30 +17,43 @@
 	<%@ include file='navbar.jsp'%>
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form action="crearPedido" method="post" class="mb-5 mt-5">
-			<h1 class="tituloContacto">Crear Pedido</h1>
+		<form action="crearPedido" method="post" class="mt-4 mb-5 mx-4">
+			<h1 class="tituloContacto mb-5 custom-h1"
+				style="margin-left: auto; margin-right: auto; display: table;">Crear
+				Pedido</h1>
 
 			<!-- Agrega un campo oculto para enviar el clienteId -->
 			<input type="hidden" name="clienteId" value="${cliente.id}">
-
 			<input type="hidden" name="fechaIngreso"
 				value="<%=java.time.LocalDateTime.now()%>"> <input
 				type="hidden" name="fechaDespacho" value="">
 
-			<div class="form-group">
-				<label>Selecciona los productos e introduce las cantidades:</label><br>
+			<div class="form-group"
+				style="margin-left: auto; margin-right: auto; display: table;">
+				<label class="mb-3 col-md-12 mb-2 custom-label">Selecciona
+					los productos e introduce las cantidades:</label> <br>
 				<div class="row">
+					<c:set var="currentCategory" value="" />
+
 					<c:forEach var="producto" items="${productos}">
-						<div class="col-md-2">
+						<c:if test="${producto.categoria ne currentCategory}">
+							<div class="col-12 mt-3">
+								<h3>${producto.categoria}</h3>
+							</div>
+							<c:set var="currentCategory" value="${producto.categoria}" />
+						</c:if>
+
+						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="producto-cantidad">
 								<label> <input type="checkbox" name="productoIds"
 									value="${producto.id}" data-precio="${producto.precio}">
 									${producto.nombre}
-								</label> <input type="text" class="form-control form-control-sm cantidad-input"
-									name="cantidades[${producto.id}]" placeholder="Cantidad">
-
-
-								<!-- Agrega el campo oculto para detallesProductoIds -->
+								</label>
+								<div class="input-group small-input-group">
+									<input type="number"
+										class="form-control form-control-sm cantidad-input"
+										name="cantidades[${producto.id}]" placeholder="Cantidad">
+								</div>
 								<input type="hidden" name="detallesProductoIds[${producto.id}]"
 									value="${pedidosProductosMap[producto.id].id}">
 							</div>
@@ -49,12 +62,17 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<label for="indicaciones">Indicaciones:</label><br>
-				<textarea class="form-control" name="indicaciones"></textarea>
+
+			<div class="form-group mt-4"
+				style="margin-left: auto; margin-right: auto; display: table;">
+				<label for="indicaciones">Indicaciones ("sin queso crema",
+					"soya extra", etc.):</label><br>
+				<textarea class="form-control" name="indicaciones"
+					style="max-width: 600px;"></textarea>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group mt-4"
+				style="margin-left: auto; margin-right: auto; display: table;">
 				<label for="precioTotal">Precio Total:</label> <span
 					id="precioTotal">0.00</span>
 			</div>
@@ -68,4 +86,7 @@
 	<script src="/sushipe/res/js/calculoPrecioTotal.js"></script>
 </body>
 </html>
+
+
+
 

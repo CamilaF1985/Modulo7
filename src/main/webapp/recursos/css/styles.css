@@ -12,18 +12,19 @@ body {
 }
 
 .logo-container {
-  text-align: center;
-  margin-top: 1rem; /* Ajusta el valor según tus preferencias */
+	text-align: center;
+	margin-top: 1rem;
+	/* Ajusta el valor según tus preferencias */
 }
 
 .logo-container img {
-  max-width: 200px;
+	max-width: 200px;
 }
 
 
 .table th,
 .table td {
-  color: white;
+	color: white;
 }
 
 /* Estilos para el navbar */
@@ -34,51 +35,63 @@ body {
 .navbar-nav .nav-link {
 	font-size: 20px;
 }
+
 .navbar-brand img {
-    max-width: 200px;
-    width: 100%;
+	max-width: 200px;
+	width: 100%;
 }
 
 .centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 50vh;
 }
-	/* Estilos para el footer */
+
+/* Estilos para el footer */
 /* Estilos para el pie de página */
 footer {
-    background-color: rgb(0, 0, 0);
-    color: #fff;
+	background-color: rgb(0, 0, 0);
+	color: #fff;
 }
 
 /* Estilos para el encabezado */
 h5 {
-    letter-spacing: 2px;
+	letter-spacing: 2px;
+}
+
+.custom-h1 {
+    text-align: center;
+}
+
+.custom-label {
+    font-size: 22px; /* Tamaño de fuente personalizado para el label */
+        text-align: center;
+    
 }
 
 /* Estilos para la imagen */
 .img-location-container {
-    max-height: 200px;
+	max-height: 200px;
 }
 
 /* Estilos para los enlaces de redes sociales */
 .social-link {
-    color: #fff;
+	color: #fff;
 }
 
 /* Estilos para la tabla de horarios */
 .table-responsive {
-    color: #ccc;
+	color: #ccc;
 }
 
 .table-bordered {
-    border: 1px solid #dee2e6;
+	border: 1px solid #dee2e6;
 }
 
 /* Estilos para el texto de derechos de autor */
 .text-center {
-    background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 
@@ -116,6 +129,10 @@ input[type="password"],
 textarea {
 	color: black;
 	width: 100%;
+}
+
+.small-input-group {
+    max-width: 40px; /* Ajusta el ancho como desees */
 }
 
 /* Estilos para los mensajes de validación */
@@ -216,147 +233,152 @@ textarea {
 }
 
 .formulario-celda {
-    vertical-align: middle;
+	vertical-align: middle;
 }
+
 .contador:before {
-    content: "\a"; /* Agregar un salto de línea */
-    white-space: pre;
+	content: "\a";
+	/* Agregar un salto de línea */
+	white-space: pre;
 }
 
 /* Estilos para la carta */
 
 body.carta {
-  margin: 0;
-  padding: 0;
-  background-color: black;
+	margin: 0;
+	padding: 0;
+	background-color: black;
 }
-    
+
 .portfolio-menu {
-  text-align: center;
+	text-align: center;
 }
+
 /* Letras de color blanco para los Encabezados del menú */
 h4 {
-  color: white; 
+	color: white;
 }
 
 /* Letras de color blanco para los elementos del menú */
 .portfolio-menu ul li {
-  color: white;
+	color: white;
 }
 
 /* Reglas para las trsnsiciones */
 .portfolio-menu ul li {
-  display: inline-block;
-  margin: 0;
-  list-style: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+	display: inline-block;
+	margin: 0;
+	list-style: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 /* Reglas para tamaño y flex de los elementos del menú */
 .portfolio-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
 }
 
 .portfolio-item .item {
-  width: 25%;
-  box-sizing: border-box;
-  padding: 10px;
+	width: 25%;
+	box-sizing: border-box;
+	padding: 10px;
 }
 
 /* Estilos para tablas */
 
 /* Estilos para la tabla */
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
 }
 
-.table th, .table td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ccc;
+.table th,
+.table td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ccc;
 }
 
 /* Estilos para los encabezados */
 .table th {
-  background-color: transparent;
-  font-weight: bold;
+	background-color: transparent;
+	font-weight: bold;
 }
 
 /* Estilos para las celdas de estado */
 .estado-checkbox {
-  margin-right: 5px;
+	margin-right: 5px;
 }
 
 /* Estilos para la clase contador */
 .contador {
-  font-weight: bold;
-  color: #007bff;
+	font-weight: bold;
+	color: #007bff;
 }
 
 /* Estilos para la lista de productos */
 ul {
-  list-style-type: none;
-  padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
 
 /* Estilos para los elementos de la lista de productos */
 ul li {
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 /* Media query para la carta */
 
 @media (max-width: 767px) {
-  .portfolio-item .item {
-    max-width: 50%; /* Ajustar el ancho de los elementos en pantallas móviles */
-  }
+	.portfolio-item .item {
+		max-width: 50%;
+		/* Ajustar el ancho de los elementos en pantallas móviles */
+	}
 
-/* Media query para pantallas xs (teléfonos móviles) */
-@media (max-width: 575.98px) {
-    .navbar-brand-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+	/* Media query para pantallas xs (teléfonos móviles) */
+	@media (max-width: 575.98px) {
+		.navbar-brand-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
-    .navbar-toggler {
-        order: 2;
-    }
+		.navbar-toggler {
+			order: 2;
+		}
 
-    .navbar-brand {
-        max-width: 50%;
-    }
+		.navbar-brand {
+			max-width: 50%;
+		}
 
-    /* Estilos para el contenido del navbar cuando se despliega el menú */
-    .navbar-collapse {
-        position: absolute;
-        top: 100%; /* Posición debajo del botón */
-        left: 0;
-        right: 0;
-        background-color: transparent; /* Fondo negro */
-        padding: 10px;
-        text-align: right; /* Alineación centrada */
-        display: none; /* Oculto por defecto */
-    }
+		/* Estilos para el contenido del navbar cuando se despliega el menú */
+		.navbar-collapse {
+			position: absolute;
+			top: 100%;
+			/* Posición debajo del botón */
+			left: 0;
+			right: 0;
+			background-color: transparent;
+			/* Fondo negro */
+			padding: 10px;
+			text-align: right;
+			/* Alineación centrada */
+			display: none;
+			/* Oculto por defecto */
+		}
 
-    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
-        display: block; /* Mostrar cuando el menú está abierto */
-    }
+		.navbar-toggler[aria-expanded="true"]+.navbar-collapse {
+			display: block;
+			/* Mostrar cuando el menú está abierto */
+		}
+	}
+
 }
-
-}
-
-
-
-
-
