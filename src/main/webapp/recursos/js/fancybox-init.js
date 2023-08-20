@@ -8,7 +8,3 @@ $(document).ready(function() {
     slideShow: { autoStart: true, speed: 3000 }
   });
 });
-
-    $(document).ready(function() {
-      $('[data-fancybox="carta"]').fancybox();
-    });

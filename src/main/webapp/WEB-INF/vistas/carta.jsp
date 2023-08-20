@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,197 +9,328 @@
 
 <%@ include file="navbar.jsp"%>
 
+<!-- Importaciones para los estilos -->
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-<!-- Hoja de estilo -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
+	
 </head>
 
-<body>
+<body class="carta">
 
-<h2 class="titulo-carta">Picoteo Japonés</h2>
+	<!-- Contenedor general -->
 
-
-	<!-- Galería japonesa -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-10"> 
-	<div class="galería japones mx-auto">
-		<a href="/sushipe/res/img/gyosas.jpg" data-fancybox
-			data-caption="Gyosas - De cerdo, verduras o camarón. 6 unidades - $4.200">
-			<img src="/sushipe/res/img/gyosas.jpg" alt="Gyosas">
-		</a> <a href="/sushipe/res/img/hosomaki.jpg" data-fancybox
-			data-caption="Hosomaki - Salmón, camarón o atún. 6 unidades - $4.200">
-			<img src="/sushipe/res/img/hosomaki.jpg" alt="Hosomaki">
-		</a> <a href="/sushipe/res/img/nigiri.jpg" data-fancybox
-			data-caption="Nigiri - Salmón o camarón. 2 unidades - $4.200"> <img
-			src="/sushipe/res/img/nigiri.jpg" alt="Nigiri">
-		</a> <a href="/sushipe/res/img/sakana-tataki.jpg" data-fancybox
-			data-caption="Sakana Tataki - Atún, salmón, camarón y pulpo, marinado con aceite de sésamo - $5.200">
-			<img src="/sushipe/res/img/sakana-tataki.jpg" alt="Sakana Tataki">
-		</a> <a href="/sushipe/res/img/sashimi.jpg" data-fancybox
-			data-caption="Sashimi - Salmón, atún, pulpo o mixto. 6 cortes - $5.200">
-			<img src="/sushipe/res/img/sashimi.jpg" alt="Sashimi">
-		</a> <a href="/sushipe/res/img/temaki.jpg" data-fancybox
-			data-caption="Temaki - Salmón, palta y cebollín - $4.200"> <img
-			src="/sushipe/res/img/temaki.jpg" alt="Temaki">
-		</a>
-	</div>
-	</div>
-	</div>
-
-<h2 class="titulo-carta">Picoteo Pe</h2>
-
-	<!-- Galería peruana -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-8"> 
-	<div class="galería peruana mx-auto">
-		<a href="/sushipe/res/img/ceviche-tradicional.jpg" data-fancybox
-			data-caption="Ceviche Tradicional - Ceviche tradicional peruano con camarón, pulpo y salmón - $7.200">
-			<img src="/sushipe/res/img/ceviche-tradicional.jpg"
-			alt="Ceviche Tradicional">
-		</a> <a href="/sushipe/res/img/chicharron-criollo.jpg" data-fancybox
-			data-caption="Chicharrón criollo - Receta tradicional de salmón apanado y salsa criolla - $5.200">
-			<img src="/sushipe/res/img/chicharron-criollo.jpg"
-			alt="Chicharrón criollo">
-		</a> <a href="/sushipe/res/img/pulpo-al-olivo.jpg" data-fancybox
-			data-caption="Pulpo al olivo - Finos cortes de pulpo bañados en salsa al olivo - $5.200">
-			<img src="/sushipe/res/img/pulpo-al-olivo.jpg" alt="Pulpo al Olivo">
-		</a> <a href="/sushipe/res/img/empanadas-pe.jpg" data-fancybox
-			data-caption="Empanaditas Pe - De camarón o ají de gallina. 3 unidades - $4.200">
-			<img src="/sushipe/res/img/empanadas-pe.jpg" alt="Empanadas Pe">
-		</a>
-	</div>
-	</div>
-	</div>
-
-<h2 class="titulo-carta">California Rolls</h2>
-
-	<!-- Galería california -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-10"> 
-	<div class="galería california mx-auto">
-		<a href="/sushipe/res/img/california.ebi.jpg" data-fancybox
-			data-caption="California Ebi - Camarón y palta - $6.800"> <img
-			src="/sushipe/res/img/california.ebi.jpg" alt="California Ebi">
-		</a> <a href="/sushipe/res/img/california-pe.jpg" data-fancybox
-			data-caption="California Pe - Queso crema, salmón y palta - $6.800">
-			<img src="/sushipe/res/img/california-pe.jpg" alt="California Pe">
-		</a> <a href="/sushipe/res/img/california-roll.jpg" data-fancybox
-			data-caption="California Roll - Queso crema, kanikama y palta - $6.800">
-			<img src="/sushipe/res/img/california-roll.jpg" alt="California Roll">
-		</a> <a href="/sushipe/res/img/california-sake.jpg" data-fancybox
-			data-caption="California Sake - Salmón y palta - $6.800"> <img
-			src="/sushipe/res/img/california-sake.jpg" alt="California Sake">
-		</a> <a href="/sushipe/res/img/california-ebi-cheese.jpg" data-fancybox
-			data-caption="California Ebi Cheese - Camarón, queso crema y palta - $6.800">
-			<img src="/sushipe/res/img/california-ebi-cheese.jpg"
-			alt="California Ebi Cheese">
-		</a>
-	</div>
-	</div>
-	</div>
-
-<h2 class="titulo-carta">Envueltos en palta</h2>
-
-	<!-- Galería palta -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-6"> 
-	<div class="galería palta mx-auto">
-		<a href="/sushipe/res/img/avocado-roll.jpg" data-fancybox
-			data-caption="Avocado Roll - Salmón y queso crema - $7.200"> <img
-			src="/sushipe/res/img/avocado-roll.jpg" alt="Avocado Roll">
-		</a> <a href="/sushipe/res/img/Tai-roll.jpg" data-fancybox
-			data-caption="Tai Roll - Pollo, almendras y queso crema, con topping de salsa de mango - $7.200">
-			<img src="/sushipe/res/img/Tai-roll.jpg" alt="Tai Roll">
-		</a> <a href="/sushipe/res/img/ebi-furai.jpg" data-fancybox
-			data-caption="Ebi Furai - Camarón furai, palta, queso crema - $7.200">
-			<img src="/sushipe/res/img/ebi-furai.jpg" alt="Ebi Furai">
-		</a>
-	</div>
-	</div>
-	</div>
-
-<h2 class="titulo-carta">Envueltos en Salmón</h2>
-
-	<!-- Galería palta -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-8"> 
-	<div class="galería salmon mx-auto">
-		<a href="/sushipe/res/img/Cai roll.JPG" data-fancybox
-			data-caption="Cai Roll - Cebollín, palta, camarón furai - $7.200">
-			<img src="/sushipe/res/img/Cai roll.JPG" alt="Cai Roll">
-		</a> <a href="/sushipe/res/img/salmon-roll.jpg" data-fancybox
-			data-caption="Salmon Roll - Camarón y palta - $7.200"> <img
-			src="/sushipe/res/img/salmon-roll.jpg" alt="Salmon Roll">
-		</a> <a href="/sushipe/res/img/salmon-cheese-roll.jpg" data-fancybox
-			data-caption="Salmon Cheese - Camarón, queso crema y palta - $7.200">
-			<img src="/sushipe/res/img/salmon-cheese-roll.jpg"
-			alt="Salmon Cheese Roll">
-		</a> <a href="/sushipe/res/img/sayonara-roll.jpg" data-fancybox
-			data-caption="Sayonara Roll- Pulpo, palta, queso crema - $7.200">
-			<img src="/sushipe/res/img/sayonara-roll.jpg" alt="Sayonara Roll">
-		</a>
+	<div class="container carta">
+		<div class="row">
+			<div class="col-lg-12 text-center my-2">
+				<h4>Nuestra Carta</h4>
+			</div>
 		</div>
+
+		<!-- MenÃº para los filtros -->
+
+		<div class="portfolio-menu mt-2 mb-4">
+			<ul>
+				<li class="btn btn-outline-dark" data-filter=".pij">Picoteo
+					JaponÃ©s</li>
+				<li class="btn btn-outline-dark" data-filter=".pip">Picoteo Pe</li>
+				<li class="btn btn-outline-dark" data-filter=".cro">California
+					Rolls</li>
+				<li class="btn btn-outline-dark" data-filter=".epa">Envueltos
+					en Palta</li>
+				<li class="btn btn-outline-dark" data-filter=".esa">Envueltos
+					en SalmÃ³n</li>
+				<li class="btn btn-outline-dark" data-filter=".nik">Nikkei</li>
+				<li class="btn btn-outline-dark text" data-filter=".ppe">Platos
+					Pe</li>
+				<li class="btn btn-outline-dark text" data-filter=".item">Todos</li>
+			</ul>
+		</div>
+
+		<!-- GalerÃ­a de imÃ¡genes -->
+
+		<div class="portfolio-item row">
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/gyosas.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Gyosas - De cerdo, verduras o camarÃ³n. 6 unidades - $4.200">
+					<img class="img-fluid" src="/sushipe/res/img/gyosas.jpg"
+					alt="Gyosas">
+				</a>
+			</div>
+
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/hosomaki.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Hosomaki - SalmÃ³n, camarÃ³n o atÃºn. 6 unidades - $4.200">
+					<img class="img-fluid" src="/sushipe/res/img/hosomaki.jpg"
+					alt="Hosomaki">
+				</a>
+			</div>
+
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/nigiri.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Nigiri - SalmÃ³n o camarÃ³n. 2 unidades - $4.200">
+					<img class="img-fluid" src="/sushipe/res/img/nigiri.jpg"
+					alt="Nigiri">
+				</a>
+			</div>
+
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/sakana-tataki.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Sakana Tataki - AtÃºn, salmÃ³n, camarÃ³n y pulpo, marinado con aceite de sÃ©samo - $5.200">
+					<img class="img-fluid" src="/sushipe/res/img/sakana-tataki.jpg"
+					alt="Sakana Tataki">
+				</a>
+			</div>
+
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/sashimi.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Sashimi - SalmÃ³n, atÃºn, pulpo o mixto. 6 cortes - $5.200">
+					<img class="img-fluid" src="/sushipe/res/img/sashimi.jpg"
+					alt="Sashimi">
+				</a>
+			</div>
+
+			<div class="item pij col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/temaki.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Temaki - SalmÃ³n, palta y cebollÃ­n - $4.200"> <img
+					class="img-fluid" src="/sushipe/res/img/temaki.jpg" alt="Temaki">
+				</a>
+			</div>
+
+			<div class="item pip col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/ceviche-tradicional.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Ceviche Tradicional - Ceviche tradicional peruano con camarÃ³n, pulpo y salmÃ³n - $7.200">
+					<img class="img-fluid"
+					src="/sushipe/res/img/ceviche-tradicional.jpg"
+					alt="Ceviche Tradicional">
+				</a>
+			</div>
+
+			<div class="item pip col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/chicharron-criollo.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="ChicharrÃ³n criollo - Receta tradicional de salmÃ³n apanado y salsa criolla - $5.200">
+					<img class="img-fluid"
+					src="/sushipe/res/img/chicharron-criollo.jpg"
+					alt="ChicharrÃ³n criollo">
+				</a>
+			</div>
+
+			<div class="item pip col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/pulpo-al-olivo.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Pulpo al olivo - Finos cortes de pulpo baÃ±ados en salsa al olivo - $5.200">
+					<img class="img-fluid" src="/sushipe/res/img/pulpo-al-olivo.jpg"
+					alt="Pulpo al Olivo">
+				</a>
+			</div>
+
+			<div class="item pip col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/empanadas-pe.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Empanaditas Pe - De camarÃ³n o ajÃ­ de gallina. 3 unidades - $4.200">
+					<img class="img-fluid" src="/sushipe/res/img/empanadas-pe.jpg"
+					alt="Empanadas Pe">
+				</a>
+			</div>
+
+			<div class="item cro col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/california.ebi.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="California Ebi - CamarÃ³n y palta - $6.800"> <img
+					class="img-fluid" src="/sushipe/res/img/california.ebi.jpg"
+					alt="California Ebi">
+				</a>
+			</div>
+
+			<div class="item cro col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/california-pe.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="California Pe - Queso crema, salmÃ³n y palta - $6.800">
+					<img class="img-fluid" src="/sushipe/res/img/california-pe.jpg"
+					alt="California Pe">
+				</a>
+			</div>
+
+			<div class="item cro col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/california-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="California Roll - Queso crema, kanikama y palta - $6.800">
+					<img class="img-fluid" src="/sushipe/res/img/california-roll.jpg"
+					alt="California Roll">
+				</a>
+			</div>
+
+			<div class="item cro col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/california-sake.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="California Sake - SalmÃ³n y palta - $6.800"> <img
+					class="img-fluid" src="/sushipe/res/img/california-sake.jpg"
+					alt="California Sake">
+				</a>
+			</div>
+
+			<div class="item cro col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/california-ebi-cheese.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="California Ebi Cheese - CamarÃ³n, queso crema y palta - $6.800">
+					<img class="img-fluid"
+					src="/sushipe/res/img/california-ebi-cheese.jpg"
+					alt="California Ebi Cheese">
+				</a>
+			</div>
+
+			<div class="item epa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/avocado-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Avocado Roll - SalmÃ³n y queso crema - $7.200"> <img
+					class="img-fluid" src="/sushipe/res/img/avocado-roll.jpg"
+					alt="Avocado Roll">
+				</a>
+			</div>
+
+			<div class="item epa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/Tai-roll.jpg" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Tai Roll - Pollo, almendras y queso crema, con topping de salsa de mango - $7.200">
+					<img class="img-fluid" src="/sushipe/res/img/Tai-roll.jpg"
+					alt="Tai Roll">
+				</a>
+			</div>
+
+			<div class="item epa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/ebi-furai.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Ebi Furai - CamarÃ³n furai, palta, queso crema - $7.200">
+					<img class="img-fluid" src="/sushipe/res/img/ebi-furai.jpg"
+					alt="Ebi Furai">
+				</a>
+			</div>
+
+			<div class="item esa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/Cai roll.JPG" class="fancylight popup-btn"
+					data-fancybox-group="light"
+					data-caption="Cai Roll - CebollÃ­n, palta, camarÃ³n furai - $7.200">
+					<img class="img-fluid" src="/sushipe/res/img/Cai roll.JPG"
+					alt="Cai Roll">
+				</a>
+			</div>
+
+			<div class="item esa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/salmon-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Salmon Roll - CamarÃ³n y palta - $7.200"> <img
+					class="img-fluid" src="/sushipe/res/img/salmon-roll.jpg"
+					alt="Salmon Roll">
+				</a>
+			</div>
+
+			<div class="item esa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/salmon-cheese-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Salmon Cheese - CamarÃ³n, queso crema y palta - $7.200">
+					<img class="img-fluid"
+					src="/sushipe/res/img/salmon-cheese-roll.jpg"
+					alt="Salmon Cheese Roll">
+				</a>
+			</div>
+
+			<div class="item esa col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/sayonara-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Sayonara Roll- Pulpo, palta, queso crema - $7.200">
+					<img class="img-fluid" src="/sushipe/res/img/sayonara-roll.jpg"
+					alt="Sayonara Roll">
+				</a>
+			</div>
+
+			<div class="item nik col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/acevichado-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Acevichado Roll - Palta, camarÃ³n furai, topping de ceviche - $7.200">
+					<img class="img-fluid" src="/sushipe/res/img/acevichado-roll.jpg"
+					alt="Acevichado Roll">
+				</a>
+			</div>
+
+			<div class="item nik col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/huancaina-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="HuancaÃ­na Roll - SalmÃ³n, palta, con topping de salsa criolla y huancaÃ­na - $6.200">
+					<img class="img-fluid" src="/sushipe/res/img/huancaina-roll.jpg"
+					alt="HuancaÃ­na Roll">
+				</a>
+			</div>
+
+			<div class="item nik col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/aji-de-gallina-roll.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="AjÃ­ de Gallina Roll - Pollo, queso crema, palta, con topping de ajÃ­ de gallina - $6.200">
+					<img class="img-fluid"
+					src="/sushipe/res/img/aji-de-gallina-roll.jpg"
+					alt="AjÃ­ de Gallina Roll">
+				</a>
+			</div>
+
+			<div class="item nik col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/pe-nikkei.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Pe Nikkei- CamarÃ³n, palta, queso crema, con topping de salsa criolla - $6.200">
+					<img class="img-fluid" src="/sushipe/res/img/pe-nikkei.jpg"
+					alt="Pe Nikkei">
+				</a>
+			</div>
+
+			<div class="item ppe col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/aji-de-gallina.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="AjÃ­ de Gallina - Pechuga de pollo cocida con salsa huancaÃ­na, acompaÃ±ado de papas, huevo, arroz y aceituna - $6.200">
+					<img class="img-fluid" src="/sushipe/res/img/aji-de-gallina.jpg"
+					alt="AjÃ­ de Gallina">
+				</a>
+			</div>
+
+			<div class="item ppe col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/arroz chaufa.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Arroz chaufa - Arroz frito en salsa de soya con pollo, huevo y cebollÃ­n - $6.200">
+					<img class="img-fluid" src="/sushipe/res/img/arroz chaufa.jpg"
+					alt="Arroz Chaufa">
+				</a>
+			</div>
+
+
 		</div>
 	</div>
 
-<h2 class="titulo-carta">Nikkei</h2>
-
-	<!-- Galería nikkei -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-8"> 
-	<div class="galería nikkei mx-auto">
-		<a href="/sushipe/res/img/acevichado-roll.jpg" data-fancybox
-			data-caption="Acevichado Roll - Palta, camarón furai, topping de ceviche - $7.200">
-			<img src="/sushipe/res/img/acevichado-roll.jpg" alt="Acevichado Roll">
-		</a> <a href="/sushipe/res/img/huancaina-roll.jpg" data-fancybox
-			data-caption="Huancaína Roll - Salmón, palta, con topping de salsa criolla y huancaína - $6.200">
-			<img src="/sushipe/res/img/huancaina-roll.jpg" alt="Huancaína Roll">
-		</a> <a href="/sushipe/res/img/aji-de-gallina-roll.jpg" data-fancybox
-			data-caption="Ají de Gallina Roll - Pollo, queso crema, palta, con topping de ají de gallina - $6.200">
-			<img src="/sushipe/res/img/aji-de-gallina-roll.jpg"
-			alt="Ají de Gallina Roll">
-		</a> <a href="/sushipe/res/img/pe-nikkei.jpg" data-fancybox
-			data-caption="Pe Nikkei- Camarón, palta, queso crema, con topping de salsa criolla - $6.200">
-			<img src="/sushipe/res/img/pe-nikkei.jpg" alt="Pe Nikkei">
-		</a>
-	</div>
-	</div>
-	</div>
-
-<h2 class="titulo-carta">Platos Pe</h2>
-
-	<!-- Galería Platos Pe -->
-	<div class="row justify-content-center mb-3">
-    <div class="col-md-6"> 
-	<div class="galería platospe mx-auto">
-		<a href="/sushipe/res/img/aji-de-gallina.jpg" data-fancybox
-			data-caption="Ají de Gallina - Pechuga de pollo cocida con salsa huancaína, acompañado de papas, huevo, arroz y aceituna - $6.200">
-			<img src="/sushipe/res/img/aji-de-gallina.jpg" alt="Ají de Gallina">
-		</a> <a href="/sushipe/res/img/arroz chaufa.jpg" data-fancybox
-			data-caption="Arroz chaufa - Arroz frito en salsa de soya con pollo, huevo y cebollín - $6.200">
-			<img src="/sushipe/res/img/arroz chaufa.jpg" alt="Arroz Chaufa">
-		</a> <a href="/sushipe/res/img/lomo-saltado.jpg" data-fancybox
-			data-caption="Lomo saltado - Lomo de res saltado al wok con cebolla morada, cebollín y pimentón. Acompañado de papas fritas y arroz - $6.200">
-			<img src="/sushipe/res/img/lomo-saltado.jpg" alt="Lomo Saltado">
-		</a>
-	</div>
-	</div>
-	</div>
-
-	<%@ include file='footer.jsp'%>
-
-	<!-- Enlaces a los archivos JavaScript de Bootstrap y Fancybox -->
+	<!-- Scripts necesarios para efectos visuales -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
-		
+		src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-	<script src="/sushipe/res/js/fancybox-init.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+
+	<script src="/sushipe/res/js/carta.js"></script>
+
+
 
 </body>
 </html>
