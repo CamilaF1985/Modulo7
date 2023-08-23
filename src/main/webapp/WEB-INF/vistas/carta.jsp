@@ -312,6 +312,14 @@
 				</a>
 			</div>
 
+			<div class="item ppe col-lg-3 col-md-4 col-6 col-sm">
+				<a href="/sushipe/res/img/lomo-saltado.jpg"
+					class="fancylight popup-btn" data-fancybox-group="light"
+					data-caption="Lomo saltado - Lomo saltado con verduras, acompañado de arroz, papas fritas y aceitunas - $6.200">
+					<img class="img-fluid" src="/sushipe/res/img/lomo-saltado.jpg"
+					alt="Arroz Chaufa">
+				</a>
+			</div>
 
 		</div>
 	</div>

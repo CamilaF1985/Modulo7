@@ -16,6 +16,8 @@ public class Producto {
     private String categoria;
     private Integer precio;
     
+    private String imagenUrl; // Nueva columna
+    
     @OneToMany(mappedBy = "producto")
     private List<PedidosProductos> pedidosProductos;
 
@@ -55,6 +57,14 @@ public class Producto {
 
     public void setPrecio(Integer precio) {
         this.precio = precio;
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 
     public List<PedidosProductos> getPedidosProductos() {
