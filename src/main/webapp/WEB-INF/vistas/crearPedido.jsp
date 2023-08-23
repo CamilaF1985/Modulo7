@@ -8,22 +8,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crear Pedido</title>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
-
-<%@ include file='navbar.jsp'%>
-<!-- Inicio de la sección head -->
 
 </head>
 <body>
 
+<%@ include file='navbar.jsp'%>
+<div class="contacto-container">
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form action="crearPedido" method="post" class="mt-4 mb-5 mx-4">
+		<form action="crearPedido" method="post" class="mt-5 mb-5">
 			<h1 class="tituloContacto mb-5 custom-h1"
-				style="margin-left: auto; margin-right: auto; display: table;">Crear
+				style="margin-left: auto; margin-right: auto; height: auto; display: table;">Crear
 				Pedido</h1>
 
 			<!-- Campo oculto para enviar el clienteId -->
@@ -93,14 +92,11 @@
 			</div>
 		</form>
 	</div>
+	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="/sushipe/res/js/calculoPrecioTotal.js"></script>
-	<!-- Fin de la sección body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>
