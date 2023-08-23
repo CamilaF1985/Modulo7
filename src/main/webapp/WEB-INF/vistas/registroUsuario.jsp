@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -24,8 +25,8 @@
 
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form action="/sushipe/registroUsuario" method="post"
-			class="mb-5 mt-5">
+		<form id="formularioRegistroUsuario" action="/sushipe/registroUsuario"
+			method="post" class="mb-5 mt-5" onsubmit="validarFormulario(event)">
 			<!-- Título del formulario -->
 			<h1 class="tituloContacto">Ingresa tus datos</h1>
 
@@ -33,7 +34,8 @@
 			<div class="form-group">
 				<div class="campo">
 					<label for="user">Usuario:</label> <input type="text" id="user"
-						name="user" required>
+						name="user" required> <span id="userValidationMessage"
+						class="validation-message"></span>
 				</div>
 			</div>
 
@@ -41,7 +43,8 @@
 			<div class="form-group">
 				<div class="campo">
 					<label for="password">Contraseña:</label> <input type="password"
-						id="password" name="password" required>
+						id="password" name="password" required> <span
+						id="passwordValidationMessage" class="validation-message"></span>
 				</div>
 			</div>
 
@@ -49,17 +52,8 @@
 			<div class="form-group">
 				<div class="campo">
 					<label for="email">Email:</label> <input type="email" id="email"
-						name="email" required>
-				</div>
-			</div>
-
-			<!-- Sección de selección de rol -->
-			<div class="form-group">
-				<div class="campo">
-					<label for="rol">Rol:</label> <select id="rol" name="rol" required>
-						<option value="ROLE_cliente">Cliente</option>
-						<option value="ROLE_administrador">Administrador</option>
-					</select>
+						name="email" required> <span id="emailValidationMessage"
+						class="validation-message"></span>
 				</div>
 			</div>
 
@@ -70,13 +64,12 @@
 						required>
 						<option value="Cliente">Cliente</option>
 						<option value="Administrador">Administrador</option>
-					</select>
+					</select> <span id="tipoValidationMessage" class="validation-message"></span>
 				</div>
 			</div>
 
-			<!-- Agrega aquí los campos adicionales para cada tipo (Cliente o Administrador) -->
+			<input type="hidden" id="rol" name="rol" value="">
 
-			<!-- Botón para enviar el formulario -->
 			<div style="display: flex; justify-content: center;" class="mb-5">
 				<input type="submit" value="Registrar" class="boton-enviar">
 			</div>
@@ -85,7 +78,7 @@
 
 	<!-- Inclusión de la librería SweetAlert2 y el script de validaciones personalizado -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="/sushipe/res/js/validacionesRegistro.js"></script>
+	<script src="/sushipe/res/js/validacionesRegistroUsuario.js"></script>
 
 	<!-- Inclusión de la librería Bootstrap con JavaScript -->
 	<script
@@ -96,4 +89,5 @@
 </body>
 
 </html>
+
 

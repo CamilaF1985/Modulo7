@@ -23,8 +23,8 @@
 
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form action="/sushipe/registroAdministrador" method="post"
-			class="mb-5 mt-5">
+		<form id="formularioRegistroAdministrador" action="/sushipe/registroAdministrador"
+			method="post" class="mb-5 mt-5" onsubmit="validarFormulario(event)">
 			<h1 class="tituloContacto">Ingresa tus datos</h1>
 
 			<div class="form-group">

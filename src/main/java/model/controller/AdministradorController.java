@@ -38,28 +38,24 @@ public class AdministradorController {
             @RequestParam("apellidos") String apellidos,
             @RequestParam("fechaIngreso") String fechaIngreso,
             @RequestParam("usuarioId") Long usuarioId) {
-        try {
-            // Obtener el usuario correspondiente al usuarioId
-            Usuario usuario = usuarioService.getUsuarioById(usuarioId);
-            
-            if (usuario == null) {
-                // Manejar el caso cuando no se encuentra el usuario
-                return new ModelAndView("redirect:/"); // O redireccionar a una página de error
-            }
 
-            // Crear una nueva instancia de Administrador y asociarla con el Usuario
-            Administrador administrador = new Administrador(rut, nombres, apellidos, fechaIngreso, usuario);
+        // Obtener el usuario correspondiente al usuarioId
+        Usuario usuario = usuarioService.getUsuarioById(usuarioId);
 
-            // Registrar el administrador en la base de datos
-            administradorService.registrarAdministrador(administrador);
-
-            // Redirigir a una página de éxito o a otra página según el caso
-            return new ModelAndView("redirect:/"); // O redireccionar a una página de éxito
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Manejar el error adecuadamente
+        if (usuario == null) {
+            // Manejar el caso cuando no se encuentra el usuario
             return new ModelAndView("redirect:/"); // O redireccionar a una página de error
         }
+
+        // Crear una nueva instancia de Administrador y asociarla con el Usuario
+        Administrador administrador = new Administrador(rut, nombres, apellidos, fechaIngreso, usuario);
+
+        // Registrar el administrador en la base de datos
+        administradorService.registrarAdministrador(administrador);
+
+        // Redirigir a la página de inicio
+        return new ModelAndView("redirect:/"); 
     }
+
 }
 

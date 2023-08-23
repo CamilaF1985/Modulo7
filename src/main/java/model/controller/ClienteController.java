@@ -41,28 +41,23 @@ public class ClienteController {
             @RequestParam("numeracion") Integer numeracion,
             @RequestParam("indicaciones") String indicaciones,
             @RequestParam("usuarioId") Long usuarioId) {
-        try {
-            // Obtener el usuario correspondiente al usuarioId
-            Usuario usuario = usuarioService.getUsuarioById(usuarioId);
-            
-            if (usuario == null) {
-                // Manejar el caso cuando no se encuentra el usuario
-                return new ModelAndView("redirect:/"); // O redireccionar a una página de error
-            }
-
-            // Crear una nueva instancia de Cliente y asociarla con el Usuario
-            Cliente cliente = new Cliente(nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones, usuario);
-
-            // Registrar el cliente en la base de datos
-            clienteService.registrarCliente(cliente);
-
-            // Redirigir a una página de éxito o la página de inicio
-            return new ModelAndView("redirect:/"); // O redireccionar a una página de éxito
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Manejar el error adecuadamente
+        
+        // Obtener el usuario correspondiente al usuarioId
+        Usuario usuario = usuarioService.getUsuarioById(usuarioId);
+        
+        if (usuario == null) {
+            // Manejar el caso cuando no se encuentra el usuario
             return new ModelAndView("redirect:/"); // O redireccionar a una página de error
         }
+
+        // Crear una nueva instancia de Cliente y asociarla con el Usuario
+        Cliente cliente = new Cliente(nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones, usuario);
+
+        // Registrar el cliente en la base de datos
+        clienteService.registrarCliente(cliente);
+
+        // Redirigir a la página de inicio
+        return new ModelAndView("redirect:/"); 
     }
 }
 
