@@ -18,7 +18,7 @@ CREATE TABLE contacto (
 
 -- Crear tabla usuarios
 CREATE TABLE usuarios (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(50),
     password VARCHAR(100),
     rol VARCHAR(20),
@@ -53,6 +53,23 @@ CREATE TABLE administradores (
     id_usuario INT
 );
 
+-- Insertar registros en la tabla usuarios
+INSERT INTO usuarios (user, password, email, rol, tipo)
+VALUES
+    ('Administrador 1', '$2a$10$UQ/n9QYFApKz.lecCqghqOHps2uvf0zUU2SLpaJjBXP/M4qe4RQmq', 'admin1@gmail.com', 'ROLE_administrador', 'Administrador'),
+    ('Cliente 1', '$2a$10$IuQGX3LYc3jKROUuSzkK2un.cZnZ7fHkwaSySUjQ3bf8jYO6mloSK', 'cliente1@gmail.com', 'ROLE_cliente', 'Cliente');
+
+-- Insertar registros en la tabla administradores
+INSERT INTO administradores (rut, nombres, apellidos, fecha_ingreso, id_usuario)
+VALUES
+    ('12312312', 'Administrador 1', 'Administrador 1', '09/07/2021', 1);
+
+-- Insertar registros en la tabla clientes
+INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones, id_usuario)
+VALUES
+    ('Cliente', 'Prueba 1', '912345678', 'las condes', 'las flores', '123', 'depto 1', 2);
+
+
 -- Script para agregar la FK en la tabla Administradores
 ALTER TABLE administradores
 ADD CONSTRAINT fk_administrador_usuario FOREIGN KEY (id_usuario)
@@ -63,42 +80,43 @@ CREATE TABLE productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
     categoria VARCHAR(50),
-    precio INT
+    precio INT,
+    imagenUrl VARCHAR(255)
 );
 
 -- Insertar valores en la tabla productos
-INSERT INTO productos (nombre, categoria, precio)
+INSERT INTO productos (nombre, categoria, precio, imagenUrl)
 VALUES
-    ('Gyosas', 'Picoteo japonés', 4200),
-    ('Hosomaki', 'Picoteo japonés', 4200),
-    ('Nigiri', 'Picoteo japonés', 4200),
-    ('Sakana Tataki', 'Picoteo japonés', 5200),
-    ('Sashimi', 'Picoteo japonés', 5200),
-    ('Temaki', 'Picoteo japonés', 4200),
-    ('Ceviche tradicional', 'Picoteo pe', 7200),
-    ('Chicharrón Criollo', 'Picoteo pe', 5200),
-    ('Pulpo al Olivo', 'Picoteo pe', 5200),
-    ('Empanaditas Pe', 'Picoteo pe', 4200),
-    ('California Ebi', 'California Rolls', 6800),
-    ('California Pe', 'California Rolls', 6800),
-    ('California Roll', 'California Rolls', 6800),
-    ('California Sake', 'California Rolls', 6800),
-    ('California Ebi Cheese', 'California Rolls', 6800),
-    ('Avocado Roll', 'Envueltos en palta', 7200),
-    ('Tai Roll', 'Envueltos en palta', 7200),
-    ('Ebi Furai', 'Envueltos en palta', 7200),
-    ('Cai Roll', 'Envueltos en Salmón', 7200),
-    ('Salmon Roll', 'Envueltos en Salmón', 7200),
-    ('Ebi Cheese Roll', 'Envueltos en Salmón', 7200),
-    ('Sayonara Roll', 'Envueltos en Salmón', 7200),
-    ('Acevichado Roll', 'Nikkei', 7200),
-    ('Huancaína Roll', 'Nikkei', 6200),
-    ('Ají de Gallina Roll', 'Nikkei', 6200),
-    ('Pe Nikkei', 'Nikkei', 6200),
-    ('Ají de Gallina', 'Platos Pe', 6200),
-    ('Arroz Chaufa', 'Platos Pe', 6200),
-    ('Lomo Saltado', 'Platos Pe', 6200)
-    ;
+    ('Gyosas', 'Picoteo japonés', 4200, '/sushipe/res/img/gyosas.jpg'),
+    ('Hosomaki', 'Picoteo japonés', 4200, '/sushipe/res/img/hosomaki.jpg'),
+    ('Nigiri', 'Picoteo japonés', 4200, '/sushipe/res/img/nigiri.jpg'),
+    ('Sakana Tataki', 'Picoteo japonés', 5200, '/sushipe/res/img/sakana-tataki.jpg'),
+    ('Sashimi', 'Picoteo japonés', 5200, '/sushipe/res/img/sashimi.jpg'),
+    ('Temaki', 'Picoteo japonés', 4200, '/sushipe/res/img/temaki.jpg'),
+    ('Ceviche tradicional', 'Picoteo pe', 7200, '/sushipe/res/img/ceviche-tradicional.jpg'),
+    ('Chicharrón Criollo', 'Picoteo pe', 5200, '/sushipe/res/img/chicharron-criollo.jpg'),
+    ('Pulpo al Olivo', 'Picoteo pe', 5200, '/sushipe/res/img/pulpo-al-olivo.jpg'),
+    ('Empanaditas Pe', 'Picoteo pe', 4200, '/sushipe/res/img/empanadas-pe.jpg'),
+    ('California Ebi', 'California Rolls', 6800, '/sushipe/res/img/california.ebi.jpg'),
+    ('California Pe', 'California Rolls', 6800, '/sushipe/res/img/california-pe.jpg'),
+    ('California Roll', 'California Rolls', 6800, '/sushipe/res/img/california-roll.jpg'),
+    ('California Sake', 'California Rolls', 6800, '/sushipe/res/img/california-sake.jpg'),
+    ('California Ebi Cheese', 'California Rolls', 6800, '/sushipe/res/img/california-ebi-cheese.jpg'),
+    ('Avocado Roll', 'Envueltos en palta', 7200, '/sushipe/res/img/avocado-roll.jpg'),
+    ('Tai Roll', 'Envueltos en palta', 7200, '/sushipe/res/img/Tai-roll.jpg'),
+    ('Ebi Furai', 'Envueltos en palta', 7200, '/sushipe/res/img/ebi-furai.jpg'),
+    ('Cai Roll', 'Envueltos en Salmón', 7200, '/sushipe/res/img/Cai roll.JPG'),
+    ('Salmon Roll', 'Envueltos en Salmón', 7200, '/sushipe/res/img/salmon-roll.jpg'),
+    ('Salmon Cheese Roll', 'Envueltos en Salmón', 7200, '/sushipe/res/img/salmon-cheese-roll.jpg'),
+    ('Sayonara Roll', 'Envueltos en Salmón', 7200, '/sushipe/res/img/sayonara-roll.jpg'),
+    ('Acevichado Roll', 'Nikkei', 7200, '/sushipe/res/img/acevichado-roll.jpg'),
+    ('Huancaína Roll', 'Nikkei', 6200, '/sushipe/res/img/huancaina-roll.jpg'),
+    ('Ají de Gallina Roll', 'Nikkei', 6200, '/sushipe/res/img/aji-de-gallina-roll.jpg'),
+    ('Pe Nikkei', 'Nikkei', 6200, '/sushipe/res/img/pe-nikkei.jpg'),
+    ('Ají de Gallina', 'Platos Pe', 6200, '/sushipe/res/img/aji-de-gallina.jpg'),
+    ('Arroz Chaufa', 'Platos Pe', 6200, '/sushipe/res/img/arroz chaufa.jpg'),
+    ('Lomo Saltado', 'Platos Pe', 6200, '/sushipe/res/img/lomo-saltado.jpg');
+
     
 -- Crear tabla de pedidos
 CREATE TABLE pedidos (
@@ -112,34 +130,6 @@ CREATE TABLE pedidos (
     FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
--- Script para eliminar todos los registros de una tabla
-DELETE FROM pedidos;
-
--- Script para resetear auto_increment en una tabla
-ALTER TABLE pedidos AUTO_INCREMENT = 1;
-
--- Query para seleccionar datos de clientes y productos asociados a un pedido
-SELECT p.id AS pedido_id, 
-       c.id AS cliente_id, 
-       c.nombres AS cliente_nombres,
-       c.apellidos AS cliente_apellidos,
-       c.telefono AS cliente_telefono,
-       c.comuna AS cliente_comuna,
-       c.calle AS cliente_calle,
-       c.numeracion AS cliente_numeracion,
-       c.indicaciones AS cliente_indicaciones,
-       pr.id AS producto_id,
-       pr.nombre AS producto_nombre,
-       p.indicaciones AS indicaciones,
-       p.precio_total AS precio_total,
-       p.cantidad AS cantidad,
-       p.estado AS estado,
-       p.fecha_ingreso AS fecha_ingreso,
-       p.fecha_despacho AS fecha_despacho
-FROM pedidos p
-JOIN clientes c ON p.cliente_id = c.id
-JOIN productos pr ON p.producto_id = pr.id;
-
 -- Crear tabla intermedia para productos en pedidos
 CREATE TABLE pedidos_productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -149,8 +139,10 @@ CREATE TABLE pedidos_productos (
     FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
     FOREIGN KEY (producto_id) REFERENCES productos(id)
 );
--- Desactivar restricciones de llaves foráneas
-SET FOREIGN_KEY_CHECKS = 0;
+
+-- Insertar el registro del pedido en la tabla pedidos
+INSERT INTO pedidos (cliente_id, indicaciones, precio_total, estado, fecha_ingreso, fecha_despacho)
+VALUES (1, 'Indicaciones del pedido', @total, 'Pendiente', NOW(), NULL);
 
 -- Insertar productos en la tabla pedidos_productos
 INSERT INTO pedidos_productos (pedido_id, producto_id, cantidad) VALUES
@@ -165,10 +157,7 @@ SET @total = (
     WHERE pp.pedido_id = 1
 );
 
--- Insertar el registro del pedido en la tabla pedidos
-INSERT INTO pedidos (cliente_id, indicaciones, precio_total, estado, fecha_ingreso, fecha_despacho)
-VALUES (1, 'Indicaciones del pedido', @total, 'Pendiente', NOW(), NULL);
-
+-- Query para seleccionar datos de clientes y productos asociados a un pedido
 SELECT
     ped.id AS id_pedido,
     c.nombres AS nombres_cliente,
@@ -185,24 +174,15 @@ FROM pedidos ped
 JOIN clientes c ON ped.cliente_id = c.id
 JOIN pedidos_productos pp ON ped.id = pp.pedido_id
 JOIN productos pr ON pp.producto_id = pr.id
-WHERE ped.id = 1; -- Reemplaza 1 con el ID del pedido que deseas recuperar
+WHERE ped.id = 1; 
 
--- Modificar la columna "estado" en la tabla "pedidos"
-ALTER TABLE pedidos
-MODIFY estado VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Ordenar productos por categoría
+SELECT * FROM productos ORDER BY categoria, nombre;
 
--- Cambiar la codificación de caracteres y collation para la base de datos
-ALTER DATABASE sushipe
-CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-SELECT @@character_set_database, @@collation_database;
 
--- Insertar valores en la tabla contacto
-INSERT INTO contacto (nombre, email, comentario) VALUES
-('María Pérez', 'maria@example.com', '¡Hola! Me encanta su sitio web.'),
-('Andrés López', 'andres@example.com', 'Gracias por su atención.'),
-('José Rodríguez', 'jose@example.com', 'Estoy interesado en su producto.'),
-('Elena Gómez', 'elena@example.com', '¿Pueden responder a mis preguntas?');
+
+
 
 
 
