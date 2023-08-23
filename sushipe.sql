@@ -31,7 +31,7 @@ CREATE TABLE clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(50),
     apellidos VARCHAR(50),
-    telefono INT,
+    telefono BIGINT,
     comuna VARCHAR(45),
     calle VARCHAR(50),
     numeracion INT,
@@ -178,6 +178,18 @@ WHERE ped.id = 1;
 
 -- Ordenar productos por categoría
 SELECT * FROM productos ORDER BY categoria, nombre;
+
+-- Script para eliminar todos los registros de una tabla
+DELETE FROM administradores;
+DELETE FROM clientes;
+DELETE FROM usuarios;
+
+-- Script para resetear auto_increment en una tabla
+ALTER TABLE administradores AUTO_INCREMENT = 1;
+ALTER TABLE clientes AUTO_INCREMENT = 1;
+ALTER TABLE usuarios AUTO_INCREMENT = 1;
+
+
 
 
 

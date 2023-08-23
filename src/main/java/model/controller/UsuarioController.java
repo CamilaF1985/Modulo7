@@ -33,35 +33,28 @@ public class UsuarioController {
             @RequestParam("email") String email,
             @RequestParam("rol") String rol,
             @RequestParam("tipo") String tipo) {
-        
-        try {
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String encryptedPassword = passwordEncoder.encode(password);
 
-            Usuario usuario = new Usuario();
-            usuario.setUser(user);
-            usuario.setPassword(encryptedPassword);
-            usuario.setEmail(email);
-            usuario.setRol(rol);
-            usuario.setTipo(tipo);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encryptedPassword = passwordEncoder.encode(password);
 
-            Usuario usuarioRegistrado = usuarioService.registrarUsuario(usuario);
-            
-            if ("Cliente".equals(tipo)) {
-                // Redirigir al controlador de Cliente y pasar el ID del usuario registrado como parámetro
-                return new ModelAndView("redirect:/registroCliente?usuarioId=" + usuarioRegistrado.getId());
-            } else if ("Administrador".equals(tipo)) {
-                // Redirigir al controlador de Administrador y pasar el ID del usuario registrado como parámetro
-                return new ModelAndView("redirect:/registroAdministrador?usuarioId=" + usuarioRegistrado.getId());
-            } else {
-                // Tipo no reconocido, redirigir a una página de error o mostrar un mensaje de error en la vista.
-                return new ModelAndView("redirect:/");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Manejar el error adecuadamente, redirigir a una página de error o mostrar un mensaje de error en la vista.
-            return new ModelAndView("redirect:/");
+        Usuario usuario = new Usuario();
+        usuario.setUser(user);
+        usuario.setPassword(encryptedPassword);
+        usuario.setEmail(email);
+        usuario.setRol(rol);
+        usuario.setTipo(tipo);
+
+        Usuario usuarioRegistrado = usuarioService.registrarUsuario(usuario);
+
+        if ("Cliente".equals(tipo)) {
+            // Redirigir al controlador de Cliente y pasar el ID del usuario registrado como parámetro
+            return new ModelAndView("redirect:/registroCliente?usuarioId=" + usuarioRegistrado.getId());
+        } else if ("Administrador".equals(tipo)) {
+            // Redirigir al controlador de Administrador y pasar el ID del usuario registrado como parámetro
+            return new ModelAndView("redirect:/registroAdministrador?usuarioId=" + usuarioRegistrado.getId());
         }
+
+        return null;
     }
 }
 
