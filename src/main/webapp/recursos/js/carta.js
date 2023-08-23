@@ -1,4 +1,5 @@
   $(document).ready(function() {
+	      
     // Inicializa el plugin Isotope para la galería
     $('.portfolio-item').isotope({
       itemSelector: '.item',
@@ -33,9 +34,4 @@
       }
     });
 
-    // función para mostrar los captions en el lightbox
-    popup_btn.on('mfpOpen', function() {
-      var caption = $(this).data('caption');
-      $('.mfp-title').text(caption);
-    });
   });
