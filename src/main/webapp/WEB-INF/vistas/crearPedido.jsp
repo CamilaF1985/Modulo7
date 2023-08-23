@@ -14,9 +14,9 @@
 	href="/sushipe/res/css/styles.css">
 
 <%@ include file='navbar.jsp'%>
-<!-- Agrega esta línea -->
-</head>
+<!-- Inicio de la sección head -->
 
+</head>
 <body>
 
 	<div class="contacto" style="display: flex; justify-content: center;">
@@ -26,12 +26,13 @@
 				style="margin-left: auto; margin-right: auto; display: table;">Crear
 				Pedido</h1>
 
-			<!-- Agrega un campo oculto para enviar el clienteId -->
+			<!-- Campo oculto para enviar el clienteId -->
 			<input type="hidden" name="clienteId" value="${cliente.id}">
 			<input type="hidden" name="fechaIngreso"
 				value="<%=java.time.LocalDateTime.now()%>"> <input
 				type="hidden" name="fechaDespacho" value="">
 
+			<!-- Sección para seleccionar productos y cantidades -->
 			<div class="form-group"
 				style="margin-left: auto; margin-right: auto; display: table;">
 				<label class="mb-3 col-md-12 mb-2 custom-label">Selecciona
@@ -41,6 +42,7 @@
 
 					<c:forEach var="producto" items="${productos}">
 						<c:if test="${producto.categoria ne currentCategory}">
+							<!-- Mostrar la categoría solo si es diferente de la anterior -->
 							<div class="col-12 mt-5">
 								<h3 class="custom-h3">${producto.categoria}</h3>
 							</div>
@@ -49,16 +51,18 @@
 
 						<div class="col-md-3 col-sm-6 col-xs-6 mt-2">
 							<div class="producto-cantidad">
-								<label> <input type="checkbox" name="productoIds"
-									value="${producto.id}" data-precio="${producto.precio}">
-									${producto.nombre}
+								<label> <!-- Checkbox para seleccionar el producto --> <input
+									type="checkbox" name="productoIds" value="${producto.id}"
+									data-precio="${producto.precio}"> ${producto.nombre}
 								</label> <img src="${producto.imagenUrl}" alt="${producto.nombre}"
 									class="product-image">
 								<div class="input-group small-input-group mt-2">
+									<!-- Campo para ingresar la cantidad del producto -->
 									<input type="number"
 										class="form-control form-control-sm cantidad-input"
 										name="cantidades[${producto.id}]" placeholder="Cantidad">
 								</div>
+								<!-- Campo oculto para enviar el id del detalle del producto -->
 								<input type="hidden" name="detallesProductoIds[${producto.id}]"
 									value="${pedidosProductosMap[producto.id].id}">
 							</div>
@@ -67,6 +71,7 @@
 				</div>
 			</div>
 
+			<!-- Sección para indicaciones del pedido -->
 			<div class="form-group mt-5"
 				style="margin-left: auto; margin-right: auto; display: table;">
 				<label for="indicaciones">Indicaciones ("sin queso crema",
@@ -75,12 +80,14 @@
 					style="max-width: 600px;"></textarea>
 			</div>
 
+			<!-- Sección para mostrar el precio total -->
 			<div class="form-group mt-4"
 				style="margin-left: auto; margin-right: auto; display: table;">
 				<label for="precioTotal">Precio Total:</label> <span
 					id="precioTotal">0.00</span>
 			</div>
 
+			<!-- Botón para enviar el pedido -->
 			<div style="display: flex; justify-content: center;" class="mb-5">
 				<input type="submit" value="Enviar Pedido" class="boton-enviar">
 			</div>
@@ -89,14 +96,16 @@
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-
 	<script src="/sushipe/res/js/calculoPrecioTotal.js"></script>
+	<!-- Fin de la sección body -->
+
 </body>
 </html>
+
+
 
 
 

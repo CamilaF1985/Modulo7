@@ -11,8 +11,7 @@ public class ExitoController {
     @RequestMapping(path = "/exito", method = RequestMethod.GET)
     public ModelAndView mostrarExito() {
         ModelAndView modelAndView = new ModelAndView("exito");
-        // Puedes agregar objetos al modelo si necesitas pasar datos a la vista
-        // modelAndView.addObject("mensajeExito", "Mensaje de éxito");
+
         return modelAndView;
     }
 }

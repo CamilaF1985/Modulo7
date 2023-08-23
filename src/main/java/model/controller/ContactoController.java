@@ -27,7 +27,7 @@ public class ContactoController {
     @RequestMapping(path = "/contacto", method = RequestMethod.POST)
     public ModelAndView registrarContacto(Contacto contacto) {
         try {
-            contactoService.crearContacto(contacto); // Llamar al método del servicio en lugar del DAO
+            contactoService.crearContacto(contacto); // Llamar al método del servicio 
             // Redirigir a una página de éxito o a otra página según el caso
             return new ModelAndView("redirect:/");
         } catch (Exception e) {

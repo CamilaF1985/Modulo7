@@ -17,6 +17,7 @@
 	<%@ include file='navbar.jsp'%>
 	<!-- Incluir la barra de navegación del administrador -->
 
+	<!-- Tabla para mostrar detalles de los pedidos -->
 	<div class="container">
 		<h1>Lista de Pedidos</h1>
 		<div class="table-responsive">

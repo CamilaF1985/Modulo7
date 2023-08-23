@@ -26,6 +26,7 @@
 </head>
 <body>
 
+<!-- Galería de imágenes -->
 <div class="gallery-container">
 	<div class="gallery">
 		<a href="/sushipe/res/img/acevichado-roll.jpg" data-fancybox="gallery"
@@ -56,6 +57,7 @@
 	
 	</div>
 
+<!-- Scripts requeridos para efectos visuales-->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>

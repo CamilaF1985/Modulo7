@@ -13,35 +13,36 @@ import model.repository.IClienteRepository;
 @Service
 public class ClienteService {
 
-    private final IClienteRepository clRepo;
+	private final IClienteRepository clRepo;
 
-    @Autowired
-    public ClienteService(IClienteRepository clRepo, UsuarioService usuarioService) {
-        this.clRepo = clRepo;
-    }
+	@Autowired
+	public ClienteService(IClienteRepository clRepo, UsuarioService usuarioService) {
+		this.clRepo = clRepo;
+	}
 
-    public void registrarCliente(Cliente cliente) {
-        clRepo.save(cliente);
-    }
-  
-  public Cliente getClienteById(Long id) {
-        return clRepo.getOne(id);
-       
-    }
-  
-    public List<Cliente> getClientes() {
-    
-    	
-    	return clRepo.findAllClientes();
-        
-    }
-    public void update(Cliente c) {
+	// Registra un nuevo cliente en la base de datos
+	public void registrarCliente(Cliente cliente) {
+		clRepo.save(cliente);
+	}
+
+	// Obtiene un cliente por su ID
+	public Cliente getClienteById(Long id) {
+		return clRepo.getOne(id);
+	}
+
+	// Obtiene una lista de todos los clientes
+	public List<Cliente> getClientes() {
+		return clRepo.findAllClientes();
+	}
+
+	// Actualiza la información de un cliente en la base de datos
+	public void update(Cliente c) {
 		clRepo.save(c);
 	}
-    @Transactional
-    public Cliente getClienteByUserName(String user) {
-        return clRepo.findClienteByUsuarioUser(user);
-    }
+
+	// Obtiene un cliente por su nombre de usuario
+	@Transactional
+	public Cliente getClienteByUserName(String user) {
+		return clRepo.findClienteByUsuarioUser(user);
+	}
 }
-
-

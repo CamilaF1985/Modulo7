@@ -8,14 +8,16 @@ import model.repository.IContactoRepository;
 
 @Service
 public class ContactoService {
-    @Autowired
-    private IContactoRepository contactoRepository;
+	@Autowired
+	private IContactoRepository contactoRepository;
 
-    public ContactoService() {
-        super();
-    }
+	// Constructor de la clase ContactoService
+	public ContactoService() {
+		super();
+	}
 
-    public Contacto crearContacto(Contacto contacto) {
-        return contactoRepository.save(contacto);
-    }
+	// Crea y guarda un nuevo registro de contacto en la base de datos
+	public Contacto crearContacto(Contacto contacto) {
+		return contactoRepository.save(contacto);
+	}
 }

@@ -12,40 +12,59 @@ import model.repository.IProductoRepository;
 
 @Service
 public class ProductoService {
+
+	// Inyección de dependencia del repositorio de productos
 	@Autowired
-    private IProductoRepository prRepo;
-  
-  public ProductoService(IProductoRepository prRepo) {
-       this.prRepo = prRepo;
-    }
-  
-    public List<Producto> getProductos() {
-    	
-    	return prRepo.findAllProductos();
-        
-    }
-    
-    public Producto getproductoById(int id) {
-        return prRepo.getOne(id);
-       
-    }
-    public void update(Producto p) {
+	private IProductoRepository prRepo;
+
+	// Constructor que permite inyectar el repositorio al servicio
+	public ProductoService(IProductoRepository prRepo) {
+		this.prRepo = prRepo;
+	}
+
+	/**
+	 * Obtiene una lista de todos los productos en la base de datos.
+	 * 
+	 * @return Una lista de objetos Producto.
+	 */
+	public List<Producto> getProductos() {
+		return prRepo.findAllProductos();
+	}
+
+	/**
+	 * Obtiene un producto por su ID.
+	 * 
+	 * @param id El ID del producto.
+	 * @return El objeto Producto correspondiente al ID.
+	 */
+	public Producto getproductoById(int id) {
+		return prRepo.getOne(id);
+	}
+
+	/**
+	 * Actualiza la información de un producto en la base de datos.
+	 * 
+	 * @param p El objeto Producto con la información actualizada.
+	 */
+	public void update(Producto p) {
 		prRepo.save(p);
 	}
-    @Transactional
-    public Producto getProductoWithProperties(int id) {
-        Producto producto = prRepo.findById(id).orElse(null);
-        
-        if (producto != null) {
-            // Cargar propiedades relacionadas adicionales aquí
 
-            
-            // Puedes hacer más operaciones para cargar otras propiedades
-            
-            return producto;
-        }
-        
-        return null;
-    }
+	/**
+	 * Obtiene un producto por su ID junto con sus propiedades asociadas.
+	 * 
+	 * @param id El ID del producto.
+	 * @return El objeto Producto correspondiente al ID con sus propiedades.
+	 */
+	@Transactional
+	public Producto getProductoWithProperties(int id) {
+		Producto producto = prRepo.findById(id).orElse(null);
+
+		if (producto != null) {
+
+			return producto;
+		}
+
+		return null;
+	}
 }
-

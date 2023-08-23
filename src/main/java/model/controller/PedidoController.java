@@ -22,89 +22,117 @@ import model.entity.Producto;
 @Controller
 public class PedidoController {
 
-    @Autowired
-    private PedidoService pedidoService;
+	@Autowired
+	private PedidoService pedidoService;
 
-    @Autowired
-    private ProductoService productoService;
+	@Autowired
+	private ProductoService productoService;
 
-    @Autowired
-    private ClienteService clienteService; // Inyectar el servicio de cliente
-    
+	@Autowired
+	private ClienteService clienteService; // Inyectar el servicio de cliente
 
-    @GetMapping("/verPedidos")
-    public String verPedidos(Model model) {
-        List<Pedido> pedidos = pedidoService.obtenerPedidosConProductos();
-        model.addAttribute("pedidos", pedidos);
-        return "verPedidos";
-    }
-    
-    @PostMapping("/actualizarEstadoPedido")
-    public String actualizarEstadoPedido(@RequestParam Long Id, @RequestParam String nuevoEstado) {
-        pedidoService.actualizarPedido(Id, nuevoEstado);
-        
-        if ("Despachado".equals(nuevoEstado)) {
-            pedidoService.actualizarFechaDespacho(Id);
-        }
-        
-        return "redirect:/verPedidos";
-    }
+	/**
+	 * Maneja la solicitud GET para ver la lista de pedidos con productos.
+	 *
+	 * @param model El modelo a usar en la vista.
+	 * @return La vista "verPedidos".
+	 */
+	@GetMapping("/verPedidos")
+	public String verPedidos(Model model) {
+		List<Pedido> pedidos = pedidoService.obtenerPedidosConProductos();
+		model.addAttribute("pedidos", pedidos);
+		return "verPedidos";
+	}
 
-    @GetMapping("/crearPedido")
-    public String mostrarFormularioCreacion(Model model) {
-        List<Producto> productos = productoService.getProductos();
-        model.addAttribute("productos", productos); // Agregar la lista de productos al modelo
+	/**
+	 * Maneja la solicitud POST para actualizar el estado de un pedido.
+	 *
+	 * @param Id          El ID del pedido a actualizar.
+	 * @param nuevoEstado El nuevo estado del pedido.
+	 * @return Redirige a la vista "verPedidos".
+	 */
+	@PostMapping("/actualizarEstadoPedido")
+	public String actualizarEstadoPedido(@RequestParam Long Id, @RequestParam String nuevoEstado) {
+		pedidoService.actualizarPedido(Id, nuevoEstado);
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
+		if ("Despachado".equals(nuevoEstado)) {
+			pedidoService.actualizarFechaDespacho(Id);
+		}
 
-        Cliente cliente = clienteService.getClienteByUserName(username);
-        if (cliente != null) {
-            model.addAttribute("cliente", cliente); // Agregar el cliente al modelo
-        }
+		return "redirect:/verPedidos";
+	}
 
-        return "crearPedido";
-    }
+	/**
+	 * Maneja la solicitud GET para mostrar el formulario de creación de pedido.
+	 *
+	 * @param model El modelo a usar en la vista.
+	 * @return La vista "crearPedido".
+	 */
+	@GetMapping("/crearPedido")
+	public String mostrarFormularioCreacion(Model model) {
+		List<Producto> productos = productoService.getProductos();
+		model.addAttribute("productos", productos); // Agregar la lista de productos al modelo
 
-    @PostMapping("/crearPedido")
-    public String crearPedido(@RequestParam Long clienteId,
-                              @RequestParam List<Integer> productoIds,
-                              @RequestParam Map<String, String> cantidadesMap,
-                              @RequestParam Map<Integer, Long> detallesProductoIdsMap,
-                              @RequestParam String indicaciones) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
+		Cliente cliente = clienteService.getClienteByUserName(username);
+		if (cliente != null) {
+			model.addAttribute("cliente", cliente); // Agregar el cliente al modelo
+		}
 
-        Cliente cliente = clienteService.getClienteByUserName(username);
-        if (cliente == null) {
-            throw new RuntimeException("Cliente no encontrado");
-        }
+		return "crearPedido";
+	}
 
-        pedidoService.crearPedido(clienteId, productoIds, cantidadesMap, indicaciones);
+	/**
+	 * Maneja la solicitud POST para crear un nuevo pedido.
+	 *
+	 * @param clienteId     El ID del cliente asociado al pedido.
+	 * @param productoIds   Los IDs de los productos en el pedido.
+	 * @param cantidadesMap Mapa de cantidades de productos.
+	 * @param indicaciones  Indicaciones especiales para el pedido.
+	 * @return Redirige a la vista "exito".
+	 */
+	@PostMapping("/crearPedido")
+	public String crearPedido(@RequestParam Long clienteId, @RequestParam List<Integer> productoIds,
+			@RequestParam Map<String, String> cantidadesMap, @RequestParam String indicaciones) {
 
-        return "redirect:/exito";
-    }
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
 
-    
-    @GetMapping("/pedidosDespachados")
-    public String verPedidosDespachados(Model model) {
-        List<Pedido> pedidosDespachados = pedidoService.obtenerPedidosDespachados();
-        model.addAttribute("pedidos", pedidosDespachados);
-        return "verPedidos";
-    }
+		Cliente cliente = clienteService.getClienteByUserName(username);
+		if (cliente == null) {
+			throw new RuntimeException("Cliente no encontrado");
+		}
 
-    @GetMapping("/pedidosNoDespachados")
-    public String verPedidosNoDespachados(Model model) {
-        List<Pedido> pedidosNoDespachados = pedidoService.obtenerPedidosNoDespachados();
-        model.addAttribute("pedidos", pedidosNoDespachados);
-        return "verPedidos";
-    }
+		pedidoService.crearPedido(clienteId, productoIds, cantidadesMap, indicaciones);
 
+		return "redirect:/exito";
+	}
+
+	/**
+	 * Maneja la solicitud GET para ver la lista de pedidos despachados.
+	 *
+	 * @param model El modelo a usar en la vista.
+	 * @return La vista "verPedidos".
+	 */
+	@GetMapping("/pedidosDespachados")
+	public String verPedidosDespachados(Model model) {
+		List<Pedido> pedidosDespachados = pedidoService.obtenerPedidosDespachados();
+		model.addAttribute("pedidos", pedidosDespachados);
+		return "verPedidos";
+	}
+
+	/**
+	 * Maneja la solicitud GET para ver la lista de pedidos no despachados.
+	 *
+	 * @param model El modelo a usar en la vista.
+	 * @return La vista "verPedidos".
+	 */
+	@GetMapping("/pedidosNoDespachados")
+	public String verPedidosNoDespachados(Model model) {
+		List<Pedido> pedidosNoDespachados = pedidoService.obtenerPedidosNoDespachados();
+		model.addAttribute("pedidos", pedidosNoDespachados);
+		return "verPedidos";
+	}
 }
-
-
-
-
-
-
