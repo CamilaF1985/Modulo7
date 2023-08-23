@@ -53,7 +53,7 @@ CREATE TABLE administradores (
     id_usuario INT
 );
 
--- Insertar registros en la tabla usuarios
+-- Insertar registros en la tabla usuarios, la contraseña sin encriptar para ambos usuarios de prueba es 1234
 INSERT INTO usuarios (user, password, email, rol, tipo)
 VALUES
     ('Administrador 1', '$2a$10$UQ/n9QYFApKz.lecCqghqOHps2uvf0zUU2SLpaJjBXP/M4qe4RQmq', 'admin1@gmail.com', 'ROLE_administrador', 'Administrador'),
@@ -67,7 +67,7 @@ VALUES
 -- Insertar registros en la tabla clientes
 INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones, id_usuario)
 VALUES
-    ('Cliente', 'Prueba 1', '912345678', 'las condes', 'las flores', '123', 'depto 1', 2);
+    ('Cliente', 'Cliente 1', '912345678', 'las condes', 'las flores', '123', 'depto 1', 2);
 
 
 -- Script para agregar la FK en la tabla Administradores
