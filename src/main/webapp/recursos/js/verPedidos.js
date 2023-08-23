@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     updateTimers();
-    // Actualizar los contadores cada segundo (ajusta el intervalo según sea necesario)
+    // Actualizar los contadores cada segundo 
     setInterval(updateTimers, 1000);
 });
 

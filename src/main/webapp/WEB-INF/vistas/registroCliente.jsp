@@ -1,21 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
 <head>
+<!-- Enlace al archivo CSS de Bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-	crossorigin="anonymous">
+	rel="stylesheet">
 
+<!-- Enlace al archivo de estilos personalizados -->
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
 
 <meta charset="UTF-8">
-
 <title>Registro de Cliente</title>
 </head>
 
@@ -87,27 +86,22 @@
 			<input type="hidden" id="usuarioId" name="usuarioId"
 				value="${usuarioId}">
 
-
 			<div style="display: flex; justify-content: center;" class="mb-5">
 				<input type="submit" value="Registrar" class="boton-enviar">
 			</div>
-
-
 		</form>
-
 	</div>
 
+	<!-- Inclusión de la librería SweetAlert2 y el script de validaciones personalizado -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="/sushipe/res/js/validacionesRegistroCliente.js"></script>
+
+	<!-- Inclusión de la librería Bootstrap con JavaScript -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous">
-		
-	</script>
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 	<%@ include file='footer.jsp'%>
-
 </body>
 
 </html>
+

@@ -16,12 +16,12 @@ import model.service.UsuarioService;
 public class ClienteController {
 
     private final ClienteService clienteService;
-    private final UsuarioService usuarioService; // Asegúrate de tener esta línea
+    private final UsuarioService usuarioService; 
 
     @Autowired
     public ClienteController(ClienteService clienteService, UsuarioService usuarioService) {
         this.clienteService = clienteService;
-        this.usuarioService = usuarioService; // Asegúrate de tener esta línea
+        this.usuarioService = usuarioService; 
     }
     
     @GetMapping("/registroCliente")
@@ -56,7 +56,7 @@ public class ClienteController {
             // Registrar el cliente en la base de datos
             clienteService.registrarCliente(cliente);
 
-            // Redirigir a una página de éxito o a otra página según el caso
+            // Redirigir a una página de éxito o la página de inicio
             return new ModelAndView("redirect:/"); // O redireccionar a una página de éxito
         } catch (Exception e) {
             e.printStackTrace();

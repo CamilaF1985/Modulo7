@@ -10,10 +10,12 @@ import model.entity.Administrador;
 
 public interface IAdministradorRepository extends JpaRepository<Administrador, Long> {
 
-    @Query("SELECT a FROM Administrador a")
-    List<Administrador> findAllAdministradores();
-    
-    @Query("SELECT a FROM Administrador a INNER JOIN a.usuario u WHERE u.user = :user")
-    Administrador findAdministradorByUsuarioUser(@Param("user") String user);
-}
+	// Consulta personalizada para buscar todos los administradores
+	@Query("SELECT a FROM Administrador a")
+	List<Administrador> findAllAdministradores();
 
+	// Consulta personalizada para buscar un administrador por el nombre de usuario
+	// de su usuario asociado
+	@Query("SELECT a FROM Administrador a INNER JOIN a.usuario u WHERE u.user = :user")
+	Administrador findAdministradorByUsuarioUser(@Param("user") String user);
+}

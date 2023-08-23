@@ -7,74 +7,75 @@ import java.util.List;
 @Table(name = "productos")
 public class Producto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
 
-    private String nombre;
-    private String categoria;
-    private Integer precio;
-    
-    private String imagenUrl; // Nueva columna
-    
-    @OneToMany(mappedBy = "producto")
-    private List<PedidosProductos> pedidosProductos;
+	private String nombre; // Nombre del producto
+	private String categoria; // Categoría a la que pertenece el producto
+	private Integer precio; // Precio del producto
 
-    // Constructor, getters y setters
+	private String imagenUrl; // URL de la imagen del producto
 
-    public Producto() {
-        // Constructor nulo requerido por JPA
-    }
+	@OneToMany(mappedBy = "producto")
+	private List<PedidosProductos> pedidosProductos; // Relación de uno a muchos con la entidad PedidosProductos
 
-    public Integer getId() {
-        return id;
-    }
+	// Constructor nulo requerido por JPA
+	public Producto() {
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	// Getter y Setter para ID
+	public Integer getId() {
+		return id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	// Getter y Setter para Nombre
+	public String getNombre() {
+		return nombre;
+	}
 
-    public String getCategoria() {
-        return categoria;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+	// Getter y Setter para Categoría
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public Integer getPrecio() {
-        return precio;
-    }
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
-    public void setPrecio(Integer precio) {
-        this.precio = precio;
-    }
+	// Getter y Setter para Precio
+	public Integer getPrecio() {
+		return precio;
+	}
 
-    public String getImagenUrl() {
-        return imagenUrl;
-    }
+	public void setPrecio(Integer precio) {
+		this.precio = precio;
+	}
 
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
-    }
+	// Getter y Setter para URL de Imagen
+	public String getImagenUrl() {
+		return imagenUrl;
+	}
 
-    public List<PedidosProductos> getPedidosProductos() {
-        return pedidosProductos;
-    }
+	public void setImagenUrl(String imagenUrl) {
+		this.imagenUrl = imagenUrl;
+	}
 
-    public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
-        this.pedidosProductos = pedidosProductos;
-    }
+	// Getter y Setter para la lista de PedidosProductos
+	public List<PedidosProductos> getPedidosProductos() {
+		return pedidosProductos;
+	}
+
+	public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
+		this.pedidosProductos = pedidosProductos;
+	}
 }
-
-
-

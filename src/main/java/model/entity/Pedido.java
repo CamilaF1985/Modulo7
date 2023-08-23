@@ -9,104 +9,98 @@ import javax.persistence.*;
 @Table(name = "pedidos")
 public class Pedido {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
 
-    @Column(name = "indicaciones")
-    private String indicaciones;
+	@Column(name = "indicaciones")
+	private String indicaciones;
 
-    @Column(name = "precio_total")
-    private Integer precioTotal;
-    
-    @Column(name = "estado")
-    private String estado;
-    
-    @Column(name = "fecha_ingreso")
-    private LocalDateTime fechaIngreso;
+	@Column(name = "precio_total")
+	private Integer precioTotal;
 
-    @Column(name = "fecha_despacho")
-    private LocalDateTime fechaDespacho;
-    
-    @OneToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-    
-    @OneToMany(mappedBy = "pedido")
-    private List<PedidosProductos> pedidosProductos;
+	@Column(name = "estado")
+	private String estado;
 
+	@Column(name = "fecha_ingreso")
+	private LocalDateTime fechaIngreso;
 
-    public Long getId() {
-        return id;
-    }
+	@Column(name = "fecha_despacho")
+	private LocalDateTime fechaDespacho;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-        
-    public String getIndicaciones() {
-        return indicaciones;
-    }
+	@OneToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente; // Relación de uno a uno con la entidad Cliente
 
-    public void setIndicaciones(String indicaciones) {
-        this.indicaciones = indicaciones;
-    }
-    
-    
-    public Integer getPrecioTotal() {
-        return precioTotal;
-    }
+	@OneToMany(mappedBy = "pedido")
+	private List<PedidosProductos> pedidosProductos; // Relación de uno a muchos con la entidad PedidosProductos
 
-    public void setPrecioTotal(Integer precioTotal) {
-        this.precioTotal = precioTotal;
-    }
-    
-    public String getEstado() {
-        return estado;
-    }
+	// Getter para ID
+	public Long getId() {
+		return id;
+	}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    
+	// Getter y Setter para Indicaciones
+	public String getIndicaciones() {
+		return indicaciones;
+	}
 
-    public LocalDateTime getFechaIngreso() {
-        return fechaIngreso;
-    }
+	public void setIndicaciones(String indicaciones) {
+		this.indicaciones = indicaciones;
+	}
 
-    public void setFechaIngreso(LocalDateTime fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
+	// Getter y Setter para Precio Total
+	public Integer getPrecioTotal() {
+		return precioTotal;
+	}
 
-    public LocalDateTime getFechaDespacho() {
-        return fechaDespacho;
-    }
+	public void setPrecioTotal(Integer precioTotal) {
+		this.precioTotal = precioTotal;
+	}
 
-    public void setFechaDespacho(LocalDateTime fechaDespacho) {
-        this.fechaDespacho = fechaDespacho;
-    }
-    
-    // Getter para Cliente
-    public Cliente getCliente() {
-        return cliente;
-    }
+	// Getter y Setter para Estado
+	public String getEstado() {
+		return estado;
+	}
 
-    // Setter para Cliente
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    
-    public List<PedidosProductos> getPedidosProductos() {
-        return pedidosProductos;
-    }
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
-    public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
-        this.pedidosProductos = pedidosProductos;
-    }
-    
+	// Getter y Setter para Fecha de Ingreso
+	public LocalDateTime getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(LocalDateTime fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	// Getter y Setter para Fecha de Despacho
+	public LocalDateTime getFechaDespacho() {
+		return fechaDespacho;
+	}
+
+	public void setFechaDespacho(LocalDateTime fechaDespacho) {
+		this.fechaDespacho = fechaDespacho;
+	}
+
+	// Getter y Setter para Cliente
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	// Getter y Setter para Lista de Pedidos de Productos
+	public List<PedidosProductos> getPedidosProductos() {
+		return pedidosProductos;
+	}
+
+	public void setPedidosProductos(List<PedidosProductos> pedidosProductos) {
+		this.pedidosProductos = pedidosProductos;
+	}
 }
-
-
-
-

@@ -13,33 +13,36 @@ import model.repository.IAdministradorRepository;
 @Service
 public class AdministradorService {
 
-    private final IAdministradorRepository adRepo;
+	private final IAdministradorRepository adRepo;
 
-    @Autowired
-    public AdministradorService(IAdministradorRepository adRepo, UsuarioService usuarioService) {
-        this.adRepo = adRepo;
-    }
+	@Autowired
+	public AdministradorService(IAdministradorRepository adRepo, UsuarioService usuarioService) {
+		this.adRepo = adRepo;
+	}
 
-    public void registrarAdministrador(Administrador administrador) {
-        adRepo.save(administrador);
-    }
-  
-  public Administrador getAdministradorById(Long id) {
-        return adRepo.getOne(id);
-       
-    }
-  
-    public List<Administrador> getAdministradores() {
-    
-    	
-    	return adRepo.findAllAdministradores();
-        
-    }
-    public void update(Administrador a) {
+	// Registra un nuevo administrador en la base de datos
+	public void registrarAdministrador(Administrador administrador) {
+		adRepo.save(administrador);
+	}
+
+	// Obtiene un administrador por su ID
+	public Administrador getAdministradorById(Long id) {
+		return adRepo.getOne(id);
+	}
+
+	// Obtiene una lista de todos los administradores
+	public List<Administrador> getAdministradores() {
+		return adRepo.findAllAdministradores();
+	}
+
+	// Actualiza la información de un administrador en la base de datos
+	public void update(Administrador a) {
 		adRepo.save(a);
 	}
-    @Transactional
-    public Administrador getAdministradorByUserName(String userName) {
-        return adRepo.findAdministradorByUsuarioUser(userName);
-    }
+
+	// Obtiene un administrador por su nombre de usuario
+	@Transactional
+	public Administrador getAdministradorByUserName(String userName) {
+		return adRepo.findAdministradorByUsuarioUser(userName);
+	}
 }
