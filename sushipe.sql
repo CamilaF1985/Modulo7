@@ -56,18 +56,18 @@ CREATE TABLE administradores (
 -- Insertar registros en la tabla usuarios, la contraseña sin encriptar para ambos usuarios de prueba es 1234
 INSERT INTO usuarios (user, password, email, rol, tipo)
 VALUES
-    ('Administrador 1', '$2a$10$UQ/n9QYFApKz.lecCqghqOHps2uvf0zUU2SLpaJjBXP/M4qe4RQmq', 'admin1@gmail.com', 'ROLE_administrador', 'Administrador'),
-    ('Cliente 1', '$2a$10$IuQGX3LYc3jKROUuSzkK2un.cZnZ7fHkwaSySUjQ3bf8jYO6mloSK', 'cliente1@gmail.com', 'ROLE_cliente', 'Cliente');
+    ('Administrador', '$2a$10$UQ/n9QYFApKz.lecCqghqOHps2uvf0zUU2SLpaJjBXP/M4qe4RQmq', 'admin1@gmail.com', 'ROLE_administrador', 'Administrador'),
+    ('Cliente', '$2a$10$IuQGX3LYc3jKROUuSzkK2un.cZnZ7fHkwaSySUjQ3bf8jYO6mloSK', 'cliente1@gmail.com', 'ROLE_cliente', 'Cliente');
 
 -- Insertar registros en la tabla administradores
 INSERT INTO administradores (rut, nombres, apellidos, fecha_ingreso, id_usuario)
 VALUES
-    ('12312312', 'Administrador 1', 'Administrador 1', '09/07/2021', 1);
+    ('12312312', 'Administrador', 'Administrador', '09/07/2021', 1);
 
 -- Insertar registros en la tabla clientes
 INSERT INTO clientes (nombres, apellidos, telefono, comuna, calle, numeracion, indicaciones, id_usuario)
 VALUES
-    ('Cliente', 'Cliente 1', '912345678', 'las condes', 'las flores', '123', 'depto 1', 2);
+    ('Cliente', 'Cliente', '912345678', 'las condes', 'las flores', '123', 'depto 1', 2);
 
 
 -- Script para agregar la FK en la tabla Administradores
@@ -179,15 +179,6 @@ WHERE ped.id = 1;
 -- Ordenar productos por categoría
 SELECT * FROM productos ORDER BY categoria, nombre;
 
--- Script para eliminar todos los registros de una tabla
-DELETE FROM administradores;
-DELETE FROM clientes;
-DELETE FROM usuarios;
-
--- Script para resetear auto_increment en una tabla
-ALTER TABLE administradores AUTO_INCREMENT = 1;
-ALTER TABLE clientes AUTO_INCREMENT = 1;
-ALTER TABLE usuarios AUTO_INCREMENT = 1;
 
 
 
