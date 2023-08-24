@@ -84,15 +84,28 @@ function validarFormularioCompletoPedido() {
 // Obtener el formulario
 const formularioPedido = document.getElementById('formularioCrearPedido');
 
+// Función para mostrar mensaje de error
+function mostrarMensajeError(mensaje) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error en el ingreso de tu pedido',
+        text: mensaje,
+    });
+}
+
 formularioPedido.addEventListener('submit', function(event) {
-    if (!validarFormularioCompletoPedido()) {
-        event.preventDefault();
-        alert('Selecciona al menos un producto y su cantidad correspondiente.');
-    } else if (!validarProductosSeleccionados()) {
-        event.preventDefault();
-        alert('Selecciona al menos un producto y su cantidad correspondiente.');
+    event.preventDefault();
+
+    if (!validarFormularioCompletoPedido() || !validarProductosSeleccionados()) {
+        // Utiliza la función personalizada para mostrar el mensaje de error
+        mostrarMensajeError('Selecciona al menos un producto y su cantidad correspondiente.');
+    } else {
+        // Continuar con el envío del formulario
+        this.submit();
     }
 });
+
+
 
 
 
