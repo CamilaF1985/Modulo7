@@ -1,5 +1,7 @@
 package model.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,6 +57,61 @@ public class ClienteController {
 
         // Registrar el cliente en la base de datos
         clienteService.registrarCliente(cliente);
+
+        // Redirigir a la página de inicio
+        return new ModelAndView("redirect:/"); 
+    }
+    
+    @GetMapping("/editarCliente")
+    public ModelAndView mostrarEditarCliente() {
+        // Obtener los detalles del usuario autenticado
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        
+     // Obtener el cliente asociado al usuario autenticado
+        Cliente cliente = clienteService.getClienteByUserName(username);
+
+        
+        if (cliente == null) {
+            // Manejar el caso cuando no se encuentra el cliente
+            return new ModelAndView("redirect:/"); // O redireccionar a una página de error
+        }
+        
+        ModelAndView modelAndView = new ModelAndView("editarCliente");
+        modelAndView.addObject("cliente", cliente);
+        return modelAndView;
+    }
+   
+    @PostMapping("/editarCliente")
+    public ModelAndView modificarCliente(
+            @RequestParam("telefono") Long telefono,
+            @RequestParam("comuna") String comuna,
+            @RequestParam("calle") String calle,
+            @RequestParam("numeracion") Integer numeracion,
+            @RequestParam("indicaciones") String indicaciones) {
+        
+        // Obtener los detalles del usuario autenticado
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        
+     // Obtener el cliente asociado al usuario autenticado
+        Cliente cliente = clienteService.getClienteByUserName(username);
+
+        
+        if (cliente == null) {
+            // Manejar el caso cuando no se encuentra el cliente
+            return new ModelAndView("redirect:/"); // O redireccionar a una página de error
+        }
+        
+        // Actualizar los parámetros del cliente
+        cliente.setTelefono(telefono);
+        cliente.setComuna(comuna);
+        cliente.setCalle(calle);
+        cliente.setNumeracion(numeracion);
+        cliente.setIndicaciones(indicaciones);
+        
+        // Guardar los cambios en la base de datos
+        clienteService.update(cliente);
 
         // Redirigir a la página de inicio
         return new ModelAndView("redirect:/"); 

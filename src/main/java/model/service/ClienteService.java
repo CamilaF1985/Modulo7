@@ -36,9 +36,10 @@ public class ClienteService {
 	}
 
 	// Actualiza la información de un cliente en la base de datos
-	public void update(Cliente c) {
-		clRepo.save(c);
-	}
+    @Transactional
+    public void update(Cliente c) {
+        clRepo.save(c);
+    }
 
 	// Obtiene un cliente por su nombre de usuario
 	@Transactional
