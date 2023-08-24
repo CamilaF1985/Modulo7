@@ -38,7 +38,7 @@ public class PedidoService {
 
 	// Crea un nuevo pedido en la base de datos
 	public void crearPedido(Long clienteId, List<Integer> productoIds, Map<String, String> cantidadesMap,
-			String indicaciones) {
+			String indicaciones, String estado) {
 		Cliente cliente = clienteRepository.findById(clienteId)
 				.orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
 
@@ -47,6 +47,7 @@ public class PedidoService {
 		pedido.setFechaDespacho(null);
 		pedido.setIndicaciones(indicaciones);
 		pedido.setCliente(cliente);
+		pedido.setEstado("Pendiente");
 		pedidoRepository.save(pedido);
 
 		for (Integer productoId : productoIds) {

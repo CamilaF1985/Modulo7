@@ -95,6 +95,13 @@ h5 {
 	color: #ccc;
 }
 
+/* Ajusta los estilos de la tabla para evitar conflictos */
+.custom-table {
+    height: auto; /* O ajusta el ancho según tus necesidades */
+    /* Otros estilos específicos que puedas necesitar */
+}
+
+
 /* Estilos para las tablas con borde */
 .table-bordered {
 	border: 1px solid #dee2e6;
@@ -187,11 +194,13 @@ textarea {
 
 /* Estilos para el contenedor principal */
 .container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-bottom: 20px;
+    padding-top: auto; /* Ajusta este valor según tus necesidades */
 }
+
 
 /* Estilos para centrar los contenidos de la página de error */
 .error-container {
@@ -329,9 +338,9 @@ h4 {
 /* Estilos para las tablas */
 /* Estilos generales para las tablas */
 .table {
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 12px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
 }
 
 /* Estilos para las celdas de encabezado y cuerpo de las tablas */
@@ -404,7 +413,7 @@ ul li {
 			top: 100%;
 			left: 0;
 			right: 0;
-			background-color: transparent;
+			background-color: black;
 			padding: 10px;
 			text-align: right;
 			display: none;

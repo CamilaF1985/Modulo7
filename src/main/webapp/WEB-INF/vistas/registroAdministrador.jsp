@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Enlace al archivo CSS de Bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -13,8 +15,6 @@
 <!-- Enlace al archivo de estilos personalizados -->
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
-
-<meta charset="UTF-8">
 <title>Registro de Administrador</title>
 </head>
 
@@ -23,8 +23,9 @@
 
 	<div class="contacto" style="display: flex; justify-content: center;">
 
-		<form id="formularioRegistroAdministrador" action="/sushipe/registroAdministrador"
-			method="post" class="mb-5 mt-5" onsubmit="validarFormulario(event)">
+		<form id="formularioRegistroAdministrador"
+			action="/sushipe/registroAdministrador" method="post"
+			class="mb-5 mt-5" onsubmit="validarFormulario(event)">
 			<h1 class="tituloContacto">Ingresa tus datos</h1>
 
 			<div class="form-group">
@@ -69,6 +70,8 @@
 		</form>
 	</div>
 
+	<%@ include file='footer.jsp'%>
+
 	<!-- Inclusión de la librería SweetAlert2 y el script de validaciones personalizado -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="/sushipe/res/js/validacionesRegistroAdministrador.js"></script>
@@ -76,8 +79,6 @@
 	<!-- Inclusión de la librería Bootstrap con JavaScript -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-	<%@ include file='footer.jsp'%>
 </body>
 
 </html>

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carta</title>
-
-<%@ include file="navbar.jsp"%>
 
 <!-- Importaciones para los estilos -->
 
@@ -23,6 +22,7 @@
 </head>
 
 <body class="carta">
+	<%@ include file="navbar.jsp"%>
 
 	<!-- Contenedor general -->
 
@@ -401,10 +401,10 @@
 						arroz, papas fritas y aceitunas - $6.200</p>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
+	
+	<%@ include file='footer.jsp'%>
 
 	<!-- Scripts necesarios para efectos visuales -->
 	<script

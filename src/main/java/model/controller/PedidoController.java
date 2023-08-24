@@ -91,11 +91,12 @@ public class PedidoController {
 	 * @param productoIds   Los IDs de los productos en el pedido.
 	 * @param cantidadesMap Mapa de cantidades de productos.
 	 * @param indicaciones  Indicaciones especiales para el pedido.
+	 * @param indicaciones  Estado del pedido.
 	 * @return Redirige a la vista "exito".
 	 */
 	@PostMapping("/crearPedido")
 	public String crearPedido(@RequestParam Long clienteId, @RequestParam List<Integer> productoIds,
-			@RequestParam Map<String, String> cantidadesMap, @RequestParam String indicaciones) {
+			@RequestParam Map<String, String> cantidadesMap, @RequestParam String indicaciones, @RequestParam String estado) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
@@ -105,7 +106,7 @@ public class PedidoController {
 			throw new RuntimeException("Cliente no encontrado");
 		}
 
-		pedidoService.crearPedido(clienteId, productoIds, cantidadesMap, indicaciones);
+		pedidoService.crearPedido(clienteId, productoIds, cantidadesMap, indicaciones, estado);
 
 		return "redirect:/exito";
 	}

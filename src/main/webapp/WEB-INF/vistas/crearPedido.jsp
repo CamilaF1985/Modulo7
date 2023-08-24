@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +15,12 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="/sushipe/res/css/styles.css">
-
 </head>
+
 <body>
 
 	<%@ include file='navbar.jsp'%>
+
 	<div class="contacto-container">
 		<div class="contacto" style="display: flex; justify-content: center;">
 
@@ -93,6 +94,9 @@
 						id="precioTotal">0.00</span>
 				</div>
 
+				<input type="hidden" name="estado" value="Pendiente">
+
+
 				<!-- Botón para enviar el pedido -->
 				<div style="display: flex; justify-content: center;" class="mb-5">
 					<input type="submit" value="Enviar Pedido" class="boton-enviar">
@@ -100,13 +104,15 @@
 			</form>
 		</div>
 	</div>
+
+	<%@ include file='footer.jsp'%>
+
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="/sushipe/res/js/calculoPrecioTotal.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
-
 </body>
 </html>
 
