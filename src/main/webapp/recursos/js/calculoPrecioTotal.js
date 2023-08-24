@@ -53,6 +53,48 @@ cantidadInputs.forEach(input => {
 		actualizarPrecioTotal();
 	});
 });
+// Función para validar que al menos un producto ha sido seleccionado con cantidad
+function validarProductosSeleccionados() {
+    const checkboxes = document.querySelectorAll('input[name="productoIds"]:checked');
+    let alMenosUnProductoSeleccionado = false;
+
+    checkboxes.forEach(checkbox => {
+        const cantidadInput = document.querySelector(`input[name="cantidades[${checkbox.value}]"]`);
+        const cantidad = parseInt(cantidadInput.value) || 0;
+
+        if (cantidad > 0) {
+            alMenosUnProductoSeleccionado = true;
+        }
+    });
+
+    return alMenosUnProductoSeleccionado;
+}
+
+// Función para validar que todos los campos estén completos
+function validarFormularioCompletoPedido() {
+    const checkboxes = document.querySelectorAll('input[name="productoIds"]:checked');
+    if (checkboxes.length === 0) {
+        return false; // Ningún producto seleccionado
+    }
+
+    // Puedes agregar más validaciones para otros campos aquí si es necesario
+    return true; // Todos los campos están completos
+}
+
+// Obtener el formulario
+const formularioPedido = document.getElementById('formularioCrearPedido');
+
+formularioPedido.addEventListener('submit', function(event) {
+    if (!validarFormularioCompletoPedido()) {
+        event.preventDefault();
+        alert('Selecciona al menos un producto y su cantidad correspondiente.');
+    } else if (!validarProductosSeleccionados()) {
+        event.preventDefault();
+        alert('Selecciona al menos un producto y su cantidad correspondiente.');
+    }
+});
+
+
 
 
 
