@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="centered-content">
+	<div class="centered-content">
 
 		<nav
 			class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-black">
@@ -49,11 +49,11 @@
 							<li class="nav-item"><a class="nav-link" href="contacto"
 								style="color: white;">Contacto</a></li>
 							<li class="nav-item"><a class="nav-link" href="login"
-								style="color: white;">Login</a></li>
+								style="color: white;">Ingresar</a></li>
 							<li class="nav-item"><a class="nav-link" href="/sushipe/"
 								style="color: white;">Inicio</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="registroUsuario" style="color: white;">Registro</a></li>
+								href="registroUsuario" style="color: white;">Regístrate</a></li>
 							<%
 							}
 							%>
@@ -68,11 +68,13 @@
 								style="color: white;">Contacto</a></li>
 							<li class="nav-item"><a class="nav-link" href="carta"
 								style="color: white;">Carta</a></li>
+							<li class="nav-item"><a class="nav-link" href="editarCliente"
+								style="color: white;">Edita tus datos</a></li>
 							<li class="nav-item"><a class="nav-link" href="crearPedido"
 								style="color: white;">Haz tu pedido</a></li>
 							<li class="nav-item"><a
 								href="${pageContext.request.contextPath}/logout"
-								class="nav-link" style="color: white;">Logout</a></li>
+								class="nav-link" style="color: white;">Salir</a></li>
 
 
 							<%
@@ -89,7 +91,7 @@
 								style="color: white;">Ver Pedidos</a></li>
 							<li class="nav-item"><a
 								href="${pageContext.request.contextPath}/logout"
-								class="nav-link" style="color: white;">Logout</a></li>
+								class="nav-link" style="color: white;">Salir</a></li>
 
 
 							<%
