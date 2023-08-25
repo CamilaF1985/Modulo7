@@ -1,4 +1,9 @@
 El Script para crear la base de datos incluye 2 usuarios de prueba:
 'Cliente' y 'Administrador'
 La contraseña para ambos usuarios de prueba es '1234'
-Dentro del script se asigna a cada uno su rol correspondiente para poder loguearse en la aplicación
+
+Dentro del script se asigna a cada uno su rol correspondiente para poder loguearse en la aplicación.
+
+Recuerde crear la base de datos corriendo el script adjunto en MySQL Workbench antes de desplegar la aplicación.
+
+Para poder desplegar la aplicación, puede agregar el archivo .war adjunto al directorio Webapps de su contenedor de aplicaciones Tomcat, o bien puede probar su funcionamiento desde el IDE Eclipse JEE.
