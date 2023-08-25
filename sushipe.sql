@@ -203,6 +203,7 @@ SELECT * FROM productos ORDER BY categoria, nombre;
 
 
 
+
   
 
 
