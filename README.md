@@ -20,11 +20,14 @@ La aplicación "Sushi Pe" se encuentra finalizada y lista para ser utilizada. Pu
 
 - Java
 - Spring Framework
+- Spring MVC
 - Spring Security
 - Thymeleaf
 - Hibernate
 - MySQL
 - HTML
+- Bootstrap
+- Javascript
 - CSS
 - Maven
 
