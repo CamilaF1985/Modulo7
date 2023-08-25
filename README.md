@@ -41,7 +41,7 @@ La aplicación "Sushi Pe" se encuentra finalizada y lista para ser utilizada. Pu
 
 1. Clona o descarga este repositorio en tu máquina local.
 
-2. Asegúrate de tener configurada una base de datos MySQL y ajusta la configuración de conexión en el archivo `application.properties`. El Script para crear la base de datos se encuentra en este repositorio.
+2. Asegúrate de tener configurada una base de datos MySQL y ajusta la configuración de conexión en el archivo `application.properties`. El Script para crear la base de datos se encuentra en este repositorio. El script incluye la creación de 2 usuarios de prueba, 'Cliente' y 'Administrador', cada uno con su rol correspondiente para poder navegar en el sitio. La contraseña para ambos usuarios de prueba es '1234'. También se incluye un pedido de prueba para probar la vista "Ver Pedidos". En caso de que desee registrar un usuario nuevo, podrá realizarlo desde la misma aplicación.
 
 3. Importa el proyecto en tu entorno de desarrollo (Eclipse JEE).
 
