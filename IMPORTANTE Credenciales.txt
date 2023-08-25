@@ -1,0 +1,4 @@
+El Script para crear la base de datos incluye 2 usuarios de prueba:
+'Cliente' y 'Administrador'
+La contraseña para ambos usuarios de prueba es '1234'
+Dentro del script se asigna a cada uno su rol correspondiente para poder loguearse en la aplicación
