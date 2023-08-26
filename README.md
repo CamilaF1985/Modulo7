@@ -5,7 +5,7 @@ funcionalidades de gestión de pedidos y seguridad, con el objetivo de crear una
 
 ## Tutorial en Video
 
-¡Mira mi video tutorial en video en YouTube!
+¡Video tutorial disponible en YouTube!
 
 [![Tutorial en Video](https://img.youtube.com/vi/RymGvrWnFsM/0.jpg)](https://youtu.be/RymGvrWnFsM)
 
