@@ -3,6 +3,12 @@
 "Sushi Pe" es una aplicación web de gestión de pedidos de sushi desarrollada en Java, que aprovecha el poder del framework Spring y otras tecnologías para brindar
 funcionalidades de gestión de pedidos y seguridad, con el objetivo de crear una experiencia de usuario eficiente y segura en la plataforma web.
 
+## Tutorial en Video
+¡Echa un vistazo a mi tutorial en video en YouTube!
+
+[![Tutorial en Video](https://img.youtube.com/vi/TU_ID_DE_VIDEO/0.jpg)](https://www.youtube.com/watch?v=TU_ID_DE_VIDEO)
+
+
 ## Estado del Proyecto
 
 La aplicación "Sushi Pe" se encuentra finalizada y lista para ser utilizada. Puedes correr la aplicación desde un servidor web local ejecutando el archivo WAR incluido en el proyecto, o desde un servidor local (por ejemplo, Tomcat) en localhost.
