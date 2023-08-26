@@ -4,9 +4,11 @@
 funcionalidades de gestión de pedidos y seguridad, con el objetivo de crear una experiencia de usuario eficiente y segura en la plataforma web.
 
 ## Tutorial en Video
-¡Echa un vistazo a mi tutorial en video en YouTube!
 
-[![Tutorial en Video](https://img.youtube.com/vi/TU_ID_DE_VIDEO/0.jpg)](https://www.youtube.com/watch?v=TU_ID_DE_VIDEO)
+¡Mira mi video tutorial en video en YouTube!
+
+[![Tutorial en Video](https://img.youtube.com/vi/RymGvrWnFsM/0.jpg)](https://youtu.be/RymGvrWnFsM)
+
 
 
 ## Estado del Proyecto
